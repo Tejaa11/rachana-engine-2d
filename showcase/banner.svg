@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="440" viewBox="0 0 1440 440" role="img" aria-labelledby="title description">
+  <title id="title">Rachana Engine 2D</title>
+  <desc id="description">From script and voice to animated stories. Original static banner with scene layers, a motion path, and timeline tracks.</desc>
+  <defs>
+    <linearGradient id="back" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#101424"/>
+      <stop offset="1" stop-color="#24213d"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#b9a3ff"/>
+      <stop offset="1" stop-color="#8570f3"/>
+    </linearGradient>
+    <pattern id="grid" width="32" height="32" patternUnits="userSpaceOnUse">
+      <path d="M32 0H0V32" fill="none" stroke="#c6b7ff" stroke-opacity=".055"/>
+    </pattern>
+  </defs>
+  <rect width="1440" height="440" rx="24" fill="url(#back)"/>
+  <rect width="1440" height="440" rx="24" fill="url(#grid)"/>
+  <g transform="translate(72 60)">
+    <rect width="52" height="52" rx="14" fill="url(#accent)"/>
+    <path d="M16 38V14H27C39 14 39 29 27 29H16M26 29L37 39" fill="none" stroke="#171627" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+  <text x="142" y="93" fill="#d8cef9" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="700" letter-spacing="4">RACHANA / CREATION IN MOTION</text>
+  <text x="72" y="196" fill="#f5f1ff" font-family="Arial, Helvetica, sans-serif" font-size="68" font-weight="700" letter-spacing="-2">Rachana Engine</text>
+  <rect x="625" y="145" width="92" height="60" rx="16" fill="#b9a3ff"/>
+  <text x="671" y="187" fill="#171627" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="37" font-weight="700">2D</text>
+  <text x="76" y="249" fill="#bbb8cd" font-family="Arial, Helvetica, sans-serif" font-size="25">From script and voice to animated stories.</text>
+  <g transform="translate(76 298)">
+    <rect width="200" height="37" rx="18" fill="#ffffff" fill-opacity=".055" stroke="#b9a3ff" stroke-opacity=".28"/>
+    <circle cx="20" cy="18" r="4" fill="#faaf94"/>
+    <text x="35" y="24" fill="#ded7ef" font-family="Arial, Helvetica, sans-serif" font-size="13" letter-spacing="1.2">ENGINE FOUNDATION</text>
+  </g>
+  <g transform="translate(870 64)">
+    <rect x="57" y="0" width="352" height="228" rx="16" fill="#29283f" stroke="#9d8bd2" stroke-opacity=".3"/>
+    <rect x="28" y="24" width="352" height="228" rx="16" fill="#302b4c" stroke="#9d8bd2" stroke-opacity=".35"/>
+    <rect x="0" y="48" width="352" height="228" rx="16" fill="#171b2c" stroke="#c1aaff" stroke-opacity=".75"/>
+    <circle cx="24" cy="70" r="3" fill="#faaf94"/>
+    <circle cx="36" cy="70" r="3" fill="#b9a3ff"/>
+    <circle cx="48" cy="70" r="3" fill="#79ccc0"/>
+    <path d="M22 186C73 77 187 290 320 107" fill="none" stroke="#a892f9" stroke-width="3"/>
+    <path d="M22 186L76 106M246 211L320 107" fill="none" stroke="#a892f9" stroke-opacity=".4" stroke-width="1.5" stroke-dasharray="4 5"/>
+    <g fill="#171b2c" stroke="#a892f9" stroke-width="2">
+      <circle cx="22" cy="186" r="5"/>
+      <circle cx="76" cy="106" r="4"/>
+      <circle cx="246" cy="211" r="4"/>
+      <circle cx="320" cy="107" r="5"/>
+    </g>
+    <rect x="157" y="157" width="46" height="46" rx="12" fill="#faaf94" transform="rotate(-12 180 180)"/>
+    <path d="M174 169L190 180L174 191Z" fill="#302b4c"/>
+    <rect x="0" y="291" width="409" height="65" rx="12" fill="#111525" stroke="#8f83af" stroke-opacity=".25"/>
+    <rect x="16" y="305" width="116" height="11" rx="4" fill="#8b76d3"/>
+    <rect x="138" y="305" width="171" height="11" rx="4" fill="#b9a3ff"/>
+    <rect x="316" y="305" width="76" height="11" rx="4" fill="#655d86"/>
+    <rect x="16" y="325" width="222" height="11" rx="4" fill="#63a89e"/>
+    <rect x="244" y="325" width="148" height="11" rx="4" fill="#447c76"/>
+    <path d="M181 297V348" stroke="#faaf94" stroke-width="2"/>
+    <path d="M176 294H186L181 301Z" fill="#faaf94"/>
+  </g>
+</svg>

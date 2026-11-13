@@ -1,0 +1,22 @@
+{
+  "name": "rachana-engine-2d",
+  "version": "0.0.1",
+  "private": true,
+  "description": "Initial foundation and architecture for a reusable 2D animation engine and script-and-voice creator workflow.",
+  "type": "module",
+  "license": "MIT",
+  "author": "Tejas Dadhich (https://github.com/Tejaa11)",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Tejaa11/rachana-engine-2d.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Tejaa11/rachana-engine-2d/issues"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "check": "node tools/check-repository.mjs"
+  }
+}

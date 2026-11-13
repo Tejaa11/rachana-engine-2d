@@ -1,0 +1,28 @@
+name: Bug report
+description: Report a reproducible issue in an existing feature or documentation.
+title: "[Bug]: "
+body:
+  - type: markdown
+    attributes:
+      value: The engine is at the foundation/planning stage. Please distinguish a bug in existing work from a planned capability.
+  - type: textarea
+    id: problem
+    attributes:
+      label: What happened?
+      description: Include expected behavior and the observed result.
+    validations:
+      required: true
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Steps to reproduce
+      description: Include commands, relevant file paths, and a small non-private example.
+    validations:
+      required: true
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment
+      description: OS, Node.js version, commit, and relevant configuration. Omit secrets and private media.
+    validations:
+      required: true

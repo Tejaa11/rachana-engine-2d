@@ -1,0 +1,32 @@
+# Local dependencies and build output
+node_modules/
+.tools/
+dist/
+coverage/
+*.tsbuildinfo
+
+# Local configuration and credentials
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# Private inputs and generated media
+local-projects/
+renders/
+.cache/
+models/
+*.mp3
+*.wav
+*.mp4
+*.mov
+*.zip
+
+# Editor and platform files
+.DS_Store
+.idea/
+.vscode/
+__pycache__/
+*.py[cod]
+*.log
