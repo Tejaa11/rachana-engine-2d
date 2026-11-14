@@ -1,67 +1,73 @@
 # Rachana Engine 2D roadmap
 
-This roadmap records planned engineering work. An unchecked item is not an implemented feature.
+Unchecked items are planned work. The current alpha implements the first scene-runtime slice; it does not complete M0 or M1, and it is not the final script-to-video agent.
 
 ## Initial repository
 
-- [x] Establish the product name and public repository structure.
-- [x] Document the architecture, asset pipeline, and release criteria.
-- [x] Add an original static banner and clear capability/status table.
-- [x] Add contribution guidance, attribution policy, and source license.
-- [x] Provide dependency-free repository checks and a CI definition.
+- [x] Establish the name, source structure and public documentation.
+- [x] Document the product, asset pipeline and release criteria.
+- [x] Add contribution guidance, attribution and source licensing.
+- [x] Add repository checks and CI configuration.
 
-## M0 — portable foundation
+## M0 — portable foundation — in progress
 
-- [ ] Define versioned project, shot, asset, actor, caption, and audio schemas.
-- [ ] Validate an intake project before any rendered output exists.
-- [ ] Document runtime, font, speech, and FFmpeg dependencies.
-- [ ] Add an environment doctor and a redistributable sample-input policy.
+- [x] Define a versioned scene schema with typed primitive layers and narration-word anchors.
+- [x] Validate authoring data before rendered outputs exist.
+- [x] Pin declared Node package dependencies and bundle documented fonts.
+- [x] Provide a CLI environment doctor and public example media/provenance.
+- [ ] Extend the scene schema into project, shot, actor, asset and multi-track audio contracts.
+- [ ] Complete clean-install verification on every platform advertised as supported.
 
-**Exit:** a new user can install the documented dependencies and validate a new project without private files or machine-specific paths.
+**Exit:** a new user can install documented dependencies and validate a new project without private files or machine-specific paths. The present alpha covers scene authoring only.
 
-## M1 — shared animation runtime
+## M1 — shared animation runtime — in progress
 
-- [ ] Implement time evaluation, a scene graph, layers, cameras, and text layout.
-- [ ] Extract parameterized actors and a reusable motion-clip system.
-- [ ] Share scene evaluation between preview and export adapters.
+- [x] Evaluate primitive layers and property animation directly at a requested time.
+- [x] Support rectangles, circles, wrapped text, transforms and four easing curves.
+- [x] Resolve animation starts from seconds or supplied word start/end anchors.
+- [x] Export PNG frames and MP4 using the shared evaluator and native renderer.
+- [x] Include a two-second smoke fixture and an approximately 25-second narrated shape example.
+- [ ] Add scene hierarchy, camera direction, masks and a richer motion system.
+- [ ] Extract parameterized actors, expressions and reusable character clips.
+- [ ] Add a browser preview adapter and verify native/browser behavior.
 - [ ] Render a polished 45–60 second film from project data.
 - [ ] Render an unrelated second script without custom scene code.
 
-**Exit:** direct frame seeking, timeline boundaries, layout, and export behavior have meaningful checks and actual sample renders.
+**Exit:** reusable acting and composition, direct seeking, layout and export behavior have meaningful checks and reviewed sample renders. Primitive movement is a foundation, not the complete character system.
 
 ## M2 — assets and reliable jobs
 
-- [ ] Add an asset registry with capabilities, versions, and provenance.
-- [ ] Support procedural creation, import, and a real image-provider adapter.
-- [ ] Keep characters consistent through approved reference sheets and assets.
-- [ ] Persist jobs with budget limits, cancellation, retries, resume, and caching.
+- [ ] Add an asset registry with capabilities, versions and provenance.
+- [ ] Support procedural creation, import and a real image-provider adapter.
+- [ ] Maintain identity through approved character/style references.
+- [ ] Persist jobs with budget limits, cancellation, retries, resume and caching.
 
-**Exit:** a new background/prop request resolves through a real provider, while an interrupted or failed job recovers without repeating completed work.
+**Exit:** a new background/prop request resolves through a real provider; interrupted or failed jobs recover without repeating completed work. Cancelling a CLI process alone does not meet this persistence milestone.
 
 ## M3 — script and voice workflow
 
-- [ ] Align actual narration with script text and report uncertain/mismatched spans.
+- [ ] Align a real recording with script text and flag uncertain/mismatched spans.
 - [ ] Add a real director adapter producing validated shot-plan data.
-- [ ] Generate reviewable voice-synchronized animatics.
-- [ ] Exercise three different topics and one unfamiliar script.
+- [ ] Generate editable voice-synchronized animatics.
+- [ ] Exercise three different topics and one previously unfamiliar script.
 
-**Exit:** new scripts produce editable animatics without renderer edits; unsupported requests and failures are visible.
+**Exit:** new scripts produce animatics without renderer edits; unsupported requests and failures are visible. Supplied synthesis-event timestamps in the current example do not establish automatic recorded-speech alignment.
 
 ## M4 — creator studio
 
-- [ ] Build project intake, storyboard, waveform, and timeline controls.
-- [ ] Support asset replacement, scoped revisions, and undo.
-- [ ] Connect preview and export to the same workflow services.
-- [ ] Run a documented fresh-user usability walkthrough.
+- [ ] Build project intake, storyboard, waveform and timeline controls.
+- [ ] Support asset replacement, scoped revisions and undo.
+- [ ] Connect preview/export to the same workflow services.
+- [ ] Complete a fresh-user usability walkthrough.
 
 **Exit:** another creator can make and revise a film without changing engine code.
 
 ## M5 — production release
 
-- [ ] Complete a 6–8 minute production and full creative/technical review.
+- [ ] Complete a 6–8 minute film and full creative/technical review.
 - [ ] Test installation on every advertised platform.
 - [ ] Publish measured benchmarks with hardware and configuration.
-- [ ] Create motion reels from real outputs and a source-linked example gallery.
-- [ ] Prepare versioned media downloads, changelog, and a tagged release.
+- [ ] Expand the real motion showcase into a source-linked example gallery.
+- [ ] Prepare versioned media downloads, changelog and a tagged production release.
 
-**Exit:** all applicable [release standards](docs/RELEASE_STANDARD.md) have evidence. The release claims only what has been verified.
+**Exit:** the [release standard](docs/RELEASE_STANDARD.md) has evidence. A successful alpha render does not imply all production requirements are satisfied.

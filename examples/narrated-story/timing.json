@@ -1,0 +1,367 @@
+{
+  "durationSeconds": 24.82875283446712,
+  "timingSource": "synthesis-events",
+  "notes": "Starts are eSpeak NG synthesis word-event positions. Ends are approximate boundaries at the next word onset, or the WAV duration for the last word; they include inter-word pauses. These are not forced-alignment measurements of a human recording.",
+  "words": [
+    {
+      "id": "w1",
+      "text": "Every",
+      "start": 0,
+      "end": 0.346
+    },
+    {
+      "id": "w2",
+      "text": "story",
+      "start": 0.346,
+      "end": 0.756
+    },
+    {
+      "id": "w3",
+      "text": "begins",
+      "start": 0.756,
+      "end": 1.252
+    },
+    {
+      "id": "w4",
+      "text": "with",
+      "start": 1.252,
+      "end": 1.423
+    },
+    {
+      "id": "w5",
+      "text": "an",
+      "start": 1.423,
+      "end": 1.484
+    },
+    {
+      "id": "w6",
+      "text": "idea",
+      "start": 1.484,
+      "end": 2.381
+    },
+    {
+      "id": "w7",
+      "text": "Rachana",
+      "start": 2.381,
+      "end": 2.816
+    },
+    {
+      "id": "w8",
+      "text": "turns",
+      "start": 2.816,
+      "end": 3.247
+    },
+    {
+      "id": "w9",
+      "text": "that",
+      "start": 3.247,
+      "end": 3.472
+    },
+    {
+      "id": "w10",
+      "text": "idea",
+      "start": 3.472,
+      "end": 3.795
+    },
+    {
+      "id": "w11",
+      "text": "into",
+      "start": 3.795,
+      "end": 4.088
+    },
+    {
+      "id": "w12",
+      "text": "motion",
+      "start": 4.088,
+      "end": 4.978
+    },
+    {
+      "id": "w13",
+      "text": "This",
+      "start": 4.978,
+      "end": 5.197
+    },
+    {
+      "id": "w14",
+      "text": "circle",
+      "start": 5.197,
+      "end": 5.616
+    },
+    {
+      "id": "w15",
+      "text": "is",
+      "start": 5.616,
+      "end": 5.758
+    },
+    {
+      "id": "w16",
+      "text": "the",
+      "start": 5.758,
+      "end": 5.872
+    },
+    {
+      "id": "w17",
+      "text": "Earth",
+      "start": 5.872,
+      "end": 6.565
+    },
+    {
+      "id": "w18",
+      "text": "This",
+      "start": 6.565,
+      "end": 6.784
+    },
+    {
+      "id": "w19",
+      "text": "smaller",
+      "start": 6.784,
+      "end": 7.187
+    },
+    {
+      "id": "w20",
+      "text": "circle",
+      "start": 7.187,
+      "end": 7.606
+    },
+    {
+      "id": "w21",
+      "text": "is",
+      "start": 7.606,
+      "end": 7.743
+    },
+    {
+      "id": "w22",
+      "text": "the",
+      "start": 7.743,
+      "end": 7.862
+    },
+    {
+      "id": "w23",
+      "text": "Moon",
+      "start": 7.862,
+      "end": 8.645
+    },
+    {
+      "id": "w24",
+      "text": "Their",
+      "start": 8.645,
+      "end": 8.829
+    },
+    {
+      "id": "w25",
+      "text": "positions",
+      "start": 8.829,
+      "end": 9.47
+    },
+    {
+      "id": "w26",
+      "text": "change",
+      "start": 9.47,
+      "end": 10.215
+    },
+    {
+      "id": "w27",
+      "text": "but",
+      "start": 10.215,
+      "end": 10.449
+    },
+    {
+      "id": "w28",
+      "text": "the",
+      "start": 10.449,
+      "end": 10.563
+    },
+    {
+      "id": "w29",
+      "text": "explanation",
+      "start": 10.563,
+      "end": 11.352
+    },
+    {
+      "id": "w30",
+      "text": "stays",
+      "start": 11.352,
+      "end": 11.735
+    },
+    {
+      "id": "w31",
+      "text": "connected",
+      "start": 11.735,
+      "end": 12.35
+    },
+    {
+      "id": "w32",
+      "text": "to",
+      "start": 12.35,
+      "end": 12.5
+    },
+    {
+      "id": "w33",
+      "text": "the",
+      "start": 12.5,
+      "end": 12.618
+    },
+    {
+      "id": "w34",
+      "text": "voice",
+      "start": 12.618,
+      "end": 13.471
+    },
+    {
+      "id": "w35",
+      "text": "Each",
+      "start": 13.471,
+      "end": 13.741
+    },
+    {
+      "id": "w36",
+      "text": "visual",
+      "start": 13.741,
+      "end": 14.155
+    },
+    {
+      "id": "w37",
+      "text": "follows",
+      "start": 14.155,
+      "end": 14.587
+    },
+    {
+      "id": "w38",
+      "text": "an",
+      "start": 14.587,
+      "end": 14.648
+    },
+    {
+      "id": "w39",
+      "text": "editable",
+      "start": 14.648,
+      "end": 15.17
+    },
+    {
+      "id": "w40",
+      "text": "timing",
+      "start": 15.17,
+      "end": 15.513
+    },
+    {
+      "id": "w41",
+      "text": "anchor",
+      "start": 15.513,
+      "end": 16.398
+    },
+    {
+      "id": "w42",
+      "text": "Change",
+      "start": 16.398,
+      "end": 16.872
+    },
+    {
+      "id": "w43",
+      "text": "the",
+      "start": 16.872,
+      "end": 16.984
+    },
+    {
+      "id": "w44",
+      "text": "colors",
+      "start": 16.984,
+      "end": 17.653
+    },
+    {
+      "id": "w45",
+      "text": "adjust",
+      "start": 17.653,
+      "end": 18.051
+    },
+    {
+      "id": "w46",
+      "text": "a",
+      "start": 18.051,
+      "end": 18.115
+    },
+    {
+      "id": "w47",
+      "text": "reveal",
+      "start": 18.115,
+      "end": 18.845
+    },
+    {
+      "id": "w48",
+      "text": "and",
+      "start": 18.845,
+      "end": 19.056
+    },
+    {
+      "id": "w49",
+      "text": "render",
+      "start": 19.056,
+      "end": 19.406
+    },
+    {
+      "id": "w50",
+      "text": "again",
+      "start": 19.406,
+      "end": 20.281
+    },
+    {
+      "id": "w51",
+      "text": "One",
+      "start": 20.281,
+      "end": 20.551
+    },
+    {
+      "id": "w52",
+      "text": "scene",
+      "start": 20.551,
+      "end": 20.863
+    },
+    {
+      "id": "w53",
+      "text": "file",
+      "start": 20.863,
+      "end": 21.699
+    },
+    {
+      "id": "w54",
+      "text": "One",
+      "start": 21.699,
+      "end": 21.966
+    },
+    {
+      "id": "w55",
+      "text": "reusable",
+      "start": 21.966,
+      "end": 22.482
+    },
+    {
+      "id": "w56",
+      "text": "engine",
+      "start": 22.482,
+      "end": 23.321
+    },
+    {
+      "id": "w57",
+      "text": "Your",
+      "start": 23.321,
+      "end": 23.493
+    },
+    {
+      "id": "w58",
+      "text": "story",
+      "start": 23.493,
+      "end": 24.165
+    },
+    {
+      "id": "w59",
+      "text": "in",
+      "start": 24.165,
+      "end": 24.301
+    },
+    {
+      "id": "w60",
+      "text": "motion",
+      "start": 24.301,
+      "end": 24.82875283446712
+    }
+  ]
+}

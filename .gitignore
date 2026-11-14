@@ -30,3 +30,7 @@ models/
 __pycache__/
 *.py[cod]
 *.log
+
+# Original, credited fixtures and actual engine showcase output
+!examples/narrated-story/voice.wav
+!showcase/rachana-demo.mp4

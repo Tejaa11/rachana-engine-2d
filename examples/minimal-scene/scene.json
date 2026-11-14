@@ -1,0 +1,55 @@
+{
+  "schemaVersion": 1,
+  "id": "minimal-motion",
+  "output": {
+    "width": 1280,
+    "height": 720,
+    "fps": 30,
+    "durationSeconds": 2
+  },
+  "background": "#101424",
+  "layers": [
+    {
+      "id": "box",
+      "type": "rect",
+      "position": [
+        100,
+        280
+      ],
+      "size": [
+        160,
+        160
+      ],
+      "fill": "#b9a3ff",
+      "radius": 24,
+      "clips": [
+        {
+          "property": "position",
+          "from": [
+            100,
+            280
+          ],
+          "to": [
+            1020,
+            280
+          ],
+          "start": 0,
+          "duration": 1.6,
+          "ease": "easeInOutCubic"
+        }
+      ]
+    },
+    {
+      "id": "label",
+      "type": "text",
+      "position": [
+        64,
+        70
+      ],
+      "text": "Rachana / one scene, sixty frames",
+      "fontSize": 32,
+      "color": "#f4f1ff",
+      "maxWidth": 1152
+    }
+  ]
+}

@@ -2,7 +2,7 @@ name: Repository checks
 
 on:
   push:
-    branches: [main]
+    branches: [main, 'codex/**']
   pull_request:
   workflow_dispatch:
 
@@ -11,9 +11,9 @@ permissions:
 
 jobs:
   check:
-    name: Foundation / Node ${{ matrix.node }}
+    name: Runtime / Node ${{ matrix.node }}
     runs-on: ubuntu-latest
-    timeout-minutes: 5
+    timeout-minutes: 10
     strategy:
       fail-fast: false
       matrix:
@@ -29,3 +29,19 @@ jobs:
           node-version: ${{ matrix.node }}
       - name: Check repository foundation
         run: npm run check
+      - name: Install locked dependencies
+        run: npm ci
+      - name: Install FFmpeg
+        run: sudo apt-get update -qq && sudo apt-get install -y ffmpeg
+      - name: Run schema, evaluator, drawing, audio, IO, and export tests
+        run: npm test
+      - name: Diagnose and render the smoke example
+        run: |
+          npm run doctor
+          npm run render:smoke
+          npm run verify:smoke
+      - name: Validate and decode the narrated example
+        run: |
+          npm run cli -- validate examples/narrated-story/scene.json
+          npm run render:demo
+          node tools/verify-smoke.mjs renders/rachana-demo.mp4

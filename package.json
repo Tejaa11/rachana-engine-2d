@@ -1,8 +1,8 @@
 {
   "name": "rachana-engine-2d",
-  "version": "0.0.1",
+  "version": "0.1.0-alpha.1",
   "private": true,
-  "description": "Initial foundation and architecture for a reusable 2D animation engine and script-and-voice creator workflow.",
+  "description": "An early 2D scene runtime with a local render CLI and narration-anchored animation.",
   "type": "module",
   "license": "MIT",
   "author": "Tejas Dadhich (https://github.com/Tejaa11)",
@@ -17,6 +17,26 @@
     "node": ">=22"
   },
   "scripts": {
-    "check": "node tools/check-repository.mjs"
-  }
+    "check": "node tools/check-repository.mjs",
+    "build": "tsc -p tsconfig.json",
+    "test": "npm run build && node --test tests/*.test.mjs",
+    "cli": "node dist/apps/cli/src/main.js",
+    "doctor": "node dist/apps/cli/src/main.js doctor",
+    "render:smoke": "node dist/apps/cli/src/main.js render examples/minimal-scene/scene.json --out renders/minimal.mp4",
+    "render:demo": "node dist/apps/cli/src/main.js render examples/narrated-story/scene.json --out renders/rachana-demo.mp4",
+    "verify:smoke": "node tools/verify-smoke.mjs renders/minimal.mp4",
+    "showcase": "node tools/build-showcase.mjs"
+  },
+  "dependencies": {
+    "@napi-rs/canvas": "1.1.1",
+    "ajv": "8.20.0"
+  },
+  "devDependencies": {
+    "@types/node": "22.20.5",
+    "typescript": "5.9.3"
+  },
+  "workspaces": [
+    "packages/*",
+    "apps/*"
+  ]
 }
