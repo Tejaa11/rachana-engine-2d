@@ -9,6 +9,10 @@ const required = [
   'package.json', 'package-lock.json', '.gitignore', '.github/workflows/check.yml',
   'docs/ENGINE_PRODUCT_PLAN.md', 'docs/ASSET_PIPELINE.md',
   'docs/RELEASE_STANDARD.md', 'docs/ORIGINS.md', 'showcase/banner.svg',
+  'QUICKSTART.md', 'docs/SCENE_FORMAT.md', 'docs/adr/0001-renderer.md',
+  'schemas/scene.schema.json', 'examples/minimal-scene/scene.json',
+  'examples/narrated-story/scene.json', 'examples/narrated-story/voice.wav',
+  'showcase/rachana-demo.mp4', 'showcase/demo.gif',
 ];
 
 for (const relative of required) {
@@ -96,5 +100,5 @@ if (errors.length) {
   process.exitCode = 1;
 } else {
   console.log(`PASS ${required.length} required files; ${markdown.length} Markdown files; ${linkCount} local links; package metadata; banner accessibility markers.`);
-  console.log('Scope: repository foundation only. Runtime, generation, and video-quality tests are not implemented.');
+  console.log('Scope: repository integrity only. Run npm test for runtime checks and verify:smoke for encoded output.');
 }

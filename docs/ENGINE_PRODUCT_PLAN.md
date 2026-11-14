@@ -1,10 +1,10 @@
 # Rachana Engine 2D — product and engineering plan
 
-Planning revision: 13 November 2026. Product: **Rachana Engine 2D**. Creator and maintainer: **Tejas Dadhich (@Tejaa11)**. Repository: `Tejaa11/rachana-engine-2d`.
+Current-state revision: 14 November 2026. Product: **Rachana Engine 2D**. Creator and maintainer: **Tejas Dadhich (@Tejaa11)**. Repository: `Tejaa11/rachana-engine-2d`.
 
 Tagline: **From script and voice to animated stories.** The GitHub repository name is selected; package-registry and brand availability have not been checked.
 
-**Status:** design and release requirements, not implemented feature claims. The existing Voxam and CareClinic films are working production prototypes. A portable, general-purpose agent and asset-generation engine still need to be built.
+**Status:** a working declarative-scene alpha now exists. It validates primitive scene files, evaluates animation at arbitrary times, draws PNG frames and exports MP4 with supplied narration anchors. The broader product, agent, asset-generation and release requirements below remain planned; this alpha does not automatically create a film from arbitrary script/voice inputs. See [the current scene contract](SCENE_FORMAT.md) and [quickstart](../QUICKSTART.md).
 
 ## 1. Product promise
 
@@ -24,7 +24,9 @@ A generated painting of a character, a puppet with movable body layers and a ful
 
 Earlier private Voxam and CareClinic productions explored procedural actors, shot direction, narration-led previews, captions, and Canvas-to-FFmpeg export. Their project-specific source and supplied media are not bundled in this repository. See [origins](ORIGINS.md).
 
-The public foundation currently contains design documents, repository checks, and scaffolding. Extraction of a shared runtime has not started here. Immediate work includes portable dependencies, a stage-aware project schema, generic scene evaluation, real asset/provider interfaces, and measured quality checks. Legacy prototype assumptions must be removed rather than presented as reusable engine guarantees.
+The public alpha now includes a scene JSON Schema and semantic validator, TypeScript frame evaluation, native Canvas drawing, a local FFmpeg export CLI, bundled fonts, tests and two editable examples. Rectangle, circle and text layers support position, opacity, scale and rotation clips. The narrated example uses original synthetic speech and supplied synthesis-event word starts; word ends are approximate. It demonstrates authored timing, not automatic recorded-speech alignment.
+
+Next work expands primitive scenes into project/shot/actor/asset contracts, reusable characters, cameras, a real asset/provider pipeline, director planning and an editing studio. Browser rendering, job persistence, caching and resume are not implemented. Legacy prototype capabilities must not be presented as current public-engine guarantees.
 
 Preserve original inputs and approved film outputs outside the public engine package. Public examples must use redistributable media and work without the maintainer's private environment.
 
@@ -163,4 +165,4 @@ GitHub's own [README guidance](https://docs.github.com/en/repositories/managing-
 - Cloud hosting and monetization: defer until local workflow and output quality are proven.
 - Broader styles, languages and 3D: add explicit adapters, samples and tests; do not advertise blanket support.
 
-This initial repository contains architecture plans and a project scaffold. No generation provider is configured and no reusable video-generation command is available yet. Private production media and credentials are excluded.
+This repository now includes a local declarative-scene render command alongside its architecture plans. No generation provider, automatic director or recorded-speech alignment is configured; automatic script-and-voice production remains planned. Private production media and credentials are excluded.

@@ -4,103 +4,119 @@
 
 <p align="center">
   <strong>From script and voice to animated stories.</strong><br>
-  A reusable 2D animation engine and creator workflow, being built for narrated videos.
+  A declarative 2D scene runtime and narrated-video workflow in development.
 </p>
 
 <p align="center">
-  <a href="docs/ENGINE_PRODUCT_PLAN.md">Architecture</a> ·
-  <a href="docs/ASSET_PIPELINE.md">Asset pipeline</a> ·
+  <a href="QUICKSTART.md">Quickstart</a> ·
+  <a href="docs/SCENE_FORMAT.md">Scene format</a> ·
+  <a href="docs/ENGINE_PRODUCT_PLAN.md">Architecture plan</a> ·
   <a href="ROADMAP.md">Roadmap</a> ·
   <a href="CONTRIBUTING.md">Contributing</a>
 </p>
 
+## See the alpha in motion
+
+![Motion excerpt rendered by Rachana](showcase/demo.gif)
+
+The GIF is a silent excerpt from a real engine render. **[Watch the complete demo with narration](showcase/rachana-demo.mp4)**, inspect its [scene JSON](examples/narrated-story/scene.json), or follow the [quickstart](QUICKSTART.md) to render it locally. The approximately 25-second demo combines text, moving shapes, and reveal cues anchored to synthetic narration. It is an editable example of the current runtime, not an automatically directed production.
+
 ## Project status
 
-**Initial foundation and architecture planning.** This repository contains the product plan, asset-generation design, release criteria, repository checks, and starter structure. The reusable renderer, generation adapters, and creator workflow are planned. It does not yet generate videos.
+**Working alpha: declarative scenes, a local CLI, and supplied narration anchors.** Rachana now validates scene files, evaluates animation directly at a requested time, draws PNG frames, and exports MP4 through FFmpeg. The broader script-and-voice agent, asset generation, character rigs, cameras, and editing studio remain planned.
 
-Created and maintained by [Tejas Dadhich (@Tejaa11)](https://github.com/Tejaa11).
+Created and maintained by [Tejas Dadhich (@Tejaa11)](https://github.com/Tejaa11), with AI-assisted development and maintainer review.
 
-## The idea
+| Capability | Current status |
+| --- | --- |
+| Rectangles, circles, wrapped text and ordered layers | Implemented |
+| Position, opacity, scale and rotation clips; four easing curves | Implemented |
+| Clip starts in seconds or relative to supplied word boundaries | Implemented |
+| Schema and semantic checks for IDs, values, references and clip overlap | Implemented |
+| Direct frame evaluation, PNG export and MP4 export | Implemented |
+| Bundled fonts and an environment doctor | Implemented |
+| Automatic transcription/alignment, TTS and director agent | Planned |
+| Generated artwork, rigged characters and asset providers | Planned |
+| Cameras, browser editor, persistent jobs, cache and resume | Planned |
 
-Give Rachana a script and recorded voice-over. The intended workflow analyzes the narration, plans shots, resolves or generates assets, builds an editable animatic, animates the scenes, and exports a video with captions and YouTube materials.
+## Render your first scene
 
-The goal is that a different creator can make a different video without editing engine source. Each film should have coherent art direction, meaningful character acting, readable diagrams, and sound that supports the narration.
-
-```mermaid
-flowchart LR
-    A[Script + voice] --> B[Analyze and direct]
-    B --> C[Resolve assets]
-    C --> D[Editable animatic]
-    D --> E[Animate and render]
-    E --> F[Review and export]
-```
-
-*This diagram describes the planned workflow, not an available command.*
-
-## Capability map
-
-| Area | Status | Intended result |
-| --- | --- | --- |
-| Architecture, asset contracts, release criteria | Documented | Inspectable decisions and acceptance criteria |
-| Repository integrity checks | Available | Check required files, local documentation links, SVG, and package metadata |
-| Shared scene graph and animation runtime | Planned | Reusable actors, props, clips, cameras, and frame evaluation |
-| Script and voice alignment | Planned | Editable narration anchors and mismatch reporting |
-| Asset resolution and generation | Planned | Procedural creation, imports, and configurable provider adapters |
-| Director workflow | Planned | Structured shot plans and synchronized animatics |
-| Editing studio and CLI | Planned | Project intake, revisions, preview, and render controls |
-| Delivery package | Planned | MP4, captions, thumbnails, titles, description, and chapters |
-
-## Explore the foundation
-
-Use Node.js 22 or newer and Git:
+Use **Node.js 22+**, npm, and a local **FFmpeg** executable with `libx264` and AAC support. Put FFmpeg on `PATH`, or set `FFMPEG_PATH` to its executable. See [setup and troubleshooting](QUICKSTART.md).
 
 ```sh
 git clone https://github.com/Tejaa11/rachana-engine-2d.git
 cd rachana-engine-2d
-npm run check
+npm ci
+npm run build
+npm run cli -- doctor
+npm run render:smoke
+npm run render:demo
 ```
 
-The check has no package dependencies and needs no API key. CI runs it on Node.js 22 and 24. This is a documentation/scaffold check, not a render or media-quality test.
+These create `renders/minimal.mp4` and `renders/rachana-demo.mp4`, each with a render manifest. Outputs are never overwritten; choose a new output path when rendering a revision. No API key or paid provider is needed for these examples. npm needs network access to install the declared packages; rendering the included scenes then runs locally.
 
-Start with:
+Change a shape's colors, position, timing, or text in its scene file, validate it, and render a new cut:
 
-- [Product plan and architecture](docs/ENGINE_PRODUCT_PLAN.md)
-- [Asset generation and consistency](docs/ASSET_PIPELINE.md)
-- [Release and quality standards](docs/RELEASE_STANDARD.md)
-- [Build milestones](ROADMAP.md)
-- [Project origins and current boundaries](docs/ORIGINS.md)
+```sh
+npm run cli -- validate examples/narrated-story/scene.json
+npm run cli -- frame examples/narrated-story/scene.json --frame 30 --out renders/frame-30.png
+npm run cli -- render examples/narrated-story/scene.json --out renders/revision-1.mp4
+```
 
-## How asset creation will work
+## How it works
 
-Each shot declares its needs: an actor, environment, prop, diagram, sound cue, or product view. The resolver will reuse approved assets, create deterministic graphics, call a configured generation provider, or request an import.
+```mermaid
+flowchart LR
+    A[Scene JSON + optional local audio] --> B[Schema and timing validation]
+    B --> C[Pure frame evaluation]
+    C --> D[Native Canvas draw list]
+    D --> E[PNG frame or FFmpeg MP4]
+```
 
-Generated artwork and animated rigs have different capabilities. A flat character image does not automatically support walking or pointing. Rachana's asset contracts will make those distinctions explicit and preserve style references, provenance, and approved versions across shots.
+A scene describes the output, layers, animation clips, and optional narration-word anchors. A clip may begin at a fixed second or at the start/end of a word plus an offset. Frame evaluation depends on the scene and requested time, so it can seek directly without playing earlier frames. See the [scene contract](docs/SCENE_FORMAT.md) and [renderer decision](docs/adr/0001-renderer.md).
 
-Optional remote generation will require provider configuration and the user's credentials. Cost limits, bounded retries, and saved progress are design requirements. Universal asset generation and automatic perfect rigging are not current capabilities.
+The narrated example includes original synthetic audio and synthesis-start timestamps. Word ends are approximate. This demonstrates supplied timing anchors; it does **not** demonstrate automatic alignment of a user's recording or phoneme lip sync. Audio origins, exact tool settings, and hashes are recorded in its [provenance](examples/narrated-story/provenance.json).
+
+## Examples and verification
+
+- [Minimal scene](examples/minimal-scene/scene.json): a two-second render fixture.
+- [Narrated story](examples/narrated-story/scene.json): approximately 25 seconds of voice-anchored shape and text animation.
+- [Example notes](examples/README.md): media, timing, and scope.
+- [Showcase](showcase/README.md): source-linked outputs and regeneration.
+
+```sh
+npm run check
+npm test
+npm run verify:smoke
+```
+
+`check` inspects repository files and documentation links. `test` builds the TypeScript and runs the automated suite. `verify:smoke` checks the generated minimal MP4; run `render:smoke` first. These checks have distinct scopes and do not establish the creative quality of every possible video. No performance benchmark or cross-platform pixel-identity claim is made by this alpha.
+
+## Boundaries and next steps
+
+Scene authoring currently uses JSON. The runtime supports three primitive layer kinds and one optional local PCM16 WAV audio track. WAV duration must match the scene within one output frame; its timing data must already be supplied. The engine does not yet turn an arbitrary script and voice recording into a complete film.
+
+The bundled Noto Sans, Devanagari, and Gujarati fonts avoid reliance on the maintainer's system fonts. They do not establish validated Indic speech alignment or universal glyph coverage. Broader language/shaping support is experimental and needs review fixtures.
+
+Next work adds a shared animation/character system, asset resolution, provider adapters, narration analysis, the director workflow, and an editing studio. See [ROADMAP.md](ROADMAP.md), the [product plan](docs/ENGINE_PRODUCT_PLAN.md), [asset design](docs/ASSET_PIPELINE.md), and [release standards](docs/RELEASE_STANDARD.md).
 
 ## Repository map
 
 ```text
-docs/         Architecture, asset design, release criteria, and origins
-packages/     Shared module boundaries for the upcoming implementation
-examples/     Planned reproducible examples and their acceptance criteria
-showcase/     Original banner; future reels must come from engine outputs
-tools/        Dependency-free repository checks
-.github/      CI and issue/PR templates
+packages/core/       Types, validation and pure animation evaluation
+packages/renderer/   Canvas drawing, local media loading and FFmpeg export
+apps/cli/            doctor, validate, frame and render commands
+schemas/             Versioned scene JSON Schema
+examples/            Editable scene files and redistributable inputs
+assets/fonts/        Bundled Noto fonts, OFL notice and source manifest
+tests/               Runtime, validation and rendering-related checks
+tools/               Repository verification and development utilities
+showcase/            Real rendered outputs and original static branding
+docs/                Scene contract, architecture decisions and product plans
 ```
 
-## First engineering milestone
+## Contributing, credits and license
 
-Extract a portable, data-driven runtime and render a polished 45–60 second sample. Then render a second, unrelated script through the same runtime without adding custom scene functions. Later milestones add generation providers, the director workflow, the editing studio, and a verified full-length release.
+Read [CONTRIBUTING.md](CONTRIBUTING.md) before proposing a change. [LambdaEngine2D](https://github.com/devesh95official/LambdaEngine2D) inspired the emphasis on modules, examples, and accessible documentation. No LambdaEngine2D code, branding, or media is included. The earlier private productions informed the design; see [origins](docs/ORIGINS.md).
 
-See the [roadmap](ROADMAP.md) for exit criteria. Performance results and motion reels will be added when measured and rendered; no benchmark or completed-engine claim is made by this foundation.
-
-## Contributing and credit
-
-Read [CONTRIBUTING.md](CONTRIBUTING.md) before proposing changes. Design questions and bug reports have dedicated issue templates.
-
-The work uses AI-assisted planning and development, with maintainer review. [LambdaEngine2D](https://github.com/devesh95official/LambdaEngine2D) inspired the repository's emphasis on modules, examples, and clear documentation. No LambdaEngine2D code is included in this scaffold. See [THIRD_PARTY.md](THIRD_PARTY.md) for attribution and media policy.
-
-## License
-
-[MIT](LICENSE), copyright 2026 Tejas Dadhich. External libraries, provider outputs, and contributed media retain their own applicable terms and notices.
+Original engine source is [MIT](LICENSE), copyright 2026 Tejas Dadhich. Canvas, Ajv, TypeScript, Noto fonts, optional development tools, and external media retain their own terms. See [THIRD_PARTY.md](THIRD_PARTY.md) and the included media/font provenance records.

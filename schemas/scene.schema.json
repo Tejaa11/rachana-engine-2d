@@ -1,0 +1,557 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://github.com/Tejaa11/rachana-engine-2d/schemas/scene.schema.json",
+  "title": "Rachana Engine 2D scene v1",
+  "description": "A declarative scene. Authoring times are seconds; word anchors resolve against narration. Runtime semantic checks also validate IDs, resolved timing and clip overlap.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "id",
+    "output",
+    "background",
+    "layers"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "const": 1
+    },
+    "id": {
+      "$ref": "#/$defs/id"
+    },
+    "output": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "width",
+        "height",
+        "fps",
+        "durationSeconds"
+      ],
+      "properties": {
+        "width": {
+          "type": "integer",
+          "minimum": 16,
+          "maximum": 3840
+        },
+        "height": {
+          "type": "integer",
+          "minimum": 16,
+          "maximum": 2160
+        },
+        "fps": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 60
+        },
+        "durationSeconds": {
+          "type": "number",
+          "exclusiveMinimum": 0,
+          "maximum": 1800
+        }
+      }
+    },
+    "background": {
+      "$ref": "#/$defs/color"
+    },
+    "audio": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "src"
+      ],
+      "properties": {
+        "src": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 512,
+          "pattern": "^(?!/)(?![A-Za-z][A-Za-z0-9+.-]*:)(?!.*\\\\)(?!.*(?:^|/)\\.\\.(?:/|$))[^\\u0000-\\u001F\\u007F]+$"
+        },
+        "gain": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 4
+        }
+      }
+    },
+    "narration": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "words",
+        "timingSource"
+      ],
+      "properties": {
+        "timingSource": {
+          "enum": [
+            "manual",
+            "reviewed",
+            "synthesis-events"
+          ]
+        },
+        "words": {
+          "type": "array",
+          "maxItems": 10000,
+          "items": {
+            "$ref": "#/$defs/word"
+          }
+        }
+      }
+    },
+    "layers": {
+      "type": "array",
+      "maxItems": 500,
+      "items": {
+        "oneOf": [
+          {
+            "$ref": "#/$defs/rect"
+          },
+          {
+            "$ref": "#/$defs/circle"
+          },
+          {
+            "$ref": "#/$defs/text"
+          }
+        ]
+      }
+    }
+  },
+  "$defs": {
+    "id": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 128
+    },
+    "color": {
+      "type": "string",
+      "pattern": "^#[0-9a-fA-F]{6}([0-9a-fA-F]{2})?$"
+    },
+    "vec2": {
+      "type": "array",
+      "items": {
+        "type": "number",
+        "minimum": -100000,
+        "maximum": 100000
+      },
+      "minItems": 2,
+      "maxItems": 2
+    },
+    "opacity": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1
+    },
+    "scale": {
+      "type": "number",
+      "exclusiveMinimum": 0,
+      "maximum": 100
+    },
+    "start": {
+      "oneOf": [
+        {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1800
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "anchor"
+          ],
+          "properties": {
+            "anchor": {
+              "$ref": "#/$defs/id"
+            },
+            "edge": {
+              "enum": [
+                "start",
+                "end"
+              ]
+            },
+            "offset": {
+              "type": "number",
+              "minimum": -1800,
+              "maximum": 1800
+            }
+          }
+        }
+      ]
+    },
+    "clip": {
+      "oneOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "start": {
+              "$ref": "#/$defs/start"
+            },
+            "duration": {
+              "type": "number",
+              "exclusiveMinimum": 0,
+              "maximum": 1800
+            },
+            "ease": {
+              "enum": [
+                "linear",
+                "easeInCubic",
+                "easeOutCubic",
+                "easeInOutCubic"
+              ]
+            },
+            "property": {
+              "const": "position"
+            },
+            "from": {
+              "$ref": "#/$defs/vec2"
+            },
+            "to": {
+              "$ref": "#/$defs/vec2"
+            }
+          },
+          "required": [
+            "start",
+            "duration",
+            "property",
+            "from",
+            "to"
+          ]
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "start": {
+              "$ref": "#/$defs/start"
+            },
+            "duration": {
+              "type": "number",
+              "exclusiveMinimum": 0,
+              "maximum": 1800
+            },
+            "ease": {
+              "enum": [
+                "linear",
+                "easeInCubic",
+                "easeOutCubic",
+                "easeInOutCubic"
+              ]
+            },
+            "property": {
+              "const": "opacity"
+            },
+            "from": {
+              "$ref": "#/$defs/opacity"
+            },
+            "to": {
+              "$ref": "#/$defs/opacity"
+            }
+          },
+          "required": [
+            "start",
+            "duration",
+            "property",
+            "from",
+            "to"
+          ]
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "start": {
+              "$ref": "#/$defs/start"
+            },
+            "duration": {
+              "type": "number",
+              "exclusiveMinimum": 0,
+              "maximum": 1800
+            },
+            "ease": {
+              "enum": [
+                "linear",
+                "easeInCubic",
+                "easeOutCubic",
+                "easeInOutCubic"
+              ]
+            },
+            "property": {
+              "const": "scale"
+            },
+            "from": {
+              "$ref": "#/$defs/scale"
+            },
+            "to": {
+              "$ref": "#/$defs/scale"
+            }
+          },
+          "required": [
+            "start",
+            "duration",
+            "property",
+            "from",
+            "to"
+          ]
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "start": {
+              "$ref": "#/$defs/start"
+            },
+            "duration": {
+              "type": "number",
+              "exclusiveMinimum": 0,
+              "maximum": 1800
+            },
+            "ease": {
+              "enum": [
+                "linear",
+                "easeInCubic",
+                "easeOutCubic",
+                "easeInOutCubic"
+              ]
+            },
+            "property": {
+              "const": "rotation"
+            },
+            "from": {
+              "type": "number",
+              "minimum": -100000,
+              "maximum": 100000
+            },
+            "to": {
+              "type": "number",
+              "minimum": -100000,
+              "maximum": 100000
+            }
+          },
+          "required": [
+            "start",
+            "duration",
+            "property",
+            "from",
+            "to"
+          ]
+        }
+      ]
+    },
+    "word": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "text",
+        "start",
+        "end"
+      ],
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/id"
+        },
+        "text": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 1000
+        },
+        "start": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1800
+        },
+        "end": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1800
+        }
+      }
+    },
+    "rect": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "type": {
+          "const": "rect"
+        },
+        "id": {
+          "$ref": "#/$defs/id"
+        },
+        "position": {
+          "$ref": "#/$defs/vec2"
+        },
+        "opacity": {
+          "$ref": "#/$defs/opacity"
+        },
+        "scale": {
+          "$ref": "#/$defs/scale"
+        },
+        "rotation": {
+          "type": "number",
+          "minimum": -100000,
+          "maximum": 100000
+        },
+        "clips": {
+          "type": "array",
+          "maxItems": 1000,
+          "items": {
+            "$ref": "#/$defs/clip"
+          }
+        },
+        "size": {
+          "type": "array",
+          "items": {
+            "type": "number",
+            "exclusiveMinimum": 0,
+            "maximum": 10000
+          },
+          "minItems": 2,
+          "maxItems": 2
+        },
+        "fill": {
+          "$ref": "#/$defs/color"
+        },
+        "radius": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 10000
+        }
+      },
+      "required": [
+        "id",
+        "type",
+        "position",
+        "size",
+        "fill"
+      ]
+    },
+    "circle": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "type": {
+          "const": "circle"
+        },
+        "id": {
+          "$ref": "#/$defs/id"
+        },
+        "position": {
+          "$ref": "#/$defs/vec2"
+        },
+        "opacity": {
+          "$ref": "#/$defs/opacity"
+        },
+        "scale": {
+          "$ref": "#/$defs/scale"
+        },
+        "rotation": {
+          "type": "number",
+          "minimum": -100000,
+          "maximum": 100000
+        },
+        "clips": {
+          "type": "array",
+          "maxItems": 1000,
+          "items": {
+            "$ref": "#/$defs/clip"
+          }
+        },
+        "radius": {
+          "type": "number",
+          "exclusiveMinimum": 0,
+          "maximum": 10000
+        },
+        "fill": {
+          "$ref": "#/$defs/color"
+        },
+        "stroke": {
+          "$ref": "#/$defs/color"
+        },
+        "strokeWidth": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1000
+        }
+      },
+      "required": [
+        "id",
+        "type",
+        "position",
+        "radius",
+        "fill"
+      ]
+    },
+    "text": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "type": {
+          "const": "text"
+        },
+        "id": {
+          "$ref": "#/$defs/id"
+        },
+        "position": {
+          "$ref": "#/$defs/vec2"
+        },
+        "opacity": {
+          "$ref": "#/$defs/opacity"
+        },
+        "scale": {
+          "$ref": "#/$defs/scale"
+        },
+        "rotation": {
+          "type": "number",
+          "minimum": -100000,
+          "maximum": 100000
+        },
+        "clips": {
+          "type": "array",
+          "maxItems": 1000,
+          "items": {
+            "$ref": "#/$defs/clip"
+          }
+        },
+        "text": {
+          "type": "string",
+          "maxLength": 10000
+        },
+        "fontSize": {
+          "type": "number",
+          "minimum": 8,
+          "maximum": 512
+        },
+        "color": {
+          "$ref": "#/$defs/color"
+        },
+        "align": {
+          "enum": [
+            "left",
+            "center",
+            "right"
+          ]
+        },
+        "maxWidth": {
+          "type": "number",
+          "exclusiveMinimum": 0,
+          "maximum": 7680
+        },
+        "lineHeight": {
+          "type": "number",
+          "minimum": 0.5,
+          "maximum": 5
+        }
+      },
+      "required": [
+        "id",
+        "type",
+        "position",
+        "text",
+        "fontSize",
+        "color",
+        "maxWidth"
+      ]
+    }
+  }
+}

@@ -1,0 +1,1542 @@
+{
+  "schemaVersion": 1,
+  "id": "narrated-story",
+  "output": {
+    "width": 1920,
+    "height": 1080,
+    "fps": 30,
+    "durationSeconds": 24.82875283446712
+  },
+  "background": "#101424",
+  "audio": {
+    "src": "voice.wav",
+    "gain": 0.85
+  },
+  "narration": {
+    "words": [
+      {
+        "id": "w1",
+        "text": "Every",
+        "start": 0,
+        "end": 0.346
+      },
+      {
+        "id": "w2",
+        "text": "story",
+        "start": 0.346,
+        "end": 0.756
+      },
+      {
+        "id": "w3",
+        "text": "begins",
+        "start": 0.756,
+        "end": 1.252
+      },
+      {
+        "id": "w4",
+        "text": "with",
+        "start": 1.252,
+        "end": 1.423
+      },
+      {
+        "id": "w5",
+        "text": "an",
+        "start": 1.423,
+        "end": 1.484
+      },
+      {
+        "id": "w6",
+        "text": "idea",
+        "start": 1.484,
+        "end": 2.381
+      },
+      {
+        "id": "w7",
+        "text": "Rachana",
+        "start": 2.381,
+        "end": 2.816
+      },
+      {
+        "id": "w8",
+        "text": "turns",
+        "start": 2.816,
+        "end": 3.247
+      },
+      {
+        "id": "w9",
+        "text": "that",
+        "start": 3.247,
+        "end": 3.472
+      },
+      {
+        "id": "w10",
+        "text": "idea",
+        "start": 3.472,
+        "end": 3.795
+      },
+      {
+        "id": "w11",
+        "text": "into",
+        "start": 3.795,
+        "end": 4.088
+      },
+      {
+        "id": "w12",
+        "text": "motion",
+        "start": 4.088,
+        "end": 4.978
+      },
+      {
+        "id": "w13",
+        "text": "This",
+        "start": 4.978,
+        "end": 5.197
+      },
+      {
+        "id": "w14",
+        "text": "circle",
+        "start": 5.197,
+        "end": 5.616
+      },
+      {
+        "id": "w15",
+        "text": "is",
+        "start": 5.616,
+        "end": 5.758
+      },
+      {
+        "id": "w16",
+        "text": "the",
+        "start": 5.758,
+        "end": 5.872
+      },
+      {
+        "id": "w17",
+        "text": "Earth",
+        "start": 5.872,
+        "end": 6.565
+      },
+      {
+        "id": "w18",
+        "text": "This",
+        "start": 6.565,
+        "end": 6.784
+      },
+      {
+        "id": "w19",
+        "text": "smaller",
+        "start": 6.784,
+        "end": 7.187
+      },
+      {
+        "id": "w20",
+        "text": "circle",
+        "start": 7.187,
+        "end": 7.606
+      },
+      {
+        "id": "w21",
+        "text": "is",
+        "start": 7.606,
+        "end": 7.743
+      },
+      {
+        "id": "w22",
+        "text": "the",
+        "start": 7.743,
+        "end": 7.862
+      },
+      {
+        "id": "w23",
+        "text": "Moon",
+        "start": 7.862,
+        "end": 8.645
+      },
+      {
+        "id": "w24",
+        "text": "Their",
+        "start": 8.645,
+        "end": 8.829
+      },
+      {
+        "id": "w25",
+        "text": "positions",
+        "start": 8.829,
+        "end": 9.47
+      },
+      {
+        "id": "w26",
+        "text": "change",
+        "start": 9.47,
+        "end": 10.215
+      },
+      {
+        "id": "w27",
+        "text": "but",
+        "start": 10.215,
+        "end": 10.449
+      },
+      {
+        "id": "w28",
+        "text": "the",
+        "start": 10.449,
+        "end": 10.563
+      },
+      {
+        "id": "w29",
+        "text": "explanation",
+        "start": 10.563,
+        "end": 11.352
+      },
+      {
+        "id": "w30",
+        "text": "stays",
+        "start": 11.352,
+        "end": 11.735
+      },
+      {
+        "id": "w31",
+        "text": "connected",
+        "start": 11.735,
+        "end": 12.35
+      },
+      {
+        "id": "w32",
+        "text": "to",
+        "start": 12.35,
+        "end": 12.5
+      },
+      {
+        "id": "w33",
+        "text": "the",
+        "start": 12.5,
+        "end": 12.618
+      },
+      {
+        "id": "w34",
+        "text": "voice",
+        "start": 12.618,
+        "end": 13.471
+      },
+      {
+        "id": "w35",
+        "text": "Each",
+        "start": 13.471,
+        "end": 13.741
+      },
+      {
+        "id": "w36",
+        "text": "visual",
+        "start": 13.741,
+        "end": 14.155
+      },
+      {
+        "id": "w37",
+        "text": "follows",
+        "start": 14.155,
+        "end": 14.587
+      },
+      {
+        "id": "w38",
+        "text": "an",
+        "start": 14.587,
+        "end": 14.648
+      },
+      {
+        "id": "w39",
+        "text": "editable",
+        "start": 14.648,
+        "end": 15.17
+      },
+      {
+        "id": "w40",
+        "text": "timing",
+        "start": 15.17,
+        "end": 15.513
+      },
+      {
+        "id": "w41",
+        "text": "anchor",
+        "start": 15.513,
+        "end": 16.398
+      },
+      {
+        "id": "w42",
+        "text": "Change",
+        "start": 16.398,
+        "end": 16.872
+      },
+      {
+        "id": "w43",
+        "text": "the",
+        "start": 16.872,
+        "end": 16.984
+      },
+      {
+        "id": "w44",
+        "text": "colors",
+        "start": 16.984,
+        "end": 17.653
+      },
+      {
+        "id": "w45",
+        "text": "adjust",
+        "start": 17.653,
+        "end": 18.051
+      },
+      {
+        "id": "w46",
+        "text": "a",
+        "start": 18.051,
+        "end": 18.115
+      },
+      {
+        "id": "w47",
+        "text": "reveal",
+        "start": 18.115,
+        "end": 18.845
+      },
+      {
+        "id": "w48",
+        "text": "and",
+        "start": 18.845,
+        "end": 19.056
+      },
+      {
+        "id": "w49",
+        "text": "render",
+        "start": 19.056,
+        "end": 19.406
+      },
+      {
+        "id": "w50",
+        "text": "again",
+        "start": 19.406,
+        "end": 20.281
+      },
+      {
+        "id": "w51",
+        "text": "One",
+        "start": 20.281,
+        "end": 20.551
+      },
+      {
+        "id": "w52",
+        "text": "scene",
+        "start": 20.551,
+        "end": 20.863
+      },
+      {
+        "id": "w53",
+        "text": "file",
+        "start": 20.863,
+        "end": 21.699
+      },
+      {
+        "id": "w54",
+        "text": "One",
+        "start": 21.699,
+        "end": 21.966
+      },
+      {
+        "id": "w55",
+        "text": "reusable",
+        "start": 21.966,
+        "end": 22.482
+      },
+      {
+        "id": "w56",
+        "text": "engine",
+        "start": 22.482,
+        "end": 23.321
+      },
+      {
+        "id": "w57",
+        "text": "Your",
+        "start": 23.321,
+        "end": 23.493
+      },
+      {
+        "id": "w58",
+        "text": "story",
+        "start": 23.493,
+        "end": 24.165
+      },
+      {
+        "id": "w59",
+        "text": "in",
+        "start": 24.165,
+        "end": 24.301
+      },
+      {
+        "id": "w60",
+        "text": "motion",
+        "start": 24.301,
+        "end": 24.82875283446712
+      }
+    ],
+    "timingSource": "synthesis-events"
+  },
+  "layers": [
+    {
+      "id": "top-rule",
+      "type": "rect",
+      "position": [
+        96.0,
+        157.5
+      ],
+      "size": [
+        1728.0,
+        3.0
+      ],
+      "fill": "#303750",
+      "radius": 0.0
+    },
+    {
+      "id": "brand",
+      "type": "text",
+      "text": "RACHANA ENGINE 2D",
+      "position": [
+        96.0,
+        78.0
+      ],
+      "fontSize": 31.5,
+      "maxWidth": 1650.0,
+      "color": "#b9a3ff",
+      "align": "left"
+    },
+    {
+      "id": "status",
+      "type": "text",
+      "text": "NARRATION-ANCHORED / ALPHA",
+      "position": [
+        1824.0,
+        84.0
+      ],
+      "fontSize": 21.0,
+      "maxWidth": 750.0,
+      "color": "#b1b7cf",
+      "align": "right"
+    },
+    {
+      "id": "opening",
+      "type": "text",
+      "text": "An idea.\nThen, motion.",
+      "position": [
+        96.0,
+        322.5
+      ],
+      "fontSize": 102.0,
+      "maxWidth": 930.0,
+      "color": "#f4f1ff",
+      "align": "left",
+      "opacity": 0,
+      "clips": [
+        {
+          "property": "opacity",
+          "from": 0,
+          "to": 1,
+          "start": 0,
+          "duration": 0.25,
+          "ease": "easeOutCubic"
+        },
+        {
+          "property": "opacity",
+          "from": 1,
+          "to": 0,
+          "start": 4.778,
+          "duration": 0.2,
+          "ease": "easeInCubic"
+        }
+      ]
+    },
+    {
+      "id": "opening-sub",
+      "type": "text",
+      "text": "A story you can see.",
+      "position": [
+        102.0,
+        624.0
+      ],
+      "fontSize": 37.5,
+      "maxWidth": 900.0,
+      "color": "#b1b7cf",
+      "align": "left",
+      "opacity": 0,
+      "clips": [
+        {
+          "property": "opacity",
+          "from": 0,
+          "to": 1,
+          "start": 1.484,
+          "duration": 0.25,
+          "ease": "easeOutCubic"
+        },
+        {
+          "property": "opacity",
+          "from": 1,
+          "to": 0,
+          "start": 4.778,
+          "duration": 0.2,
+          "ease": "easeInCubic"
+        }
+      ]
+    },
+    {
+      "id": "idea-card",
+      "type": "rect",
+      "position": [
+        1282.5,
+        322.5
+      ],
+      "size": [
+        367.5,
+        367.5
+      ],
+      "fill": "#1c2236",
+      "radius": 66.0,
+      "opacity": 0,
+      "clips": [
+        {
+          "property": "opacity",
+          "from": 0,
+          "to": 1,
+          "start": 0,
+          "duration": 0.25,
+          "ease": "easeOutCubic"
+        },
+        {
+          "property": "opacity",
+          "from": 1,
+          "to": 0,
+          "start": 4.778,
+          "duration": 0.2,
+          "ease": "easeInCubic"
+        }
+      ]
+    },
+    {
+      "id": "idea",
+      "type": "circle",
+      "position": [
+        1465.5,
+        505.5
+      ],
+      "radius": 75.0,
+      "fill": "#faaf94",
+      "opacity": 0,
+      "clips": [
+        {
+          "property": "opacity",
+          "from": 0,
+          "to": 1,
+          "start": 0,
+          "duration": 0.25,
+          "ease": "easeOutCubic"
+        },
+        {
+          "property": "opacity",
+          "from": 1,
+          "to": 0,
+          "start": 4.778,
+          "duration": 0.2,
+          "ease": "easeInCubic"
+        },
+        {
+          "property": "scale",
+          "from": 0.3,
+          "to": 1,
+          "start": 0,
+          "duration": 0.7,
+          "ease": "easeOutCubic"
+        },
+        {
+          "property": "position",
+          "from": [
+            1465.5,
+            505.5
+          ],
+          "to": [
+            1575.0,
+            450.0
+          ],
+          "start": {
+            "anchor": "w12"
+          },
+          "duration": 0.7,
+          "ease": "easeInOutCubic"
+        }
+      ]
+    },
+    {
+      "id": "earth-title",
+      "type": "text",
+      "text": "Earth & Moon",
+      "position": [
+        96.0,
+        301.5
+      ],
+      "fontSize": 87.0,
+      "maxWidth": 975.0,
+      "color": "#f4f1ff",
+      "align": "left",
+      "opacity": 0,
+      "clips": [
+        {
+          "property": "opacity",
+          "from": 0,
+          "to": 1,
+          "start": 4.978,
+          "duration": 0.25,
+          "ease": "easeOutCubic"
+        },
+        {
+          "property": "opacity",
+          "from": 1,
+          "to": 0,
+          "start": 13.271,
+          "duration": 0.2,
+          "ease": "easeInCubic"
+        }
+      ]
+    },
+    {
+      "id": "earth-sub",
+      "type": "text",
+      "text": "One explanation. Connected to the voice.",
+      "position": [
+        100.5,
+        450.0
+      ],
+      "fontSize": 36.0,
+      "maxWidth": 825.0,
+      "color": "#b1b7cf",
+      "align": "left",
+      "opacity": 0,
+      "clips": [
+        {
+          "property": "opacity",
+          "from": 0,
+          "to": 1,
+          "start": 8.645,
+          "duration": 0.25,
+          "ease": "easeOutCubic"
+        },
+        {
+          "property": "opacity",
+          "from": 1,
+          "to": 0,
+          "start": 13.271,
+          "duration": 0.2,
+          "ease": "easeInCubic"
+        }
+      ]
+    },
+    {
+      "id": "illustration",
+      "type": "text",
+      "text": "ILLUSTRATIVE DIAGRAM / NOT TO SCALE",
+      "position": [
+        100.5,
+        699.0
+      ],
+      "fontSize": 21.0,
+      "maxWidth": 975.0,
+      "color": "#b1b7cf",
+      "align": "left",
+      "opacity": 0,
+      "clips": [
+        {
+          "property": "opacity",
+          "from": 0,
+          "to": 1,
+          "start": 4.978,
+          "duration": 0.25,
+          "ease": "easeOutCubic"
+        },
+        {
+          "property": "opacity",
+          "from": 1,
+          "to": 0,
+          "start": 13.271,
+          "duration": 0.2,
+          "ease": "easeInCubic"
+        }
+      ]
+    },
+    {
+      "id": "orbit",
+      "type": "circle",
+      "position": [
+        1410.0,
+        517.5
+      ],
+      "radius": 240.0,
+      "fill": "#101424",
+      "opacity": 0,
+      "clips": [
+        {
+          "property": "opacity",
+          "from": 0,
+          "to": 1,
+          "start": 4.978,
+          "duration": 0.25,
+          "ease": "easeOutCubic"
+        },
+        {
+          "property": "opacity",
+          "from": 1,
+          "to": 0,
+          "start": 13.271,
+          "duration": 0.2,
+          "ease": "easeInCubic"
+        }
+      ],
+      "stroke": "#343957",
+      "strokeWidth": 3.0
+    },
+    {
+      "id": "earth",
+      "type": "circle",
+      "position": [
+        1410.0,
+        517.5
+      ],
+      "radius": 100.5,
+      "fill": "#5b9cdb",
+      "opacity": 0,
+      "clips": [
+        {
+          "property": "opacity",
+          "from": 0,
+          "to": 1,
+          "start": 4.978,
+          "duration": 0.25,
+          "ease": "easeOutCubic"
+        },
+        {
+          "property": "opacity",
+          "from": 1,
+          "to": 0,
+          "start": 13.271,
+          "duration": 0.2,
+          "ease": "easeInCubic"
+        }
+      ]
+    },
+    {
+      "id": "earth-land",
+      "type": "circle",
+      "position": [
+        1387.5,
+        492.0
+      ],
+      "radius": 34.5,
+      "fill": "#79ccc0",
+      "opacity": 0,
+      "clips": [
+        {
+          "property": "opacity",
+          "from": 0,
+          "to": 1,
+          "start": 5.872,
+          "duration": 0.25,
+          "ease": "easeOutCubic"
+        },
+        {
+          "property": "opacity",
+          "from": 1,
+          "to": 0,
+          "start": 13.271,
+          "duration": 0.2,
+          "ease": "easeInCubic"
+        }
+      ]
+    },
+    {
+      "id": "earth-label",
+      "type": "text",
+      "text": "EARTH",
+      "position": [
+        1410.0,
+        663.0
+      ],
+      "fontSize": 25.5,
+      "maxWidth": 375.0,
+      "color": "#f4f1ff",
+      "align": "center",
+      "opacity": 0,
+      "clips": [
+        {
+          "property": "opacity",
+          "from": 0,
+          "to": 1,
+          "start": 5.872,
+          "duration": 0.25,
+          "ease": "easeOutCubic"
+        },
+        {
+          "property": "opacity",
+          "from": 1,
+          "to": 0,
+          "start": 13.271,
+          "duration": 0.2,
+          "ease": "easeInCubic"
+        }
+      ]
+    },
+    {
+      "id": "moon",
+      "type": "circle",
+      "position": [
+        1650.0,
+        517.5
+      ],
+      "radius": 37.5,
+      "fill": "#faaf94",
+      "opacity": 0,
+      "clips": [
+        {
+          "property": "opacity",
+          "from": 0,
+          "to": 1,
+          "start": 6.565,
+          "duration": 0.25,
+          "ease": "easeOutCubic"
+        },
+        {
+          "property": "opacity",
+          "from": 1,
+          "to": 0,
+          "start": 13.271,
+          "duration": 0.2,
+          "ease": "easeInCubic"
+        },
+        {
+          "property": "position",
+          "from": [
+            1650.0,
+            517.5
+          ],
+          "to": [
+            1410.0,
+            277.5
+          ],
+          "start": {
+            "anchor": "w26"
+          },
+          "duration": 1.8,
+          "ease": "easeInOutCubic"
+        },
+        {
+          "property": "position",
+          "from": [
+            1410.0,
+            277.5
+          ],
+          "to": [
+            1170.0,
+            517.5
+          ],
+          "start": 11.35,
+          "duration": 1.5,
+          "ease": "easeInOutCubic"
+        }
+      ]
+    },
+    {
+      "id": "moon-label",
+      "type": "text",
+      "text": "MOON",
+      "position": [
+        1650.0,
+        585.0
+      ],
+      "fontSize": 22.5,
+      "maxWidth": 300.0,
+      "color": "#faaf94",
+      "align": "center",
+      "opacity": 0,
+      "clips": [
+        {
+          "property": "opacity",
+          "from": 0,
+          "to": 1,
+          "start": 7.862,
+          "duration": 0.25,
+          "ease": "easeOutCubic"
+        },
+        {
+          "property": "opacity",
+          "from": 1,
+          "to": 0,
+          "start": 9.170000000000002,
+          "duration": 0.2,
+          "ease": "easeInCubic"
+        }
+      ]
+    },
+    {
+      "id": "anchor-title",
+      "type": "text",
+      "text": "Every reveal\nhas an anchor.",
+      "position": [
+        96.0,
+        307.5
+      ],
+      "fontSize": 88.5,
+      "maxWidth": 885.0,
+      "color": "#f4f1ff",
+      "align": "left",
+      "opacity": 0,
+      "clips": [
+        {
+          "property": "opacity",
+          "from": 0,
+          "to": 1,
+          "start": 13.471,
+          "duration": 0.25,
+          "ease": "easeOutCubic"
+        },
+        {
+          "property": "opacity",
+          "from": 1,
+          "to": 0,
+          "start": 16.198,
+          "duration": 0.2,
+          "ease": "easeInCubic"
+        }
+      ]
+    },
+    {
+      "id": "anchor-panel",
+      "type": "rect",
+      "position": [
+        1110.0,
+        337.5
+      ],
+      "size": [
+        660.0,
+        330.0
+      ],
+      "fill": "#1c2236",
+      "radius": 27.0,
+      "opacity": 0,
+      "clips": [
+        {
+          "property": "opacity",
+          "from": 0,
+          "to": 1,
+          "start": 13.471,
+          "duration": 0.25,
+          "ease": "easeOutCubic"
+        },
+        {
+          "property": "opacity",
+          "from": 1,
+          "to": 0,
+          "start": 16.198,
+          "duration": 0.2,
+          "ease": "easeInCubic"
+        }
+      ]
+    },
+    {
+      "id": "anchor-json",
+      "type": "text",
+      "text": "start: word_40\noffset: 0.00 s\nease: easeOutCubic",
+      "position": [
+        1162.5,
+        399.0
+      ],
+      "fontSize": 37.5,
+      "maxWidth": 555.0,
+      "color": "#79ccc0",
+      "align": "left",
+      "opacity": 0,
+      "clips": [
+        {
+          "property": "opacity",
+          "from": 0,
+          "to": 1,
+          "start": 15.17,
+          "duration": 0.25,
+          "ease": "easeOutCubic"
+        },
+        {
+          "property": "opacity",
+          "from": 1,
+          "to": 0,
+          "start": 16.198,
+          "duration": 0.2,
+          "ease": "easeInCubic"
+        }
+      ]
+    },
+    {
+      "id": "revise-title",
+      "type": "text",
+      "text": "Revise a detail.\nRender again.",
+      "position": [
+        96.0,
+        307.5
+      ],
+      "fontSize": 88.5,
+      "maxWidth": 975.0,
+      "color": "#f4f1ff",
+      "align": "left",
+      "opacity": 0,
+      "clips": [
+        {
+          "property": "opacity",
+          "from": 0,
+          "to": 1,
+          "start": 16.398,
+          "duration": 0.25,
+          "ease": "easeOutCubic"
+        },
+        {
+          "property": "opacity",
+          "from": 1,
+          "to": 0,
+          "start": 20.081,
+          "duration": 0.2,
+          "ease": "easeInCubic"
+        }
+      ]
+    },
+    {
+      "id": "color-0",
+      "type": "circle",
+      "position": [
+        1200.0,
+        510.0
+      ],
+      "radius": 63.0,
+      "fill": "#b9a3ff",
+      "opacity": 0,
+      "clips": [
+        {
+          "property": "opacity",
+          "from": 0,
+          "to": 1,
+          "start": 16.398,
+          "duration": 0.25,
+          "ease": "easeOutCubic"
+        },
+        {
+          "property": "opacity",
+          "from": 1,
+          "to": 0,
+          "start": 20.081,
+          "duration": 0.2,
+          "ease": "easeInCubic"
+        },
+        {
+          "property": "scale",
+          "from": 0.7,
+          "to": 1,
+          "start": 16.984,
+          "duration": 0.3,
+          "ease": "easeOutCubic"
+        }
+      ]
+    },
+    {
+      "id": "color-1",
+      "type": "circle",
+      "position": [
+        1395.0,
+        510.0
+      ],
+      "radius": 63.0,
+      "fill": "#faaf94",
+      "opacity": 0,
+      "clips": [
+        {
+          "property": "opacity",
+          "from": 0,
+          "to": 1,
+          "start": 16.498,
+          "duration": 0.25,
+          "ease": "easeOutCubic"
+        },
+        {
+          "property": "opacity",
+          "from": 1,
+          "to": 0,
+          "start": 20.081,
+          "duration": 0.2,
+          "ease": "easeInCubic"
+        },
+        {
+          "property": "scale",
+          "from": 0.7,
+          "to": 1,
+          "start": 17.104000000000003,
+          "duration": 0.3,
+          "ease": "easeOutCubic"
+        }
+      ]
+    },
+    {
+      "id": "color-2",
+      "type": "circle",
+      "position": [
+        1590.0,
+        510.0
+      ],
+      "radius": 63.0,
+      "fill": "#79ccc0",
+      "opacity": 0,
+      "clips": [
+        {
+          "property": "opacity",
+          "from": 0,
+          "to": 1,
+          "start": 16.598,
+          "duration": 0.25,
+          "ease": "easeOutCubic"
+        },
+        {
+          "property": "opacity",
+          "from": 1,
+          "to": 0,
+          "start": 20.081,
+          "duration": 0.2,
+          "ease": "easeInCubic"
+        },
+        {
+          "property": "scale",
+          "from": 0.7,
+          "to": 1,
+          "start": 17.224,
+          "duration": 0.3,
+          "ease": "easeOutCubic"
+        }
+      ]
+    },
+    {
+      "id": "closing",
+      "type": "text",
+      "text": "Your story,\nin motion.",
+      "position": [
+        96.0,
+        300.0
+      ],
+      "fontSize": 105.0,
+      "maxWidth": 1125.0,
+      "color": "#f4f1ff",
+      "align": "left",
+      "opacity": 0,
+      "clips": [
+        {
+          "property": "opacity",
+          "from": 0,
+          "to": 1,
+          "start": 20.281,
+          "duration": 0.25,
+          "ease": "easeOutCubic"
+        }
+      ]
+    },
+    {
+      "id": "closing-sub",
+      "type": "text",
+      "text": "One scene file. One reusable runtime.",
+      "position": [
+        102.0,
+        645.0
+      ],
+      "fontSize": 37.5,
+      "maxWidth": 1050.0,
+      "color": "#b1b7cf",
+      "align": "left",
+      "opacity": 0,
+      "clips": [
+        {
+          "property": "opacity",
+          "from": 0,
+          "to": 1,
+          "start": 21.699,
+          "duration": 0.25,
+          "ease": "easeOutCubic"
+        }
+      ]
+    },
+    {
+      "id": "closing-card",
+      "type": "rect",
+      "position": [
+        1368.0,
+        349.5
+      ],
+      "size": [
+        330.0,
+        330.0
+      ],
+      "fill": "#b9a3ff",
+      "radius": 63.0,
+      "opacity": 0,
+      "clips": [
+        {
+          "property": "opacity",
+          "from": 0,
+          "to": 1,
+          "start": 20.281,
+          "duration": 0.25,
+          "ease": "easeOutCubic"
+        }
+      ]
+    },
+    {
+      "id": "closing-r",
+      "type": "text",
+      "text": "R",
+      "position": [
+        1533.0,
+        390.0
+      ],
+      "fontSize": 186.0,
+      "maxWidth": 330.0,
+      "color": "#101424",
+      "align": "center",
+      "opacity": 0,
+      "clips": [
+        {
+          "property": "opacity",
+          "from": 0,
+          "to": 1,
+          "start": 21.699,
+          "duration": 0.25,
+          "ease": "easeOutCubic"
+        }
+      ]
+    },
+    {
+      "id": "caption-0",
+      "type": "text",
+      "text": "Every story begins with an idea",
+      "position": [
+        960.0,
+        930.0
+      ],
+      "fontSize": 34.5,
+      "maxWidth": 1680.0,
+      "color": "#f4f1ff",
+      "align": "center",
+      "opacity": 0,
+      "clips": [
+        {
+          "property": "opacity",
+          "from": 0,
+          "to": 1,
+          "start": 0,
+          "duration": 0.25,
+          "ease": "easeOutCubic"
+        },
+        {
+          "property": "opacity",
+          "from": 1,
+          "to": 0,
+          "start": 2.1809999999999996,
+          "duration": 0.2,
+          "ease": "easeInCubic"
+        }
+      ]
+    },
+    {
+      "id": "caption-1",
+      "type": "text",
+      "text": "Rachana turns that idea into motion",
+      "position": [
+        960.0,
+        930.0
+      ],
+      "fontSize": 34.5,
+      "maxWidth": 1680.0,
+      "color": "#f4f1ff",
+      "align": "center",
+      "opacity": 0,
+      "clips": [
+        {
+          "property": "opacity",
+          "from": 0,
+          "to": 1,
+          "start": 2.381,
+          "duration": 0.25,
+          "ease": "easeOutCubic"
+        },
+        {
+          "property": "opacity",
+          "from": 1,
+          "to": 0,
+          "start": 4.778,
+          "duration": 0.2,
+          "ease": "easeInCubic"
+        }
+      ]
+    },
+    {
+      "id": "caption-2",
+      "type": "text",
+      "text": "This circle is the Earth",
+      "position": [
+        960.0,
+        930.0
+      ],
+      "fontSize": 34.5,
+      "maxWidth": 1680.0,
+      "color": "#f4f1ff",
+      "align": "center",
+      "opacity": 0,
+      "clips": [
+        {
+          "property": "opacity",
+          "from": 0,
+          "to": 1,
+          "start": 4.978,
+          "duration": 0.25,
+          "ease": "easeOutCubic"
+        },
+        {
+          "property": "opacity",
+          "from": 1,
+          "to": 0,
+          "start": 6.365,
+          "duration": 0.2,
+          "ease": "easeInCubic"
+        }
+      ]
+    },
+    {
+      "id": "caption-3",
+      "type": "text",
+      "text": "This smaller circle is the Moon",
+      "position": [
+        960.0,
+        930.0
+      ],
+      "fontSize": 34.5,
+      "maxWidth": 1680.0,
+      "color": "#f4f1ff",
+      "align": "center",
+      "opacity": 0,
+      "clips": [
+        {
+          "property": "opacity",
+          "from": 0,
+          "to": 1,
+          "start": 6.565,
+          "duration": 0.25,
+          "ease": "easeOutCubic"
+        },
+        {
+          "property": "opacity",
+          "from": 1,
+          "to": 0,
+          "start": 8.445,
+          "duration": 0.2,
+          "ease": "easeInCubic"
+        }
+      ]
+    },
+    {
+      "id": "caption-4",
+      "type": "text",
+      "text": "Their positions change but the explanation stays connected to the voice",
+      "position": [
+        960.0,
+        930.0
+      ],
+      "fontSize": 34.5,
+      "maxWidth": 1680.0,
+      "color": "#f4f1ff",
+      "align": "center",
+      "opacity": 0,
+      "clips": [
+        {
+          "property": "opacity",
+          "from": 0,
+          "to": 1,
+          "start": 8.645,
+          "duration": 0.25,
+          "ease": "easeOutCubic"
+        },
+        {
+          "property": "opacity",
+          "from": 1,
+          "to": 0,
+          "start": 13.271,
+          "duration": 0.2,
+          "ease": "easeInCubic"
+        }
+      ]
+    },
+    {
+      "id": "caption-5",
+      "type": "text",
+      "text": "Each visual follows an editable timing anchor",
+      "position": [
+        960.0,
+        930.0
+      ],
+      "fontSize": 34.5,
+      "maxWidth": 1680.0,
+      "color": "#f4f1ff",
+      "align": "center",
+      "opacity": 0,
+      "clips": [
+        {
+          "property": "opacity",
+          "from": 0,
+          "to": 1,
+          "start": 13.471,
+          "duration": 0.25,
+          "ease": "easeOutCubic"
+        },
+        {
+          "property": "opacity",
+          "from": 1,
+          "to": 0,
+          "start": 16.198,
+          "duration": 0.2,
+          "ease": "easeInCubic"
+        }
+      ]
+    },
+    {
+      "id": "caption-6",
+      "type": "text",
+      "text": "Change the colors adjust a reveal and render again",
+      "position": [
+        960.0,
+        930.0
+      ],
+      "fontSize": 34.5,
+      "maxWidth": 1680.0,
+      "color": "#f4f1ff",
+      "align": "center",
+      "opacity": 0,
+      "clips": [
+        {
+          "property": "opacity",
+          "from": 0,
+          "to": 1,
+          "start": 16.398,
+          "duration": 0.25,
+          "ease": "easeOutCubic"
+        },
+        {
+          "property": "opacity",
+          "from": 1,
+          "to": 0,
+          "start": 20.081,
+          "duration": 0.2,
+          "ease": "easeInCubic"
+        }
+      ]
+    },
+    {
+      "id": "caption-7",
+      "type": "text",
+      "text": "One scene file",
+      "position": [
+        960.0,
+        930.0
+      ],
+      "fontSize": 34.5,
+      "maxWidth": 1680.0,
+      "color": "#f4f1ff",
+      "align": "center",
+      "opacity": 0,
+      "clips": [
+        {
+          "property": "opacity",
+          "from": 0,
+          "to": 1,
+          "start": 20.281,
+          "duration": 0.25,
+          "ease": "easeOutCubic"
+        },
+        {
+          "property": "opacity",
+          "from": 1,
+          "to": 0,
+          "start": 21.499000000000002,
+          "duration": 0.2,
+          "ease": "easeInCubic"
+        }
+      ]
+    },
+    {
+      "id": "caption-8",
+      "type": "text",
+      "text": "One reusable engine",
+      "position": [
+        960.0,
+        930.0
+      ],
+      "fontSize": 34.5,
+      "maxWidth": 1680.0,
+      "color": "#f4f1ff",
+      "align": "center",
+      "opacity": 0,
+      "clips": [
+        {
+          "property": "opacity",
+          "from": 0,
+          "to": 1,
+          "start": 21.699,
+          "duration": 0.25,
+          "ease": "easeOutCubic"
+        },
+        {
+          "property": "opacity",
+          "from": 1,
+          "to": 0,
+          "start": 23.121000000000002,
+          "duration": 0.2,
+          "ease": "easeInCubic"
+        }
+      ]
+    },
+    {
+      "id": "caption-9",
+      "type": "text",
+      "text": "Your story in motion",
+      "position": [
+        960.0,
+        930.0
+      ],
+      "fontSize": 34.5,
+      "maxWidth": 1680.0,
+      "color": "#f4f1ff",
+      "align": "center",
+      "opacity": 0,
+      "clips": [
+        {
+          "property": "opacity",
+          "from": 0,
+          "to": 1,
+          "start": 23.321,
+          "duration": 0.25,
+          "ease": "easeOutCubic"
+        }
+      ]
+    },
+    {
+      "id": "fixture-note",
+      "type": "text",
+      "text": "Synthetic demo voice \u00b7 supplied timing events \u00b7 no automatic alignment",
+      "position": [
+        960.0,
+        1030.5
+      ],
+      "fontSize": 18.0,
+      "maxWidth": 1728.0,
+      "color": "#b1b7cf",
+      "align": "center"
+    }
+  ]
+}
