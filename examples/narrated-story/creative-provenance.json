@@ -1,0 +1,57 @@
+{
+  "description": "Original authored creative showcase using the existing synthetic narration plus original procedurally synthesized music and transition cues.",
+  "narration": "voice.wav; see provenance.json for original formant synthesis and word-event timing.",
+  "narrationProcessing": "Gain 1.1; no trimming, time stretching or wording changes.",
+  "music": {
+    "method": "Original sine/harmonic plucks; deterministic note sequence; no sampled or third-party music.",
+    "notesHz": [
+      261.6256,
+      329.6276,
+      391.9954,
+      523.2511,
+      391.9954,
+      329.6276,
+      293.6648,
+      391.9954
+    ],
+    "gain": 0.009,
+    "intervalSeconds": 0.78
+  },
+  "effects": {
+    "method": "Seeded original noise-envelope paper sweeps with quiet harmonic accents.",
+    "seed": 94131,
+    "cues": [
+      {
+        "time": 4.978,
+        "type": "quiet paper sweep"
+      },
+      {
+        "time": 13.471,
+        "type": "quiet paper sweep"
+      },
+      {
+        "time": 16.398,
+        "type": "quiet paper sweep"
+      },
+      {
+        "time": 20.281,
+        "type": "quiet paper sweep"
+      }
+    ]
+  },
+  "durationSeconds": 24.82875283446712,
+  "sampleRate": 22050,
+  "channels": 1,
+  "encoding": "PCM16",
+  "peak": 0.8640485253617542,
+  "files": {
+    "voice.wav": {
+      "sha256": "9428441bd369b66eecddfed6c40bec6bd817e5db9ece1df11b55093b64d85a7d"
+    },
+    "creative-mix.wav": {
+      "sha256": "b9fbe7abab03ce98ceab8351ea6da7fa4dc2329565ffbf0646483e03ccc5228e",
+      "bytes": 1094992
+    }
+  },
+  "limitations": "This utility prepares one example audio file; it is not a general multitrack audio editor or a generative provider."
+}

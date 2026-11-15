@@ -1,5 +1,5 @@
 {
-  "sceneId": "narrated-story",
+  "sceneId": "creative-narrated-story",
   "fullDecode": "passed",
   "frames": 745,
   "width": 1920,
@@ -10,11 +10,11 @@
   "codec": "h264",
   "audioCodec": "aac",
   "loudness": {
-    "integratedLufs": -22.6,
-    "truePeakDbfs": -3.5
+    "integratedLufs": -20.4,
+    "truePeakDbfs": -1.2
   },
-  "bytes": 1037626,
-  "sha256": "69d6cb724effac3ad79cdf03f339b2603ea86d1080edcd403dca6ff1bd97a29b",
+  "bytes": 2196179,
+  "sha256": "dc6df4f36e1c8c83409ecb9877fc0d95ee0826131364e2b9cfdaf73d3b30f7c9",
   "runtime": {
     "node": "v24.11.1",
     "platform": "darwin",

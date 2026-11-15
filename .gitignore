@@ -34,3 +34,6 @@ __pycache__/
 # Original, credited fixtures and actual engine showcase output
 !examples/narrated-story/voice.wav
 !showcase/rachana-demo.mp4
+
+!examples/narrated-story/creative-mix.wav
+!showcase/foundation-demo.mp4

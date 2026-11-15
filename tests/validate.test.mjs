@@ -126,3 +126,83 @@ test('rejects hostile audio paths while allowing safe relative media paths', () 
     const valid = scene(); valid.audio = { src }; assert.equal(validateScene(valid).valid, true, src);
   }
 });
+
+function pathLayer(id = 'path') {
+  return { id, type: 'path', position: [0, 0], fill: '#00000000', stroke: '#ffffff', strokeWidth: 2,
+    commands: [['M', 0, 0], ['L', 10, 0], ['C', 10, 2, 8, 8, 5, 10], ['Q', 0, 8, 0, 0], ['Z']] };
+}
+
+function group(id, children) { return { id, type: 'group', position: [0, 0], children }; }
+
+test('accepts recursive groups, all typed path commands and normal/bold text weights', () => {
+  const input = scene();
+  input.layers = [group('actor', [group('arm', [pathLayer()])])];
+  input.layers[0].clips = [{ property: 'rotation', from: -5, to: 0, start: 0, duration: 0.2 }];
+  for (const fontWeight of ['normal', 'bold']) {
+    input.layers.push({ id: `title-${fontWeight}`, type: 'text', text: 'Title', position: [100, 100], fontSize: 40, fontWeight, maxWidth: 200, color: '#ffffff' });
+  }
+  assert.deepEqual(validateScene(input), { valid: true, errors: [] });
+});
+
+test('rejects malformed path tuples, non-finite points and raw SVG path strings', () => {
+  for (const commands of [[], [['M', 0]], [['M', 0, 0, 1]], [['C', 0, 0]], [['Q', 1, 2, 3]], [['Z', 0]], [['A', 0, 0]], [['L', '1', 2]], [['M', NaN, 0]], [['M', 0, Infinity]], 'M 0 0 L 1 1', [{ op: 'M', x: 0, y: 0 }]]) {
+    const input = scene(); input.layers = [{ ...pathLayer(), commands }];
+    invalid(input, '/layers/0');
+  }
+  const raw = scene(); raw.layers = [{ ...pathLayer(), d: 'M0 0L1 1' }]; invalid(raw, '/layers/0/d');
+  const unknown = scene(); unknown.layers = [group('parent', [{ ...pathLayer(), execute: 'code' }])];
+  invalid(unknown, '/layers/0/children/0/execute');
+});
+
+test('IDs are unique across the full group tree, including parents and separate roots', () => {
+  const duplicateSibling = scene(); duplicateSibling.layers = [group('parent', [pathLayer('same'), group('inner', [pathLayer('same')])])];
+  invalid(duplicateSibling, '/layers/0/children/1/children/0/id');
+  const parentConflict = scene(); parentConflict.layers = [group('parent', [pathLayer('parent')])];
+  invalid(parentConflict, '/layers/0/children/0/id');
+  const rootConflict = scene(); rootConflict.layers = [pathLayer('shared'), group('parent', [pathLayer('shared')])];
+  invalid(rootConflict, '/layers/1/children/0/id');
+});
+
+test('nested children receive anchor, end-time and same-property overlap checks', () => {
+  const input = scene(); const child = pathLayer(); input.layers = [group('parent', [child])];
+  child.clips = [{ property: 'opacity', from: 0, to: 1, start: { anchor: 'missing' }, duration: 0.3 }];
+  invalid(input, '/layers/0/children/0/clips/0/start/anchor');
+  child.clips[0].start = 1.9;
+  invalid(input, '/layers/0/children/0/clips/0/duration');
+  child.clips = [
+    { property: 'opacity', from: 0, to: 1, start: 0, duration: 1 },
+    { property: 'opacity', from: 1, to: 0, start: { anchor: 'w1' }, duration: 0.4 }
+  ];
+  invalid(input, '/layers/0/children/0/clips/1/start');
+});
+
+test('bounds tree depth and rejects cycles before recursive schema validation', () => {
+  let nested = pathLayer();
+  for (let depth = 1; depth < 8; depth++) nested = group(`g${depth}`, [nested]);
+  const input = scene(); input.layers = [nested];
+  assert.equal(validateScene(input).valid, true, 'eight layer levels are allowed');
+  input.layers = [group('too-deep', [nested])]; invalid(input, '/layers/0');
+  // An arbitrary caller can supply cyclic JS objects even though JSON cannot.
+  const cycle = group('cycle', []); cycle.children.push(cycle); input.layers = [cycle];
+  const result = validateScene(input);
+  assert.equal(result.valid, false); assert.match(result.errors[0].message, /cycles/);
+  let deep = pathLayer();
+  for (let depth = 0; depth < 10000; depth++) deep = group(`deep-${depth}`, [deep]);
+  input.layers = [deep]; assert.equal(validateScene(input).valid, false, 'deep inputs fail without stack overflow');
+});
+
+test('bounds total layers, per-group children, per-path and total command counts', () => {
+  const input = scene();
+  input.layers = Array.from({ length: 3 }, (_, groupIndex) => group(`g-${groupIndex}`, Array.from({ length: 499 }, (_, i) => pathLayer(`p-${groupIndex}-${i}`))));
+  assert.equal(validateScene(input).valid, true, '1500 layers including groups are permitted');
+  input.layers.push(pathLayer('overflow'));
+  invalid(input, '/layers');
+  input.layers = [group('wide', Array.from({ length: 501 }, (_, i) => pathLayer(`wide-${i}`)))];
+  invalid(input, '/layers/0/children');
+  const long = pathLayer(); long.commands = Array.from({ length: 513 }, () => ['L', 0, 0]);
+  input.layers = [long]; invalid(input, '/layers/0/commands');
+  input.layers = Array.from({ length: 40 }, (_, i) => ({ ...pathLayer(`dense-${i}`), commands: Array.from({ length: 500 }, () => ['L', 0, 0]) }));
+  assert.equal(validateScene(input).valid, true, '20000 path commands are permitted');
+  input.layers.push(pathLayer('command-overflow'));
+  invalid(input, '/layers');
+});

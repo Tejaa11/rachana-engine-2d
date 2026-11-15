@@ -1,6 +1,6 @@
 # Scene format v1
 
-This is the implemented authoring contract for the primitive-scene alpha. The [JSON Schema](../schemas/scene.schema.json) defines structure; [TypeScript types](../packages/core/src/types.ts) describe the same values; semantic validation checks relationships such as IDs, anchor resolution and clip overlap. It is a scene format, not yet the full project/shot/asset system described in the product plan.
+This is the implemented authoring contract for the scene alpha, including reusable nested vector compositions. The [JSON Schema](../schemas/scene.schema.json) defines structure; [TypeScript types](../packages/core/src/types.ts) describe the same values; semantic validation checks relationships such as IDs, anchor resolution and clip overlap. It is a scene format, not yet the full project/shot/asset system described in the product plan.
 
 ## Small complete scene
 
@@ -42,11 +42,11 @@ Save it as a JSON file, then use the [CLI](../QUICKSTART.md) to validate, export
 | `id` | Nonempty scene identifier |
 | `output` | Positive duration, integer dimensions and integer frame rate |
 | `background` | `#RRGGBB` or `#RRGGBBAA` color |
-| `layers` | Ordered list of primitive layers; later entries draw above earlier ones |
+| `layers` | Ordered list of shapes/groups; later entries draw above earlier ones |
 | `audio` | Optional local PCM16 WAV path and gain |
 | `narration` | Optional supplied word times and declared timing source |
 
-Current schema limits include width 16–3840, height 16–2160, fps 1–60, duration at most 1800 seconds, at most 500 layers and 1000 clips per layer. These resource bounds are not performance guarantees. Use even output dimensions for the current H.264/yuv420p encoder. Font size, geometry, text length and clip endpoints also have explicit bounds in the schema.
+Current schema limits include width 16–3840, height 16–2160, fps 1–60 and duration at most 1800 seconds. Layer trees allow at most 500 root layers, 500 children per group, 1500 total nodes and nesting depth 8 (root layers are depth 1). Each path allows at most 512 commands; the whole scene allows at most 20,000 path commands. Each layer allows at most 1000 clips. Cycles and shared layer objects are rejected before recursive schema validation. These resource bounds are not performance guarantees. Use even output dimensions for the current H.264/yuv420p encoder. Font size, geometry, text length and clip endpoints also have explicit bounds in the schema.
 
 ## Layers and coordinate system
 
@@ -54,7 +54,7 @@ All layers require a unique `id`, `type`, and `position: [x, y]`. Coordinates us
 
 - `rect`: `size: [width, height]`, `fill`, optional corner `radius`. Position is its top-left origin.
 - `circle`: `radius`, `fill`, optional `stroke` and `strokeWidth`. Position is its center.
-- `text`: `text`, `fontSize`, `color`, `maxWidth`; optional `align` (`left`, `center`, `right`) and `lineHeight` (multiplier, default 1.25). Position is the first line's top and horizontal alignment origin.
+- `text`: `text`, `fontSize`, `color`, `maxWidth`; optional `align` (`left`, `center`, `right`), `lineHeight` (multiplier, default 1.25), and `fontWeight` (`normal` or `bold`). Position is the first line's top and horizontal alignment origin.
 
 The renderer uses bundled font families; arbitrary fonts are not an authoring option yet. It wraps whitespace-delimited words, preserves paragraph breaks, and splits long tokens at grapheme boundaries without discarding text. A column narrower than one grapheme or visible text extending off-canvas produces an error. This does not implement a general automatic layout or collision-avoidance system.
 
@@ -73,7 +73,61 @@ Eases are `linear` (default), `easeInCubic`, `easeOutCubic`, and `easeInOutCubic
 
 Before its first clip, a property holds its layer's base value. At the clip's start it takes the declared `from`; it then interpolates to `to` and holds that final value until a later clip on that property starts. Make `from` match the preceding value when continuity is intended. Clips are evaluated in resolved-start order, not JSON order.
 
-Two clips on the same property of one layer may touch at a boundary but may not overlap. Distinct properties may animate together. There is no blending, spring solver, path curve, skeletal clip or clip-loop feature in v1.
+Two clips on the same property of one layer may touch at a boundary but may not overlap. Distinct properties may animate together. There is no clip blending, spring solver, skeletal retargeting or clip-loop feature in v1. Curved vector artwork is supported independently; arc movement is supplied by a helper that builds ordinary position clips.
+
+
+## Nested groups
+
+A group has the same transform/opacity/clip fields as a shape and a `children` array. Child positions are local to their parent. Translation, rotation and scale compose through the hierarchy. Opacity multiplies down the tree: a parent at 0.5 with a child at 0.4 draws that child at 0.2 combined opacity. A hidden group hides its subtree. Painter order applies inside each group as well as at the root.
+
+```json
+{
+  "id": "illustration",
+  "type": "group",
+  "position": [640, 360],
+  "scale": 1.2,
+  "opacity": 0.8,
+  "children": [
+    { "id": "illustration/dot", "type": "circle", "position": [0, 0], "radius": 40, "fill": "#b9a3ff" }
+  ]
+}
+```
+
+IDs must be unique across the entire layer tree, not just siblings. Groups are a reusable composition boundary; they do not create a camera, mask or physics system. All clips still use scene time, not a parent-local playback clock. Group evaluation is recursive and deterministic, and does not flatten away authored transforms.
+
+## Curved vector paths
+
+A `path` layer has `commands`, `fill`, and optional `stroke`/`strokeWidth`, plus the common transform and clip fields. Use a transparent fill such as `#00000000` for a stroke-only path. Commands use local coordinates:
+
+| Tuple | Operation |
+| --- | --- |
+| `["M", x, y]` | Move to a point |
+| `["L", x, y]` | Line to a point |
+| `["Q", cx, cy, x, y]` | Quadratic curve with one control point |
+| `["C", x1, y1, x2, y2, x, y]` | Cubic curve with two control points |
+| `["Z"]` | Close the current subpath |
+
+```json
+{
+  "id": "thread",
+  "type": "path",
+  "position": [100, 200],
+  "fill": "#00000000",
+  "stroke": "#7761c9",
+  "strokeWidth": 4,
+  "commands": [["M", 0, 0], ["Q", 80, -70, 160, 0]]
+}
+```
+
+This is an explicit tuple format, not SVG markup or executable drawing code. Commands have exact arities and bounded numeric values. The renderer draws round line joins/caps for stroked paths. Path commands are currently static geometry; transform clips move the layer/group, not individual control points.
+
+## Creative prefabs
+
+[`@rachana/creative`](../packages/creative/src/index.ts) builds ordinary scene data rather than adding special renderer branches. `createCharacter` returns an original Mira group with prefixed IDs, layered face/body, analytic two-link arms and four supported poses (`think`, `explain`, `point`, `celebrate`). Expressions are `curious`, `happy`, and `focused`; the options include shirt color, position, scale and a finite acting start/end interval. Acting intervals bound blinking, breathing and restrained gestures; parent shot opacity controls when the whole actor is visible.
+
+The origin is the ground between Mira's shoes, with a crown height of roughly 390 local pixels. Her pose system is designed for this original actor, not imported-rig retargeting, universal automatic rigging or phoneme lip sync.
+
+`appear`, `pop`, `arcMotion`, and `drift` return editable clips. `arcMotion` approximates an arc through segmented linear position clips; it is not an analytic path-following backend. The [creative direction note](CREATIVE_DIRECTION.md) and [builder source](../tools/build-creative-story.mjs) demonstrate reuse.
 
 ## Word anchors
 
@@ -106,7 +160,7 @@ This example resolves to 0.6 seconds. `edge` defaults to `start`; `offset` defau
 
 Paths resolve relative to the scene directory. Only files inside that directory are accepted, including after symlink resolution; absolute paths, remote URLs and parent-directory traversal are rejected. The alpha accepts one uncompressed PCM16 WAV track (mono/stereo, 8–96 kHz, up to 64 MiB). It does not accept playlists or compressed MP3 as scene input.
 
-The WAV duration must match the scene within one output frame; larger mismatches are rejected. Frame rounding may pad less than one frame of silence. Output audio is encoded to AAC with gain and a peak limiter. Gain is a scalar from 0 to 4; it is not automatic loudness normalization. There is no separate multi-track music/effects mix yet.
+The WAV duration must match the scene within one output frame; larger mismatches are rejected. Frame rounding may pad less than one frame of silence. Output audio is encoded to AAC with gain and a peak limiter. Gain is a scalar from 0 to 4; it is not automatic loudness normalization. There is no separate runtime multi-track music/effects mixer. The creative example imports one precomposed WAV containing its narration and original procedural bed/cues; that example production step is not a new runtime audio API.
 
 ## Frame semantics and output
 

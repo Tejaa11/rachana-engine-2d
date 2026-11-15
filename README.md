@@ -19,24 +19,26 @@
 
 ![Motion excerpt rendered by Rachana](showcase/demo.gif)
 
-The GIF is a silent excerpt from a real engine render. **[Watch the complete demo with narration](showcase/rachana-demo.mp4)**, inspect its [scene JSON](examples/narrated-story/scene.json), or follow the [quickstart](QUICKSTART.md) to render it locally. The approximately 25-second demo combines text, moving shapes, and reveal cues anchored to synthetic narration. It is an editable example of the current runtime, not an automatically directed production.
+The GIF is a silent excerpt from a real engine render. **[Watch the complete demo with narration](showcase/rachana-demo.mp4)**, inspect its [creative scene JSON](examples/narrated-story/creative.scene.json), or follow the [quickstart](QUICKSTART.md) to render it locally. The approximately 25-second creative cut follows Mira, an original recurring character, through five authored shots with expressive poses, curved vector art, narration-anchored reveals, and a quiet procedural music/effects mix. See the [creative direction](docs/CREATIVE_DIRECTION.md). The story and compositions are authored source, not choices made by an automatic director.
 
 ## Project status
 
-**Working alpha: declarative scenes, a local CLI, and supplied narration anchors.** Rachana now validates scene files, evaluates animation directly at a requested time, draws PNG frames, and exports MP4 through FFmpeg. The broader script-and-voice agent, asset generation, character rigs, cameras, and editing studio remain planned.
+**Working alpha 0.1.0-alpha.2: reusable vector characters, creative motion, and authored narration-led scenes.** Rachana validates scene files, evaluates nested animation directly at a requested time, draws PNG frames, and exports MP4 through FFmpeg. The automatic script-and-voice agent, image-generation providers, generic rig retargeting, cameras, and editing studio remain planned.
 
 Created and maintained by [Tejas Dadhich (@Tejaa11)](https://github.com/Tejaa11), with AI-assisted development and maintainer review.
 
 | Capability | Current status |
 | --- | --- |
-| Rectangles, circles, wrapped text and ordered layers | Implemented |
+| Rectangles, circles, wrapped text, curved vector paths and nested groups | Implemented |
+| Original Mira character: four poses, three expressions, bounded acting | Implemented prefab |
+| Arc, drift, pop and reveal motion presets | Implemented editable clip builders |
 | Position, opacity, scale and rotation clips; four easing curves | Implemented |
 | Clip starts in seconds or relative to supplied word boundaries | Implemented |
 | Schema and semantic checks for IDs, values, references and clip overlap | Implemented |
 | Direct frame evaluation, PNG export and MP4 export | Implemented |
 | Bundled fonts and an environment doctor | Implemented |
 | Automatic transcription/alignment, TTS and director agent | Planned |
-| Generated artwork, rigged characters and asset providers | Planned |
+| Generative artwork, arbitrary character rigging and asset providers | Planned |
 | Cameras, browser editor, persistent jobs, cache and resume | Planned |
 
 ## Render your first scene
@@ -50,17 +52,17 @@ npm ci
 npm run build
 npm run cli -- doctor
 npm run render:smoke
-npm run render:demo
+npm run render:creative
 ```
 
-These create `renders/minimal.mp4` and `renders/rachana-demo.mp4`, each with a render manifest. Outputs are never overwritten; choose a new output path when rendering a revision. No API key or paid provider is needed for these examples. npm needs network access to install the declared packages; rendering the included scenes then runs locally.
+These create `renders/minimal.mp4` and `renders/rachana-creative.mp4`, each with a render manifest. The earlier shape-only example remains available through `npm run render:demo`. Outputs are never overwritten; choose a new output path when rendering a revision. No API key or paid provider is needed for these examples. npm needs network access to install the declared packages; rendering the included scenes then runs locally.
 
 Change a shape's colors, position, timing, or text in its scene file, validate it, and render a new cut:
 
 ```sh
-npm run cli -- validate examples/narrated-story/scene.json
-npm run cli -- frame examples/narrated-story/scene.json --frame 30 --out renders/frame-30.png
-npm run cli -- render examples/narrated-story/scene.json --out renders/revision-1.mp4
+npm run cli -- validate examples/narrated-story/creative.scene.json
+npm run cli -- frame examples/narrated-story/creative.scene.json --frame 30 --out renders/frame-30.png
+npm run cli -- render examples/narrated-story/creative.scene.json --out renders/revision-1.mp4
 ```
 
 ## How it works
@@ -80,7 +82,8 @@ The narrated example includes original synthetic audio and synthesis-start times
 ## Examples and verification
 
 - [Minimal scene](examples/minimal-scene/scene.json): a two-second render fixture.
-- [Narrated story](examples/narrated-story/scene.json): approximately 25 seconds of voice-anchored shape and text animation.
+- [Creative narrated story](examples/narrated-story/creative.scene.json): five authored shots, an original reusable character, curved graphics and a precomposed procedural sound mix.
+- [Earlier narrated shape study](examples/narrated-story/scene.json): a smaller example of supplied word anchors; render with `npm run render:demo`.
 - [Example notes](examples/README.md): media, timing, and scope.
 - [Showcase](showcase/README.md): source-linked outputs and regeneration.
 
@@ -94,17 +97,18 @@ npm run verify:smoke
 
 ## Boundaries and next steps
 
-Scene authoring currently uses JSON. The runtime supports three primitive layer kinds and one optional local PCM16 WAV audio track. WAV duration must match the scene within one output frame; its timing data must already be supplied. The engine does not yet turn an arbitrary script and voice recording into a complete film.
+Scene authoring currently uses JSON. The runtime supports four shape kinds, nested groups, a reusable original character prefab, and one optional local PCM16 WAV audio track. WAV duration must match the scene within one output frame; its timing data must already be supplied. The creative example precomposes narration, original procedural music and sound cues into that one WAV; it does not add a runtime multi-track mixer. The engine does not yet turn an arbitrary script and voice recording into a complete film. Mira has a designed pose system, not automatic rigging/retargeting or phoneme lip sync.
 
 The bundled Noto Sans, Devanagari, and Gujarati fonts avoid reliance on the maintainer's system fonts. They do not establish validated Indic speech alignment or universal glyph coverage. Broader language/shaping support is experimental and needs review fixtures.
 
-Next work adds a shared animation/character system, asset resolution, provider adapters, narration analysis, the director workflow, and an editing studio. See [ROADMAP.md](ROADMAP.md), the [product plan](docs/ENGINE_PRODUCT_PLAN.md), [asset design](docs/ASSET_PIPELINE.md), and [release standards](docs/RELEASE_STANDARD.md).
+Next work expands character actions and composition, then adds asset resolution, provider adapters, narration analysis, the director workflow, and an editing studio. See [ROADMAP.md](ROADMAP.md), the [product plan](docs/ENGINE_PRODUCT_PLAN.md), [asset design](docs/ASSET_PIPELINE.md), and [release standards](docs/RELEASE_STANDARD.md).
 
 ## Repository map
 
 ```text
 packages/core/       Types, validation and pure animation evaluation
 packages/renderer/   Canvas drawing, local media loading and FFmpeg export
+packages/creative/   Original Mira character and reusable motion builders
 apps/cli/            doctor, validate, frame and render commands
 schemas/             Versioned scene JSON Schema
 examples/            Editable scene files and redistributable inputs

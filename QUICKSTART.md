@@ -52,6 +52,16 @@ Open `renders/rachana-demo.mp4` in a local media player. This approximately 25-s
 
 The example audio is already included. You do not need eSpeak or another TTS tool to render it. Its [provenance file](examples/narrated-story/provenance.json) documents how that development fixture was generated, including approximate word-end timing.
 
+## Render the creative character showcase
+
+```sh
+npm run render:creative
+```
+
+This creates `renders/rachana-creative.mp4` from `examples/narrated-story/creative.scene.json`. It uses the same narration with an original quiet precomposed music/cue bed, five authored compositions, and the reusable Mira character. The public showcase now displays this cut. The earlier shape-only scene is still available through `render:demo`.
+
+`npm run creative:prepare` regenerates the example mix and scene from the authored builders; it replaces those generated inputs, so preserve any manual JSON edits first. This is not automatic directing or speech alignment.
+
 ## Edit and inspect a frame
 
 Change a layer's `fill`, `position`, text, or clip values in the example scene. See the [scene format](docs/SCENE_FORMAT.md) for supported fields. Then:

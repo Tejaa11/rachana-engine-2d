@@ -1,10 +1,10 @@
 # Rachana Engine 2D — product and engineering plan
 
-Current-state revision: 14 November 2026. Product: **Rachana Engine 2D**. Creator and maintainer: **Tejas Dadhich (@Tejaa11)**. Repository: `Tejaa11/rachana-engine-2d`.
+Current-state revision: 15 November 2026. Product: **Rachana Engine 2D**. Creator and maintainer: **Tejas Dadhich (@Tejaa11)**. Repository: `Tejaa11/rachana-engine-2d`.
 
 Tagline: **From script and voice to animated stories.** The GitHub repository name is selected; package-registry and brand availability have not been checked.
 
-**Status:** a working declarative-scene alpha now exists. It validates primitive scene files, evaluates animation at arbitrary times, draws PNG frames and exports MP4 with supplied narration anchors. The broader product, agent, asset-generation and release requirements below remain planned; this alpha does not automatically create a film from arbitrary script/voice inputs. See [the current scene contract](SCENE_FORMAT.md) and [quickstart](../QUICKSTART.md).
+**Status:** a working declarative-scene alpha now exists. It validates primitive/group/path scene files, evaluates animation at arbitrary times, draws PNG frames and exports MP4 with supplied narration anchors. A reusable original character prefab and authored creative showcase are now available. The broader product, agent, asset-generation and release requirements below remain planned; this alpha does not automatically create a film from arbitrary script/voice inputs. See [the current scene contract](SCENE_FORMAT.md) and [quickstart](../QUICKSTART.md).
 
 ## 1. Product promise
 
@@ -24,9 +24,9 @@ A generated painting of a character, a puppet with movable body layers and a ful
 
 Earlier private Voxam and CareClinic productions explored procedural actors, shot direction, narration-led previews, captions, and Canvas-to-FFmpeg export. Their project-specific source and supplied media are not bundled in this repository. See [origins](ORIGINS.md).
 
-The public alpha now includes a scene JSON Schema and semantic validator, TypeScript frame evaluation, native Canvas drawing, a local FFmpeg export CLI, bundled fonts, tests and two editable examples. Rectangle, circle and text layers support position, opacity, scale and rotation clips. The narrated example uses original synthetic speech and supplied synthesis-event word starts; word ends are approximate. It demonstrates authored timing, not automatic recorded-speech alignment.
+The public alpha now includes a scene JSON Schema and semantic validator, TypeScript frame evaluation, native Canvas drawing, a local FFmpeg export CLI, bundled fonts, tests and two editable examples. Rectangle, circle, text and curved path layers support position, opacity, scale and rotation clips within nested groups. The creative kit builds Mira in four expressive poses and supplies reveal, arc and drift motion presets. The narrated example uses original synthetic speech and supplied synthesis-event word starts; word ends are approximate. It demonstrates authored timing, not automatic recorded-speech alignment.
 
-Next work expands primitive scenes into project/shot/actor/asset contracts, reusable characters, cameras, a real asset/provider pipeline, director planning and an editing studio. Browser rendering, job persistence, caching and resume are not implemented. Legacy prototype capabilities must not be presented as current public-engine guarantees.
+Next work expands these authored scenes and prefabs into project/shot/actor/asset contracts, broader acting, cameras, a real asset/provider pipeline, director planning and an editing studio. Browser rendering, job persistence, caching and resume are not implemented. Legacy prototype capabilities must not be presented as current public-engine guarantees.
 
 Preserve original inputs and approved film outputs outside the public engine package. Public examples must use redistributable media and work without the maintainer's private environment.
 

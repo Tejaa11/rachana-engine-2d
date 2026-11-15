@@ -1,4 +1,4 @@
-import type { Clip, Ease, EvaluatedLayer, FrameState, Layer, Scene, Start, Vec2 } from './types.js';
+import type { Clip, Ease, EvaluatedLayer, FrameState, Layer, PathCommand, Scene, Start, Vec2 } from './types.js';
 
 /** Resolve an authoring time. Anchors reference reviewed word boundaries in seconds. */
 export function resolveStart(scene: Scene, start: Start): number {
@@ -52,15 +52,18 @@ function applyClip(layer: EvaluatedLayer, clip: Clip, progress: number): void {
 
 function evaluateLayer(scene: Scene, layer: Layer, timeSeconds: number): EvaluatedLayer {
   const { clips = [], ...appearance } = layer;
-  const result: EvaluatedLayer = {
+  // Child and command arrays are detached below before this object is returned.
+  const result = {
     ...appearance,
     position: [...layer.position] as Vec2,
     opacity: layer.opacity ?? 1,
     scale: layer.scale ?? 1,
     rotation: layer.rotation ?? 0,
-  };
+  } as EvaluatedLayer;
   // Do not expose mutable arrays from the authored scene through a returned draw state.
   if (result.type === 'rect' && layer.type === 'rect') result.size = [...layer.size] as Vec2;
+  if (result.type === 'path' && layer.type === 'path') result.commands = layer.commands.map(command => [...command] as PathCommand);
+  if (result.type === 'group' && layer.type === 'group') result.children = layer.children.map(child => evaluateLayer(scene, child, timeSeconds));
 
   const ordered = clips.map((clip) => ({ clip, at: resolveStart(scene, clip.start) }))
     .sort((a, b) => a.at - b.at);
@@ -69,7 +72,9 @@ function evaluateLayer(scene: Scene, layer: Layer, timeSeconds: number): Evaluat
       throw new RangeError(`Clip duration must be finite and positive on layer ${layer.id}.`);
     }
     if (timeSeconds < at) continue;
-    const progress = Math.min(1, (timeSeconds - at) / clip.duration);
+    const sampled = Math.min(1, (timeSeconds - at) / clip.duration);
+    // Snap numerical residue at a completed endpoint, including opacity-zero holds.
+    const progress = sampled > 1 - 1e-12 ? 1 : sampled;
     applyClip(result, clip, progress);
   }
   return result;

@@ -7,11 +7,11 @@ import { loadScene } from '../dist/packages/renderer/src/files.js';
 import { createSurface, drawFrame } from '../dist/packages/renderer/src/draw.js';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
-const scene = await loadScene(path.join(root, 'examples/narrated-story/scene.json'));
+const scene = await loadScene(path.join(root, 'examples/narrated-story/creative.scene.json'));
 const canvas = createSurface(scene.output.width, scene.output.height);
-drawFrame(canvas, evaluateScene(scene, 8));
+drawFrame(canvas, evaluateScene(scene, 1.9));
 await writeFile(path.join(root, 'showcase/preview.png'), canvas.toBuffer('image/png'));
-const video = path.join(root, 'renders/rachana-demo.mp4');
+const video = path.join(root, 'renders/rachana-creative.mp4');
 await copyFile(video, path.join(root, 'showcase/rachana-demo.mp4'));
 for (const suffix of ['manifest.json', 'verification.json']) {
   // The manifest contains no absolute paths or private narration metadata.
