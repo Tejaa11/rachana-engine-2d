@@ -1,5 +1,5 @@
 {
-  "sceneId": "narrated-story",
+  "sceneId": "creative-narrated-story",
   "width": 1920,
   "height": 1080,
   "fps": 30,
@@ -11,11 +11,11 @@
     "durationSeconds": 24.82875283446712,
     "channels": 1,
     "sampleRate": 22050,
-    "peak": 0.78717041015625
+    "peak": 0.864013671875
   },
   "timingSource": "synthesis-events",
   "renderer": "@napi-rs/canvas",
   "ffmpeg": "ffmpeg version 7.1 Copyright (c) 2000-2024 the FFmpeg developers",
-  "renderSeconds": 4.84,
+  "renderSeconds": 5.39,
   "limitations": "No automatic speech alignment, TTS, asset generation, render cache or resume. Timing data is supplied with the scene."
 }

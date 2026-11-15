@@ -1,6 +1,6 @@
 {
   "name": "rachana-engine-2d",
-  "version": "0.1.0-alpha.1",
+  "version": "0.1.0-alpha.2",
   "private": true,
   "description": "An early 2D scene runtime with a local render CLI and narration-anchored animation.",
   "type": "module",
@@ -25,7 +25,9 @@
     "render:smoke": "node dist/apps/cli/src/main.js render examples/minimal-scene/scene.json --out renders/minimal.mp4",
     "render:demo": "node dist/apps/cli/src/main.js render examples/narrated-story/scene.json --out renders/rachana-demo.mp4",
     "verify:smoke": "node tools/verify-smoke.mjs renders/minimal.mp4",
-    "showcase": "node tools/build-showcase.mjs"
+    "showcase": "node tools/build-showcase.mjs",
+    "creative:prepare": "npm run build && node tools/build-creative-audio.mjs && node tools/build-creative-story.mjs",
+    "render:creative": "node dist/apps/cli/src/main.js render examples/narrated-story/creative.scene.json --out renders/rachana-creative.mp4"
   },
   "dependencies": {
     "@napi-rs/canvas": "1.1.1",

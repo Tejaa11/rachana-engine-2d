@@ -102,17 +102,7 @@
       "type": "array",
       "maxItems": 500,
       "items": {
-        "oneOf": [
-          {
-            "$ref": "#/$defs/rect"
-          },
-          {
-            "$ref": "#/$defs/circle"
-          },
-          {
-            "$ref": "#/$defs/text"
-          }
-        ]
+        "$ref": "#/$defs/layer"
       }
     }
   },
@@ -541,6 +531,12 @@
           "type": "number",
           "minimum": 0.5,
           "maximum": 5
+        },
+        "fontWeight": {
+          "enum": [
+            "normal",
+            "bold"
+          ]
         }
       },
       "required": [
@@ -551,6 +547,259 @@
         "fontSize",
         "color",
         "maxWidth"
+      ]
+    },
+    "pathCommand": {
+      "oneOf": [
+        {
+          "type": "array",
+          "items": [
+            {
+              "const": "M"
+            },
+            {
+              "type": "number",
+              "minimum": -100000,
+              "maximum": 100000
+            },
+            {
+              "type": "number",
+              "minimum": -100000,
+              "maximum": 100000
+            }
+          ],
+          "additionalItems": false,
+          "minItems": 3,
+          "maxItems": 3
+        },
+        {
+          "type": "array",
+          "items": [
+            {
+              "const": "L"
+            },
+            {
+              "type": "number",
+              "minimum": -100000,
+              "maximum": 100000
+            },
+            {
+              "type": "number",
+              "minimum": -100000,
+              "maximum": 100000
+            }
+          ],
+          "additionalItems": false,
+          "minItems": 3,
+          "maxItems": 3
+        },
+        {
+          "type": "array",
+          "items": [
+            {
+              "const": "C"
+            },
+            {
+              "type": "number",
+              "minimum": -100000,
+              "maximum": 100000
+            },
+            {
+              "type": "number",
+              "minimum": -100000,
+              "maximum": 100000
+            },
+            {
+              "type": "number",
+              "minimum": -100000,
+              "maximum": 100000
+            },
+            {
+              "type": "number",
+              "minimum": -100000,
+              "maximum": 100000
+            },
+            {
+              "type": "number",
+              "minimum": -100000,
+              "maximum": 100000
+            },
+            {
+              "type": "number",
+              "minimum": -100000,
+              "maximum": 100000
+            }
+          ],
+          "additionalItems": false,
+          "minItems": 7,
+          "maxItems": 7
+        },
+        {
+          "type": "array",
+          "items": [
+            {
+              "const": "Q"
+            },
+            {
+              "type": "number",
+              "minimum": -100000,
+              "maximum": 100000
+            },
+            {
+              "type": "number",
+              "minimum": -100000,
+              "maximum": 100000
+            },
+            {
+              "type": "number",
+              "minimum": -100000,
+              "maximum": 100000
+            },
+            {
+              "type": "number",
+              "minimum": -100000,
+              "maximum": 100000
+            }
+          ],
+          "additionalItems": false,
+          "minItems": 5,
+          "maxItems": 5
+        },
+        {
+          "type": "array",
+          "items": [
+            {
+              "const": "Z"
+            }
+          ],
+          "additionalItems": false,
+          "minItems": 1,
+          "maxItems": 1
+        }
+      ]
+    },
+    "layer": {
+      "oneOf": [
+        {
+          "$ref": "#/$defs/rect"
+        },
+        {
+          "$ref": "#/$defs/circle"
+        },
+        {
+          "$ref": "#/$defs/text"
+        },
+        {
+          "$ref": "#/$defs/path"
+        },
+        {
+          "$ref": "#/$defs/group"
+        }
+      ]
+    },
+    "path": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "type": {
+          "const": "path"
+        },
+        "id": {
+          "$ref": "#/$defs/id"
+        },
+        "position": {
+          "$ref": "#/$defs/vec2"
+        },
+        "opacity": {
+          "$ref": "#/$defs/opacity"
+        },
+        "scale": {
+          "$ref": "#/$defs/scale"
+        },
+        "rotation": {
+          "type": "number",
+          "minimum": -100000,
+          "maximum": 100000
+        },
+        "clips": {
+          "type": "array",
+          "maxItems": 1000,
+          "items": {
+            "$ref": "#/$defs/clip"
+          }
+        },
+        "commands": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 512,
+          "items": {
+            "$ref": "#/$defs/pathCommand"
+          }
+        },
+        "fill": {
+          "$ref": "#/$defs/color"
+        },
+        "stroke": {
+          "$ref": "#/$defs/color"
+        },
+        "strokeWidth": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1000
+        }
+      },
+      "required": [
+        "id",
+        "type",
+        "position",
+        "commands",
+        "fill"
+      ]
+    },
+    "group": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "type": {
+          "const": "group"
+        },
+        "id": {
+          "$ref": "#/$defs/id"
+        },
+        "position": {
+          "$ref": "#/$defs/vec2"
+        },
+        "opacity": {
+          "$ref": "#/$defs/opacity"
+        },
+        "scale": {
+          "$ref": "#/$defs/scale"
+        },
+        "rotation": {
+          "type": "number",
+          "minimum": -100000,
+          "maximum": 100000
+        },
+        "clips": {
+          "type": "array",
+          "maxItems": 1000,
+          "items": {
+            "$ref": "#/$defs/clip"
+          }
+        },
+        "children": {
+          "type": "array",
+          "maxItems": 500,
+          "items": {
+            "$ref": "#/$defs/layer"
+          }
+        }
+      },
+      "required": [
+        "id",
+        "type",
+        "position",
+        "children"
       ]
     }
   }

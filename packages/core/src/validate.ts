@@ -1,6 +1,6 @@
 import { readFileSync } from 'node:fs';
 import { Ajv, type ErrorObject } from 'ajv';
-import type { Issue, Scene, ValidationResult } from './types.js';
+import type { Issue, Layer, Scene, ValidationResult } from './types.js';
 
 // The compiled module is dist/packages/core/src/validate.js. Resolve from this
 // module rather than process.cwd(), so the CLI works outside the repository.
@@ -9,6 +9,35 @@ const ajv = new Ajv({ allErrors: true, strict: true, strictNumbers: true });
 const validateShape = ajv.compile(schema);
 const FRAME_LIMIT = 108_000;
 const EPSILON = 1e-9;
+
+/** Bound a potentially cyclic JavaScript input before the recursive schema runs. */
+function preflightLayerTree(input: unknown): Issue[] {
+  if (!input || typeof input !== 'object' || !('layers' in input) || !Array.isArray(input.layers)) return [];
+  if (input.layers.length > 500) return [{ path: '/layers', message: 'At most 500 root layers are supported' }];
+  const pending = input.layers.map((value, index) => ({ value: value as unknown, path: `/layers/${index}`, depth: 1 }));
+  const seen = new WeakSet<object>();
+  let layers = 0, commands = 0;
+  while (pending.length) {
+    const item = pending.pop()!;
+    if (++layers > 1500) return [{ path: '/layers', message: 'Scene exceeds the 1500 total layer limit' }];
+    if (item.depth > 8) return [{ path: item.path, message: 'Layer nesting exceeds the maximum depth of 8' }];
+    if (!item.value || typeof item.value !== 'object' || Array.isArray(item.value)) continue;
+    if (seen.has(item.value)) return [{ path: item.path, message: 'Layers must form a JSON tree without cycles or shared objects' }];
+    seen.add(item.value);
+    const layer = item.value as Record<string, unknown>;
+    if (Array.isArray(layer.commands)) {
+      if (layer.commands.length > 512) return [{ path: `${item.path}/commands`, message: 'At most 512 commands are supported per path' }];
+      commands += layer.commands.length;
+      if (commands > 20_000) return [{ path: '/layers', message: 'Scene exceeds the 20000 total path command limit' }];
+    }
+    // Inspect children even on malformed types: Ajv may visit that union branch.
+    if (Array.isArray(layer.children)) {
+      if (layer.children.length > 500) return [{ path: `${item.path}/children`, message: 'At most 500 children are supported per group' }];
+      for (const [index, value] of layer.children.entries()) pending.push({ value, path: `${item.path}/children/${index}`, depth: item.depth + 1 });
+    }
+  }
+  return [];
+}
 
 function schemaIssue(error: ErrorObject): Issue {
   let path = error.instancePath || '';
@@ -23,6 +52,8 @@ function schemaIssue(error: ErrorObject): Issue {
 
 /** Validate shape first, then the relationships that JSON Schema cannot express. */
 export function validateScene(input: unknown): ValidationResult {
+  const treeErrors = preflightLayerTree(input);
+  if (treeErrors.length) return { valid: false, errors: treeErrors };
   if (!validateShape(input)) {
     const errors = (validateShape.errors || []).map(schemaIssue);
     return { valid: false, errors };
@@ -52,8 +83,7 @@ export function validateScene(input: unknown): ValidationResult {
   }
 
   const layerIds = new Set<string>();
-  for (const [layerIndex, layer] of scene.layers.entries()) {
-    const layerPath = `/layers/${layerIndex}`;
+  const visitLayer = (layer: Layer, layerPath: string): void => {
     if (layerIds.has(layer.id)) issue(`${layerPath}/id`, `Duplicate layer ID: ${layer.id}`);
     layerIds.add(layer.id);
 
@@ -90,7 +120,11 @@ export function validateScene(input: unknown): ValidationResult {
         if (current.end > previous.end) previous = current;
       }
     }
-  }
+    if (layer.type === 'group') {
+      layer.children.forEach((child, index) => visitLayer(child, `${layerPath}/children/${index}`));
+    }
+  };
+  scene.layers.forEach((layer, index) => visitLayer(layer, `/layers/${index}`));
 
   return { valid: errors.length === 0, errors };
 }

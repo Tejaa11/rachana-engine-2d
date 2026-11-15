@@ -20,11 +20,20 @@ export interface BaseLayer {
   rotation?: number;
   clips?: Clip[];
 }
-export type Layer = BaseLayer & (
+export type PathCommand =
+  | ['M', number, number]
+  | ['L', number, number]
+  | ['C', number, number, number, number, number, number]
+  | ['Q', number, number, number, number]
+  | ['Z'];
+export type ShapeLayer = BaseLayer & (
   | { type: 'rect'; size: Vec2; fill: string; radius?: number }
   | { type: 'circle'; radius: number; fill: string; stroke?: string; strokeWidth?: number }
-  | { type: 'text'; text: string; fontSize: number; color: string; align?: 'left' | 'center' | 'right'; maxWidth: number; lineHeight?: number }
+  | { type: 'text'; text: string; fontSize: number; color: string; align?: 'left' | 'center' | 'right'; maxWidth: number; lineHeight?: number; fontWeight?: 'normal' | 'bold' }
+  | { type: 'path'; commands: PathCommand[]; fill: string; stroke?: string; strokeWidth?: number }
 );
+export type GroupLayer = BaseLayer & { type: 'group'; children: Layer[] };
+export type Layer = ShapeLayer | GroupLayer;
 export interface Scene {
   schemaVersion: 1;
   id: string;
@@ -34,10 +43,13 @@ export interface Scene {
   narration?: { words: Word[]; timingSource: 'manual' | 'reviewed' | 'synthesis-events' };
   layers: Layer[];
 }
-type Evaluated<T> = T extends Layer ? Omit<T, 'clips' | 'opacity' | 'scale' | 'rotation'> & {
+type Evaluated<T> = T extends ShapeLayer ? Omit<T, 'clips' | 'opacity' | 'scale' | 'rotation'> & {
   opacity: number; scale: number; rotation: number;
 } : never;
-export type EvaluatedLayer = Evaluated<Layer>;
+export interface EvaluatedGroup extends Omit<GroupLayer, 'clips' | 'opacity' | 'scale' | 'rotation' | 'children'> {
+  opacity: number; scale: number; rotation: number; children: EvaluatedLayer[];
+}
+export type EvaluatedLayer = Evaluated<ShapeLayer> | EvaluatedGroup;
 export interface FrameState {
   width: number; height: number; background: string; layers: EvaluatedLayer[];
 }

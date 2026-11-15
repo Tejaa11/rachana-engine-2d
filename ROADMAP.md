@@ -1,6 +1,6 @@
 # Rachana Engine 2D roadmap
 
-Unchecked items are planned work. The current alpha implements the first scene-runtime slice; it does not complete M0 or M1, and it is not the final script-to-video agent.
+Unchecked items are planned work. The current alpha implements the first scene-runtime slice and a reusable original character kit; it does not complete M0 or M1, and it is not the final script-to-video agent.
 
 ## Initial repository
 
@@ -24,16 +24,20 @@ Unchecked items are planned work. The current alpha implements the first scene-r
 
 - [x] Evaluate primitive layers and property animation directly at a requested time.
 - [x] Support rectangles, circles, wrapped text, transforms and four easing curves.
+- [x] Add nested groups with inherited transforms/opacity and generic curved vector paths.
+- [x] Add original Mira with four poses, three expressions and bounded deterministic acting.
+- [x] Add reusable appear, pop, arc and drift clip builders.
 - [x] Resolve animation starts from seconds or supplied word start/end anchors.
 - [x] Export PNG frames and MP4 using the shared evaluator and native renderer.
 - [x] Include a two-second smoke fixture and an approximately 25-second narrated shape example.
-- [ ] Add scene hierarchy, camera direction, masks and a richer motion system.
-- [ ] Extract parameterized actors, expressions and reusable character clips.
+- [x] Add a five-shot creative cut using reusable character/motion data and original procedural sound.
+- [ ] Expand the basic group hierarchy into camera direction, masks and a richer motion system.
+- [ ] Extend the first parameterized actor into broader actions, actor designs and reusable clip/attachment contracts.
 - [ ] Add a browser preview adapter and verify native/browser behavior.
 - [ ] Render a polished 45–60 second film from project data.
 - [ ] Render an unrelated second script without custom scene code.
 
-**Exit:** reusable acting and composition, direct seeking, layout and export behavior have meaningful checks and reviewed sample renders. Primitive movement is a foundation, not the complete character system.
+**Exit:** reusable acting and composition, direct seeking, layout and export behavior have meaningful checks and reviewed sample renders. The first original actor and creative cut are progress toward this milestone; the 45–60 second production and unrelated-script tests are still open.
 
 ## M2 — assets and reliable jobs
 

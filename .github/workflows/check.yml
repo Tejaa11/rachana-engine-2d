@@ -45,3 +45,8 @@ jobs:
           npm run cli -- validate examples/narrated-story/scene.json
           npm run render:demo
           node tools/verify-smoke.mjs renders/rachana-demo.mp4
+      - name: Validate and render the creative character showcase
+        run: |
+          npm run cli -- validate examples/narrated-story/creative.scene.json
+          npm run render:creative
+          node tools/verify-smoke.mjs renders/rachana-creative.mp4

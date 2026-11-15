@@ -2,7 +2,7 @@
 
 ## Authorship and original work
 
-Rachana Engine 2D is created and maintained by Tejas Dadhich ([Tejaa11](https://github.com/Tejaa11)). Planning, source, documentation and examples use AI assistance with maintainer review. Original engine/scaffold code and documentation are distributed under the root [MIT license](LICENSE).
+Rachana Engine 2D is created and maintained by Tejas Dadhich ([Tejaa11](https://github.com/Tejaa11)). Planning, source, documentation and examples use AI assistance with maintainer review. Original engine/scaffold code and documentation are distributed under the root [MIT license](LICENSE). The Mira character, curved vector illustrations, five-shot authored compositions and reusable creative motion builders are original project work; they are code-native assets rather than imported or AI-image-provider artwork.
 
 [LambdaEngine2D](https://github.com/devesh95official/LambdaEngine2D), by devesh95official, inspired modular engine presentation, examples and clear documentation. No code, branding or media from it is included.
 
@@ -23,7 +23,7 @@ Exact installed versions and transitive dependencies are recorded in `package-lo
 
 The original Noto Sans Regular, Noto Sans Devanagari Regular and Noto Sans Gujarati Regular font files come from the [Noto fonts project](https://github.com/notofonts/noto-fonts). Their [OFL notice](assets/fonts/OFL.txt) is included. The [manifest](assets/fonts/manifest.json) records exact revision, source URLs, hashes and byte counts.
 
-`Rachana Sans`, `Rachana Devanagari` and `Rachana Gujarati` are registration aliases used by the renderer. The original bundled files retain their names/notices. Bundling these fonts does not claim validated speech alignment, universal glyph coverage or complete shaping quality for every script.
+`Rachana Sans`, `Rachana Devanagari` and `Rachana Gujarati` are registration aliases used by the renderer. The original bundled files retain their names/notices. Bold styling uses the existing bundled fonts through the renderer; this upgrade does not bundle a separately downloaded bold font file. Bundling these fonts does not claim validated speech alignment, universal glyph coverage or complete shaping quality for every script.
 
 ## Synthetic example narration
 
@@ -40,3 +40,7 @@ The example's [provenance](examples/narrated-story/provenance.json) records sett
 The prior private Voxam/CareClinic workspace is not bundled: no supplied product logos/screenshots, personal narration, historical archives or old film masters are included. Current selected showcase files are generated from the public scene and documented example inputs.
 
 Every future public asset must record origin and available redistribution/usage permission. Generated assets need provider/model metadata and available usage information. Code licensing, media permissions and provider terms are distinct; preserve the applicable records rather than assuming all production files inherit the root MIT license.
+
+## Original creative-example audio
+
+The creative variant keeps the same synthetic narration and adds a quiet procedural music/effects bed generated from original synthesis instructions in [build-creative-audio.mjs](tools/build-creative-audio.mjs). There are no third-party music loops or sampled sound libraries. The result is precomposed into `examples/narrated-story/creative-mix.wav` for the runtime's single local audio input; it is not evidence of a general music-generation provider or runtime multi-track mixer. Narrator provenance and the external eSpeak tool's boundaries above still apply.

@@ -121,3 +121,55 @@ test('frame counts cover the half-open output interval without a duplicate termi
     assert.throws(() => frameCount(input), RangeError);
   }
 });
+
+function groupedScene() {
+  const input = scene();
+  input.layers = [{
+    id: 'actor', type: 'group', position: [100, 200], opacity: 0.5,
+    clips: [{ property: 'position', from: [100, 200], to: [200, 300], start: 1, duration: 1 }],
+    children: [{
+      id: 'arm', type: 'group', position: [30, 40],
+      clips: [{ property: 'rotation', from: 0, to: 90, start: { anchor: 'word-a' }, duration: 1 }],
+      children: [{
+        id: 'outline', type: 'path', position: [2, 3], opacity: 0.25, fill: '#00000000', stroke: '#ffffff',
+        commands: [['M', 0, 0], ['L', 10, 0], ['C', 10, 2, 8, 8, 5, 10], ['Q', 0, 8, 0, 0], ['Z']],
+        clips: [{ property: 'scale', from: 1, to: 2, start: 0, duration: 2 }]
+      }]
+    }]
+  }];
+  return input;
+}
+
+test('groups preserve local transforms and evaluate all descendant clips on global time', () => {
+  const input = groupedScene();
+  const actor = evaluateScene(input, 1.5).layers[0];
+  assert.deepEqual(actor.position, [150, 250]);
+  assert.equal(actor.opacity, 0.5);
+  assert.equal('clips' in actor, false);
+  const arm = actor.children[0];
+  assert.deepEqual(arm.position, [30, 40], 'evaluation leaves transform composition to the renderer');
+  assert.equal(arm.rotation, 45);
+  assert.equal(arm.opacity, 1);
+  const outline = arm.children[0];
+  assert.equal(outline.scale, 1.75);
+  assert.equal(outline.opacity, 0.25, 'parent alpha is composed during rendering, not flattened into children');
+  assert.equal('clips' in outline, false);
+});
+
+test('nested groups and path commands are detached and deterministic across direct seeks', () => {
+  const input = freezeDeep(groupedScene());
+  const before = JSON.stringify(input);
+  const sequential = new Map();
+  for (let frame = 0; frame < frameCount(input); frame++) sequential.set(frame, evaluateScene(input, frame / 30));
+  for (const frame of [119, 45, 0, 87, 4, 60, 45]) {
+    assert.deepEqual(evaluateScene(input, frame / 30), sequential.get(frame));
+  }
+  const returned = evaluateScene(input, 0);
+  const child = returned.layers[0].children[0];
+  child.position[0] = 900;
+  child.children[0].commands[0][1] = 999;
+  child.children[0].commands.push(['Z']);
+  returned.layers[0].children.push({ id: 'extra', type: 'circle', position: [0, 0], radius: 1, fill: '#ffffff', opacity: 1, scale: 1, rotation: 0 });
+  assert.equal(JSON.stringify(input), before);
+  assert.deepEqual(evaluateScene(input, 0), sequential.get(0), 'returned state cannot affect later evaluations');
+});
