@@ -1,0 +1,349 @@
+{
+  "durationSeconds": 19.143401360544217,
+  "timingSource": "synthesis-events",
+  "notes": "Starts are eSpeak NG synthesis word-event positions. Ends are approximate boundaries at the next word onset, or the WAV duration for the last word; they include inter-word pauses. These are not forced-alignment measurements of a human recording.",
+  "words": [
+    {
+      "id": "w1",
+      "text": "A",
+      "start": 0,
+      "end": 0.072
+    },
+    {
+      "id": "w2",
+      "text": "busy",
+      "start": 0.072,
+      "end": 0.399
+    },
+    {
+      "id": "w3",
+      "text": "team",
+      "start": 0.399,
+      "end": 0.716
+    },
+    {
+      "id": "w4",
+      "text": "needs",
+      "start": 0.716,
+      "end": 1.039
+    },
+    {
+      "id": "w5",
+      "text": "a",
+      "start": 1.039,
+      "end": 1.109
+    },
+    {
+      "id": "w6",
+      "text": "shared",
+      "start": 1.109,
+      "end": 1.518
+    },
+    {
+      "id": "w7",
+      "text": "view",
+      "start": 1.518,
+      "end": 1.761
+    },
+    {
+      "id": "w8",
+      "text": "of",
+      "start": 1.761,
+      "end": 1.883
+    },
+    {
+      "id": "w9",
+      "text": "its",
+      "start": 1.883,
+      "end": 2.133
+    },
+    {
+      "id": "w10",
+      "text": "work",
+      "start": 2.133,
+      "end": 2.893
+    },
+    {
+      "id": "w11",
+      "text": "Put",
+      "start": 2.893,
+      "end": 3.149
+    },
+    {
+      "id": "w12",
+      "text": "each",
+      "start": 3.149,
+      "end": 3.42
+    },
+    {
+      "id": "w13",
+      "text": "task",
+      "start": 3.42,
+      "end": 3.804
+    },
+    {
+      "id": "w14",
+      "text": "on",
+      "start": 3.804,
+      "end": 3.92
+    },
+    {
+      "id": "w15",
+      "text": "a",
+      "start": 3.92,
+      "end": 4.008
+    },
+    {
+      "id": "w16",
+      "text": "simple",
+      "start": 4.008,
+      "end": 4.429
+    },
+    {
+      "id": "w17",
+      "text": "board",
+      "start": 4.429,
+      "end": 4.8
+    },
+    {
+      "id": "w18",
+      "text": "so",
+      "start": 4.8,
+      "end": 5.013
+    },
+    {
+      "id": "w19",
+      "text": "everyone",
+      "start": 5.013,
+      "end": 5.56
+    },
+    {
+      "id": "w20",
+      "text": "can",
+      "start": 5.56,
+      "end": 5.811
+    },
+    {
+      "id": "w21",
+      "text": "see",
+      "start": 5.811,
+      "end": 6.051
+    },
+    {
+      "id": "w22",
+      "text": "it",
+      "start": 6.051,
+      "end": 6.588
+    },
+    {
+      "id": "w23",
+      "text": "First",
+      "start": 6.588,
+      "end": 7.222
+    },
+    {
+      "id": "w24",
+      "text": "name",
+      "start": 7.222,
+      "end": 7.553
+    },
+    {
+      "id": "w25",
+      "text": "the",
+      "start": 7.553,
+      "end": 7.685
+    },
+    {
+      "id": "w26",
+      "text": "next",
+      "start": 7.685,
+      "end": 8.09
+    },
+    {
+      "id": "w27",
+      "text": "action",
+      "start": 8.09,
+      "end": 8.672
+    },
+    {
+      "id": "w28",
+      "text": "and",
+      "start": 8.672,
+      "end": 8.855
+    },
+    {
+      "id": "w29",
+      "text": "its",
+      "start": 8.855,
+      "end": 9.095
+    },
+    {
+      "id": "w30",
+      "text": "owner",
+      "start": 9.095,
+      "end": 9.818
+    },
+    {
+      "id": "w31",
+      "text": "Then",
+      "start": 9.818,
+      "end": 10.119
+    },
+    {
+      "id": "w32",
+      "text": "move",
+      "start": 10.119,
+      "end": 10.38
+    },
+    {
+      "id": "w33",
+      "text": "the",
+      "start": 10.38,
+      "end": 10.498
+    },
+    {
+      "id": "w34",
+      "text": "card",
+      "start": 10.498,
+      "end": 10.871
+    },
+    {
+      "id": "w35",
+      "text": "when",
+      "start": 10.871,
+      "end": 11.068
+    },
+    {
+      "id": "w36",
+      "text": "the",
+      "start": 11.068,
+      "end": 11.181
+    },
+    {
+      "id": "w37",
+      "text": "work",
+      "start": 11.181,
+      "end": 11.502
+    },
+    {
+      "id": "w38",
+      "text": "changes",
+      "start": 11.502,
+      "end": 12.5
+    },
+    {
+      "id": "w39",
+      "text": "Compare",
+      "start": 12.5,
+      "end": 12.974
+    },
+    {
+      "id": "w40",
+      "text": "what",
+      "start": 12.974,
+      "end": 13.187
+    },
+    {
+      "id": "w41",
+      "text": "is",
+      "start": 13.187,
+      "end": 13.332
+    },
+    {
+      "id": "w42",
+      "text": "planned",
+      "start": 13.332,
+      "end": 13.761
+    },
+    {
+      "id": "w43",
+      "text": "with",
+      "start": 13.761,
+      "end": 13.944
+    },
+    {
+      "id": "w44",
+      "text": "what",
+      "start": 13.944,
+      "end": 14.149
+    },
+    {
+      "id": "w45",
+      "text": "is",
+      "start": 14.149,
+      "end": 14.296
+    },
+    {
+      "id": "w46",
+      "text": "finished",
+      "start": 14.296,
+      "end": 15.149
+    },
+    {
+      "id": "w47",
+      "text": "A",
+      "start": 15.149,
+      "end": 15.221
+    },
+    {
+      "id": "w48",
+      "text": "clear",
+      "start": 15.221,
+      "end": 15.587
+    },
+    {
+      "id": "w49",
+      "text": "board",
+      "start": 15.587,
+      "end": 15.944
+    },
+    {
+      "id": "w50",
+      "text": "gives",
+      "start": 15.944,
+      "end": 16.312
+    },
+    {
+      "id": "w51",
+      "text": "the",
+      "start": 16.312,
+      "end": 16.445
+    },
+    {
+      "id": "w52",
+      "text": "next",
+      "start": 16.445,
+      "end": 16.85
+    },
+    {
+      "id": "w53",
+      "text": "conversation",
+      "start": 16.85,
+      "end": 17.621
+    },
+    {
+      "id": "w54",
+      "text": "a",
+      "start": 17.621,
+      "end": 17.705
+    },
+    {
+      "id": "w55",
+      "text": "useful",
+      "start": 17.705,
+      "end": 18.11
+    },
+    {
+      "id": "w56",
+      "text": "starting",
+      "start": 18.11,
+      "end": 18.629
+    },
+    {
+      "id": "w57",
+      "text": "point",
+      "start": 18.629,
+      "end": 19.143401360544217
+    }
+  ]
+}

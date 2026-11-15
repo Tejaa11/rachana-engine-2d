@@ -37,3 +37,11 @@ __pycache__/
 
 !examples/narrated-story/creative-mix.wav
 !showcase/foundation-demo.mp4
+
+# Public synthetic narration fixtures and selected shared-composer output
+!examples/learning-habit/voice.wav
+!examples/team-flow/voice.wav
+!examples/seed-story/voice.wav
+!showcase/generated/learning-habit.mp4
+!showcase/generated/team-flow.mp4
+!showcase/generated/seed-story.mp4

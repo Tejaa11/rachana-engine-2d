@@ -1,0 +1,44 @@
+{
+  "status": "ready-for-preview",
+  "humanReviewRequired": true,
+  "projectId": "learning-habit",
+  "planningMode": "local-rules",
+  "shotCount": 6,
+  "templates": [
+    "opening",
+    "focus",
+    "compare",
+    "closing"
+  ],
+  "style": "paper",
+  "captionWords": 52,
+  "captionCues": 9,
+  "genericMotifShots": [
+    "shot-1",
+    "shot-4",
+    "shot-5",
+    "shot-6"
+  ],
+  "layoutSamplesChecked": 20,
+  "warnings": [
+    "Headings use complete source sentences and labels use source phrases selected by local rules. Review emphasis and supply explicit beats for stronger storytelling.",
+    "Shot 6: the heading may be too dense for its duration.",
+    "Most shots use the generic idea motif. Add topic-specific artwork before treating this as a finished film."
+  ],
+  "limits": [
+    "No automatic audio alignment or generative asset provider. Timings must match the script.",
+    "Subjects are decorative motifs, not verified factual diagrams or authentic product screens.",
+    "This report checks configured constraints and sampled layout; human review must assess story, relevance and artistic quality."
+  ],
+  "audio": {
+    "durationSeconds": 19.62643990929705,
+    "channels": 1,
+    "sampleRate": 22050,
+    "peak": 0.81439208984375
+  },
+  "sources": {
+    "scriptSha256": "c80c19dbf3102c85cfed0c39799b4bca30dc1c8c6982a4eebad3b3fe05cab7fa",
+    "timingSha256": "4caaf8ef006431aee03a9534ad2a1da0da04f1fc679597ec7ee7dc17bcda35ac",
+    "audioSha256": "dae90e73d23ab6fc5f8c5d758af177fb75ed713ecd45004eb09e67898bf7f990"
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "status": "ready-for-preview",
+  "humanReviewRequired": true,
+  "projectId": "seed-story",
+  "planningMode": "local-rules",
+  "shotCount": 6,
+  "templates": [
+    "opening",
+    "focus",
+    "compare",
+    "closing"
+  ],
+  "style": "midnight",
+  "captionWords": 50,
+  "captionCues": 8,
+  "genericMotifShots": [
+    "shot-4"
+  ],
+  "layoutSamplesChecked": 20,
+  "warnings": [
+    "Headings use complete source sentences and labels use source phrases selected by local rules. Review emphasis and supply explicit beats for stronger storytelling.",
+    "Shot 4: three consecutive focus compositions; review staging variety or supply explicit beats."
+  ],
+  "limits": [
+    "No automatic audio alignment or generative asset provider. Timings must match the script.",
+    "Subjects are decorative motifs, not verified factual diagrams or authentic product screens.",
+    "This report checks configured constraints and sampled layout; human review must assess story, relevance and artistic quality."
+  ],
+  "audio": {
+    "durationSeconds": 17.872925170068026,
+    "channels": 1,
+    "sampleRate": 22050,
+    "peak": 0.81884765625
+  },
+  "sources": {
+    "scriptSha256": "d13aeacfce2e799625d7e7ed1b5a3f9d53aea063a0c27f0280b5502cf4f888f7",
+    "timingSha256": "39516b062e9683a2e85cd373b12f8e0a1bee4f91a60712f6c2945da27644a1aa",
+    "audioSha256": "aa6cc8b6a94cd16875012835dc6f8fd386242a3ffc916b7c4f65a16a54a462a4"
+  }
+}

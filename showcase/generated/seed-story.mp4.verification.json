@@ -1,0 +1,24 @@
+{
+  "sceneId": "seed-story",
+  "fullDecode": "passed",
+  "frames": 537,
+  "width": 1920,
+  "height": 1080,
+  "fps": 30,
+  "reportedDurationSeconds": 17.9,
+  "plannedDurationSeconds": 17.872925170068026,
+  "codec": "h264",
+  "audioCodec": "aac",
+  "loudness": {
+    "integratedLufs": -20.8,
+    "truePeakDbfs": -1.7
+  },
+  "bytes": 1730092,
+  "sha256": "f6b8618edb95d0c4033da8504b51c96c8fbd2ea4f1e76efe4e9abe1fb0092ec8",
+  "runtime": {
+    "node": "v24.11.1",
+    "platform": "darwin",
+    "architecture": "arm64"
+  },
+  "note": "These are measurements of this file, not a universal loudness target or cross-platform pixel-identity claim."
+}

@@ -1,0 +1,21 @@
+{
+  "sceneId": "team-flow",
+  "width": 1920,
+  "height": 1080,
+  "fps": 30,
+  "frames": 575,
+  "plannedDurationSeconds": 19.143401360544217,
+  "videoDurationSeconds": 19.166666666666668,
+  "hasAudio": true,
+  "audioInput": {
+    "durationSeconds": 19.143401360544217,
+    "channels": 1,
+    "sampleRate": 22050,
+    "peak": 0.74688720703125
+  },
+  "timingSource": "synthesis-events",
+  "renderer": "@napi-rs/canvas",
+  "ffmpeg": "ffmpeg version 7.1 Copyright (c) 2000-2024 the FFmpeg developers",
+  "renderSeconds": 4.33,
+  "limitations": "No automatic speech alignment, TTS, asset generation, render cache or resume. Timing data is supplied with the scene."
+}

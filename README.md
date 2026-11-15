@@ -9,6 +9,7 @@
 
 <p align="center">
   <a href="QUICKSTART.md">Quickstart</a> ·
+  <a href="docs/PRODUCTION_WORKFLOW.md">Create a pilot</a> ·
   <a href="docs/SCENE_FORMAT.md">Scene format</a> ·
   <a href="docs/ENGINE_PRODUCT_PLAN.md">Architecture plan</a> ·
   <a href="ROADMAP.md">Roadmap</a> ·
@@ -21,9 +22,23 @@
 
 The GIF is a silent excerpt from a real engine render. **[Watch the complete demo with narration](showcase/rachana-demo.mp4)**, inspect its [creative scene JSON](examples/narrated-story/creative.scene.json), or follow the [quickstart](QUICKSTART.md) to render it locally. The approximately 25-second creative cut follows Mira, an original recurring character, through five authored shots with expressive poses, curved vector art, narration-anchored reveals, and a quiet procedural music/effects mix. See the [creative direction](docs/CREATIVE_DIRECTION.md). The story and compositions are authored source, not choices made by an automatic director.
 
+## Shared defaults for new scripts
+
+The new [production workflow](docs/PRODUCTION_WORKFLOW.md) takes a script, local WAV and matching supplied word timings, chooses reusable staging and writes an editable plan/scene with a preview report. [Three unrelated examples](showcase/generated/README.md) run through the same composer **without custom scene builders or editorial beats**:
+
+| Learning | Teamwork | Nature |
+| --- | --- | --- |
+| [![Learning preview](showcase/generated/learning-habit.png)](showcase/generated/learning-habit.mp4) | [![Team preview](showcase/generated/team-flow.png)](showcase/generated/team-flow.mp4) | [![Nature preview](showcase/generated/seed-story.png)](showcase/generated/seed-story.mp4) |
+
+```sh
+npm run cli -- produce examples/learning-habit/production.json --out renders/my-first-pilot
+```
+
+Run that after installation/build below. These 6–90 second illustrated pilots use local rules, not an AI director. Their shared defaults include six shot templates, three palettes, narration-timed reveals and measured text fitting. Optional editorial beats let you improve storytelling without changing the renderer. Reports expose density, pacing and generic-art concerns; every cut still needs creative review.
+
 ## Project status
 
-**Working alpha 0.1.0-alpha.2: reusable vector characters, creative motion, and authored narration-led scenes.** Rachana validates scene files, evaluates nested animation directly at a requested time, draws PNG frames, and exports MP4 through FFmpeg. The automatic script-and-voice agent, image-generation providers, generic rig retargeting, cameras, and editing studio remain planned.
+**Working alpha 0.1.0-alpha.3: reusable narrated-pilot composition, vector characters, creative motion and local export.** Rachana validates scene files, evaluates nested animation directly at a requested time, draws PNG frames, and exports MP4 through FFmpeg. The automatic script-and-voice agent, image-generation providers, generic rig retargeting, cameras, and editing studio remain planned.
 
 Created and maintained by [Tejas Dadhich (@Tejaa11)](https://github.com/Tejaa11), with AI-assisted development and maintainer review.
 
@@ -37,7 +52,9 @@ Created and maintained by [Tejas Dadhich (@Tejaa11)](https://github.com/Tejaa11)
 | Schema and semantic checks for IDs, values, references and clip overlap | Implemented |
 | Direct frame evaluation, PNG export and MP4 export | Implemented |
 | Bundled fonts and an environment doctor | Implemented |
-| Automatic transcription/alignment, TTS and director agent | Planned |
+| Brief + script + WAV + supplied timing → editable pilot | Implemented constrained composer |
+| Six staging templates, three palettes, optional editorial beats and preview reports | Implemented |
+| Automatic transcription/alignment, TTS and AI director agent | Planned |
 | Generative artwork, arbitrary character rigging and asset providers | Planned |
 | Cameras, browser editor, persistent jobs, cache and resume | Planned |
 
@@ -69,7 +86,10 @@ npm run cli -- render examples/narrated-story/creative.scene.json --out renders/
 
 ```mermaid
 flowchart LR
-    A[Scene JSON + optional local audio] --> B[Schema and timing validation]
+    P[Brief + script + WAV + supplied timings] --> Q[Local planner or editorial beats]
+    Q --> R[Reusable composition + preview checks]
+    R --> A[Editable scene JSON + local audio]
+    A --> B[Schema and timing validation]
     B --> C[Pure frame evaluation]
     C --> D[Native Canvas draw list]
     D --> E[PNG frame or FFmpeg MP4]
@@ -84,6 +104,7 @@ The narrated example includes original synthetic audio and synthesis-start times
 - [Minimal scene](examples/minimal-scene/scene.json): a two-second render fixture.
 - [Creative narrated story](examples/narrated-story/creative.scene.json): five authored shots, an original reusable character, curved graphics and a precomposed procedural sound mix.
 - [Earlier narrated shape study](examples/narrated-story/scene.json): a smaller example of supplied word anchors; render with `npm run render:demo`.
+- [Shared-composer gallery](showcase/generated/README.md): three unrelated topics, generated through the same defaults, with input briefs and verification records.
 - [Example notes](examples/README.md): media, timing, and scope.
 - [Showcase](showcase/README.md): source-linked outputs and regeneration.
 
@@ -97,11 +118,11 @@ npm run verify:smoke
 
 ## Boundaries and next steps
 
-Scene authoring currently uses JSON. The runtime supports four shape kinds, nested groups, a reusable original character prefab, and one optional local PCM16 WAV audio track. WAV duration must match the scene within one output frame; its timing data must already be supplied. The creative example precomposes narration, original procedural music and sound cues into that one WAV; it does not add a runtime multi-track mixer. The engine does not yet turn an arbitrary script and voice recording into a complete film. Mira has a designed pose system, not automatic rigging/retargeting or phoneme lip sync.
+Scene and production authoring currently use JSON. The runtime supports four shape kinds, nested groups, a reusable original character prefab, and one optional local PCM16 WAV audio track. WAV duration must match the scene within one output frame; its timing data must already be supplied. The creative example precomposes narration, original procedural music and sound cues into that one WAV; it does not add a runtime multi-track mixer. The constrained composer turns short scripts with matching supplied timestamps into illustrated pilots. It does not yet turn an arbitrary script and unaligned recording into a complete film. Mira has a designed pose system, not automatic rigging/retargeting or phoneme lip sync.
 
 The bundled Noto Sans, Devanagari, and Gujarati fonts avoid reliance on the maintainer's system fonts. They do not establish validated Indic speech alignment or universal glyph coverage. Broader language/shaping support is experimental and needs review fixtures.
 
-Next work expands character actions and composition, then adds asset resolution, provider adapters, narration analysis, the director workflow, and an editing studio. See [ROADMAP.md](ROADMAP.md), the [product plan](docs/ENGINE_PRODUCT_PLAN.md), [asset design](docs/ASSET_PIPELINE.md), and [release standards](docs/RELEASE_STANDARD.md).
+Next work expands subject-specific art, character actions and composition, then adds asset resolution, provider adapters, recorded-narration analysis, an AI director and an editing studio. See [ROADMAP.md](ROADMAP.md), the [product plan](docs/ENGINE_PRODUCT_PLAN.md), [asset design](docs/ASSET_PIPELINE.md), and [release standards](docs/RELEASE_STANDARD.md).
 
 ## Repository map
 
@@ -109,8 +130,9 @@ Next work expands character actions and composition, then adds asset resolution,
 packages/core/       Types, validation and pure animation evaluation
 packages/renderer/   Canvas drawing, local media loading and FFmpeg export
 packages/creative/   Original Mira character and reusable motion builders
-apps/cli/            doctor, validate, frame and render commands
-schemas/             Versioned scene JSON Schema
+packages/director/   Constrained planning, reusable staging and preview reports
+apps/cli/            doctor, validate, frame, render, compose and produce commands
+schemas/             Versioned scene and production JSON Schemas
 examples/            Editable scene files and redistributable inputs
 assets/fonts/        Bundled Noto fonts, OFL notice and source manifest
 tests/               Runtime, validation and rendering-related checks

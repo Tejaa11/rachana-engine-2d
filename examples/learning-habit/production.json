@@ -1,0 +1,9 @@
+{
+  "schemaVersion": 1,
+  "id": "learning-habit",
+  "title": "A small learning habit",
+  "style": "paper",
+  "script": "script.txt",
+  "audio": "voice.wav",
+  "timing": "timing.json"
+}

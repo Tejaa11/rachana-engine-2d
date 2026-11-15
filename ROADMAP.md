@@ -18,7 +18,7 @@ Unchecked items are planned work. The current alpha implements the first scene-r
 - [ ] Extend the scene schema into project, shot, actor, asset and multi-track audio contracts.
 - [ ] Complete clean-install verification on every platform advertised as supported.
 
-**Exit:** a new user can install documented dependencies and validate a new project without private files or machine-specific paths. The present alpha covers scene authoring only.
+**Exit:** a new user can install documented dependencies and validate a new project without private files or machine-specific paths. The present alpha covers scene authoring and a constrained production brief; broader contracts are unfinished.
 
 ## M1 — shared animation runtime — in progress
 
@@ -35,9 +35,9 @@ Unchecked items are planned work. The current alpha implements the first scene-r
 - [ ] Extend the first parameterized actor into broader actions, actor designs and reusable clip/attachment contracts.
 - [ ] Add a browser preview adapter and verify native/browser behavior.
 - [ ] Render a polished 45–60 second film from project data.
-- [ ] Render an unrelated second script without custom scene code.
+- [x] Render unrelated scripts through shared templates without custom scene code.
 
-**Exit:** reusable acting and composition, direct seeking, layout and export behavior have meaningful checks and reviewed sample renders. The first original actor and creative cut are progress toward this milestone; the 45–60 second production and unrelated-script tests are still open.
+**Exit:** reusable acting and composition, direct seeking, layout and export behavior have meaningful checks and reviewed sample renders. The first original actor and creative cut are progress toward this milestone; the 45–60 second production and broader staging remain open.
 
 ## M2 — assets and reliable jobs
 
@@ -48,14 +48,14 @@ Unchecked items are planned work. The current alpha implements the first scene-r
 
 **Exit:** a new background/prop request resolves through a real provider; interrupted or failed jobs recover without repeating completed work. Cancelling a CLI process alone does not meet this persistence milestone.
 
-## M3 — script and voice workflow
+## M3 — script and voice workflow — partial
 
 - [ ] Align a real recording with script text and flag uncertain/mismatched spans.
 - [ ] Add a real director adapter producing validated shot-plan data.
-- [ ] Generate editable voice-synchronized animatics.
-- [ ] Exercise three different topics and one previously unfamiliar script.
+- [x] Generate editable illustrated pilots from scripts and supplied matching word timings.
+- [x] Exercise three topic fixtures and an additional unfamiliar-script regression case through shared defaults.
 
-**Exit:** new scripts produce animatics without renderer edits; unsupported requests and failures are visible. Supplied synthesis-event timestamps in the current example do not establish automatic recorded-speech alignment.
+**Exit:** recorded-voice input and a real director adapter produce animatics without renderer edits; unsupported requests and failures are visible. Supplied synthesis-event timestamps in the current example do not establish automatic recorded-speech alignment.
 
 ## M4 — creator studio
 
@@ -71,7 +71,7 @@ Unchecked items are planned work. The current alpha implements the first scene-r
 - [ ] Complete a 6–8 minute film and full creative/technical review.
 - [ ] Test installation on every advertised platform.
 - [ ] Publish measured benchmarks with hardware and configuration.
-- [ ] Expand the real motion showcase into a source-linked example gallery.
+- [x] Expand the real motion showcase into a source-linked example gallery.
 - [ ] Prepare versioned media downloads, changelog and a tagged production release.
 
 **Exit:** the [release standard](docs/RELEASE_STANDARD.md) has evidence. A successful alpha render does not imply all production requirements are satisfied.

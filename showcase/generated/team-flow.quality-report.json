@@ -1,0 +1,44 @@
+{
+  "status": "ready-for-preview",
+  "humanReviewRequired": true,
+  "projectId": "team-flow",
+  "planningMode": "local-rules",
+  "shotCount": 6,
+  "templates": [
+    "opening",
+    "focus",
+    "compare",
+    "closing"
+  ],
+  "style": "ocean",
+  "captionWords": 57,
+  "captionCues": 9,
+  "genericMotifShots": [
+    "shot-3",
+    "shot-5"
+  ],
+  "layoutSamplesChecked": 20,
+  "warnings": [
+    "Headings use complete source sentences and labels use source phrases selected by local rules. Review emphasis and supply explicit beats for stronger storytelling.",
+    "Shot 1: the heading may be too dense for its duration.",
+    "Shot 2: the heading may be too dense for its duration.",
+    "Shot 5: the heading may be too dense for its duration.",
+    "Shot 4: three consecutive focus compositions; review staging variety or supply explicit beats."
+  ],
+  "limits": [
+    "No automatic audio alignment or generative asset provider. Timings must match the script.",
+    "Subjects are decorative motifs, not verified factual diagrams or authentic product screens.",
+    "This report checks configured constraints and sampled layout; human review must assess story, relevance and artistic quality."
+  ],
+  "audio": {
+    "durationSeconds": 19.143401360544217,
+    "channels": 1,
+    "sampleRate": 22050,
+    "peak": 0.74688720703125
+  },
+  "sources": {
+    "scriptSha256": "ff76da4f5a510d0926fdfb9014e861b054057c058523eb13c038aa6cb7d1e2cc",
+    "timingSha256": "d9610abdfbc9229c2f705d2d1d46855ed913d8a09aafda992fd7b7f519134984",
+    "audioSha256": "cf136901701484ef373596bf4b9b91675c1ba96d85b27df6d500324354b77714"
+  }
+}

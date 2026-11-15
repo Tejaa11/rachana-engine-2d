@@ -3,7 +3,7 @@
  * Optional developer utility: use a separately installed eSpeak NG Emscripten
  * tool to regenerate the original narrated-story fixture. No downloads occur.
  * The GPL synthesis tool is not an engine/runtime dependency or bundled asset.
- * Usage: node tools/generate-demo-voice.mjs /absolute/path/to/espeak-ng.js [output-directory]
+ * Usage: node tools/generate-demo-voice.mjs /absolute/path/to/espeak-ng.js [output-directory] [script-file]
  */
 import { readFile, writeFile, mkdir } from 'node:fs/promises';
 import path from 'node:path';
@@ -13,14 +13,14 @@ import { createHash } from 'node:crypto';
 const repositoryRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const moduleArgument = process.argv[2];
 if (!moduleArgument) {
-  console.error('Usage: node tools/generate-demo-voice.mjs /absolute/path/to/espeak-ng.js [output-directory]');
+  console.error('Usage: node tools/generate-demo-voice.mjs /absolute/path/to/espeak-ng.js [output-directory] [script-file]');
   process.exitCode = 2;
 } else {
   await generate(path.resolve(moduleArgument), path.resolve(process.argv[3] || path.join(repositoryRoot, 'examples/narrated-story')));
 }
 
 async function generate(modulePath, outputDirectory) {
-  const scriptPath = path.join(repositoryRoot, 'examples/narrated-story/script.txt');
+  const scriptPath = process.argv[4] ? path.resolve(process.argv[4]) : path.join(repositoryRoot, 'examples/narrated-story/script.txt');
   const sourceBytes = await readFile(scriptPath);
   const text = sourceBytes.toString('utf8').trimEnd();
   if (!/^[\x20-\x7E\r\n]+$/.test(text)) throw new Error('This fixture uses ASCII text so eSpeak character offsets map directly to JavaScript indices.');

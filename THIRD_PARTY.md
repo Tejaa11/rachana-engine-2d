@@ -44,3 +44,7 @@ Every future public asset must record origin and available redistribution/usage 
 ## Original creative-example audio
 
 The creative variant keeps the same synthetic narration and adds a quiet procedural music/effects bed generated from original synthesis instructions in [build-creative-audio.mjs](tools/build-creative-audio.mjs). There are no third-party music loops or sampled sound libraries. The result is precomposed into `examples/narrated-story/creative-mix.wav` for the runtime's single local audio input; it is not evidence of a general music-generation provider or runtime multi-track mixer. Narrator provenance and the external eSpeak tool's boundaries above still apply.
+
+## Shared-composer fixtures
+
+The original learning, teamwork and seed-story scripts use the same external standard formant synthesis process. Per-fixture records document hashes, settings and timing limitations: [learning](examples/learning-habit/provenance.json), [teamwork](examples/team-flow/provenance.json), [nature](examples/seed-story/provenance.json). Selected gallery movies combine those inputs with the engine's original vector motifs and Mira prefab. No image provider, external music library or private production assets are used.

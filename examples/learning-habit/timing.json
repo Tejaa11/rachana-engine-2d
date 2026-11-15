@@ -1,0 +1,319 @@
+{
+  "durationSeconds": 19.62643990929705,
+  "timingSource": "synthesis-events",
+  "notes": "Starts are eSpeak NG synthesis word-event positions. Ends are approximate boundaries at the next word onset, or the WAV duration for the last word; they include inter-word pauses. These are not forced-alignment measurements of a human recording.",
+  "words": [
+    {
+      "id": "w1",
+      "text": "A",
+      "start": 0,
+      "end": 0.071
+    },
+    {
+      "id": "w2",
+      "text": "learning",
+      "start": 0.071,
+      "end": 0.42
+    },
+    {
+      "id": "w3",
+      "text": "habit",
+      "start": 0.42,
+      "end": 0.862
+    },
+    {
+      "id": "w4",
+      "text": "begins",
+      "start": 0.862,
+      "end": 1.358
+    },
+    {
+      "id": "w5",
+      "text": "with",
+      "start": 1.358,
+      "end": 1.553
+    },
+    {
+      "id": "w6",
+      "text": "one",
+      "start": 1.553,
+      "end": 1.826
+    },
+    {
+      "id": "w7",
+      "text": "clear",
+      "start": 1.826,
+      "end": 2.192
+    },
+    {
+      "id": "w8",
+      "text": "goal",
+      "start": 2.192,
+      "end": 3.004
+    },
+    {
+      "id": "w9",
+      "text": "Choose",
+      "start": 3.004,
+      "end": 3.322
+    },
+    {
+      "id": "w10",
+      "text": "a",
+      "start": 3.322,
+      "end": 3.397
+    },
+    {
+      "id": "w11",
+      "text": "small",
+      "start": 3.397,
+      "end": 3.771
+    },
+    {
+      "id": "w12",
+      "text": "topic",
+      "start": 3.771,
+      "end": 4.381
+    },
+    {
+      "id": "w13",
+      "text": "and",
+      "start": 4.381,
+      "end": 4.579
+    },
+    {
+      "id": "w14",
+      "text": "keep",
+      "start": 4.579,
+      "end": 4.89
+    },
+    {
+      "id": "w15",
+      "text": "a",
+      "start": 4.89,
+      "end": 4.956
+    },
+    {
+      "id": "w16",
+      "text": "book",
+      "start": 4.956,
+      "end": 5.225
+    },
+    {
+      "id": "w17",
+      "text": "nearby",
+      "start": 5.225,
+      "end": 6.159
+    },
+    {
+      "id": "w18",
+      "text": "First",
+      "start": 6.159,
+      "end": 6.793
+    },
+    {
+      "id": "w19",
+      "text": "practice",
+      "start": 6.793,
+      "end": 7.352
+    },
+    {
+      "id": "w20",
+      "text": "one",
+      "start": 7.352,
+      "end": 7.619
+    },
+    {
+      "id": "w21",
+      "text": "useful",
+      "start": 7.619,
+      "end": 8.016
+    },
+    {
+      "id": "w22",
+      "text": "idea",
+      "start": 8.016,
+      "end": 8.559
+    },
+    {
+      "id": "w23",
+      "text": "instead",
+      "start": 8.559,
+      "end": 8.996
+    },
+    {
+      "id": "w24",
+      "text": "of",
+      "start": 8.996,
+      "end": 9.136
+    },
+    {
+      "id": "w25",
+      "text": "rushing",
+      "start": 9.136,
+      "end": 9.529
+    },
+    {
+      "id": "w26",
+      "text": "through",
+      "start": 9.529,
+      "end": 9.719
+    },
+    {
+      "id": "w27",
+      "text": "everything",
+      "start": 9.719,
+      "end": 10.78
+    },
+    {
+      "id": "w28",
+      "text": "Then",
+      "start": 10.78,
+      "end": 11.08
+    },
+    {
+      "id": "w29",
+      "text": "write",
+      "start": 11.08,
+      "end": 11.346
+    },
+    {
+      "id": "w30",
+      "text": "a",
+      "start": 11.346,
+      "end": 11.413
+    },
+    {
+      "id": "w31",
+      "text": "short",
+      "start": 11.413,
+      "end": 11.8
+    },
+    {
+      "id": "w32",
+      "text": "note",
+      "start": 11.8,
+      "end": 12.066
+    },
+    {
+      "id": "w33",
+      "text": "about",
+      "start": 12.066,
+      "end": 12.401
+    },
+    {
+      "id": "w34",
+      "text": "what",
+      "start": 12.401,
+      "end": 12.633
+    },
+    {
+      "id": "w35",
+      "text": "changed",
+      "start": 12.633,
+      "end": 13.623
+    },
+    {
+      "id": "w36",
+      "text": "Compare",
+      "start": 13.623,
+      "end": 14.115
+    },
+    {
+      "id": "w37",
+      "text": "that",
+      "start": 14.115,
+      "end": 14.367
+    },
+    {
+      "id": "w38",
+      "text": "note",
+      "start": 14.367,
+      "end": 14.635
+    },
+    {
+      "id": "w39",
+      "text": "with",
+      "start": 14.635,
+      "end": 14.818
+    },
+    {
+      "id": "w40",
+      "text": "your",
+      "start": 14.818,
+      "end": 14.969
+    },
+    {
+      "id": "w41",
+      "text": "earlier",
+      "start": 14.969,
+      "end": 15.285
+    },
+    {
+      "id": "w42",
+      "text": "attempt",
+      "start": 15.285,
+      "end": 16.315
+    },
+    {
+      "id": "w43",
+      "text": "Small",
+      "start": 16.315,
+      "end": 16.686
+    },
+    {
+      "id": "w44",
+      "text": "steps",
+      "start": 16.686,
+      "end": 17.159
+    },
+    {
+      "id": "w45",
+      "text": "can",
+      "start": 17.159,
+      "end": 17.382
+    },
+    {
+      "id": "w46",
+      "text": "make",
+      "start": 17.382,
+      "end": 17.621
+    },
+    {
+      "id": "w47",
+      "text": "the",
+      "start": 17.621,
+      "end": 17.751
+    },
+    {
+      "id": "w48",
+      "text": "next",
+      "start": 17.751,
+      "end": 18.168
+    },
+    {
+      "id": "w49",
+      "text": "session",
+      "start": 18.168,
+      "end": 18.554
+    },
+    {
+      "id": "w50",
+      "text": "easier",
+      "start": 18.554,
+      "end": 18.925
+    },
+    {
+      "id": "w51",
+      "text": "to",
+      "start": 18.925,
+      "end": 19.066
+    },
+    {
+      "id": "w52",
+      "text": "begin",
+      "start": 19.066,
+      "end": 19.62643990929705
+    }
+  ]
+}

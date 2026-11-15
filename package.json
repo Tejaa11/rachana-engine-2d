@@ -1,8 +1,8 @@
 {
   "name": "rachana-engine-2d",
-  "version": "0.1.0-alpha.2",
+  "version": "0.1.0-alpha.3",
   "private": true,
-  "description": "An early 2D scene runtime with a local render CLI and narration-anchored animation.",
+  "description": "A declarative 2D animation runtime with reusable narrated-pilot composition and local video export.",
   "type": "module",
   "license": "MIT",
   "author": "Tejas Dadhich (https://github.com/Tejaa11)",
