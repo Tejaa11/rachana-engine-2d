@@ -45,3 +45,7 @@ __pycache__/
 !showcase/generated/learning-habit.mp4
 !showcase/generated/team-flow.mp4
 !showcase/generated/seed-story.mp4
+
+# Original public image-asset workflow fixture and selected rendered output
+!examples/lantern-workshop/voice.wav
+!showcase/lantern-workshop/film.mp4

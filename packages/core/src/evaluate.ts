@@ -61,7 +61,8 @@ function evaluateLayer(scene: Scene, layer: Layer, timeSeconds: number): Evaluat
     rotation: layer.rotation ?? 0,
   } as EvaluatedLayer;
   // Do not expose mutable arrays from the authored scene through a returned draw state.
-  if (result.type === 'rect' && layer.type === 'rect') result.size = [...layer.size] as Vec2;
+  if ((result.type === 'rect' && layer.type === 'rect') || (result.type === 'image' && layer.type === 'image')) result.size = [...layer.size] as Vec2;
+  if (result.type === 'image' && layer.type === 'image' && layer.focalPoint) result.focalPoint = [...layer.focalPoint] as Vec2;
   if (result.type === 'path' && layer.type === 'path') result.commands = layer.commands.map(command => [...command] as PathCommand);
   if (result.type === 'group' && layer.type === 'group') result.children = layer.children.map(child => evaluateLayer(scene, child, timeSeconds));
 

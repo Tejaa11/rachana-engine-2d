@@ -86,7 +86,8 @@
               "cards",
               "process",
               "compare",
-              "closing"
+              "closing",
+              "illustration"
             ]
           },
           "items": {
@@ -106,6 +107,22 @@
               "leaf",
               "board",
               "shield"
+            ]
+          },
+          "visual": {
+            "$ref": "#/$defs/visual"
+          },
+          "intent": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 240
+          },
+          "acting": {
+            "enum": [
+              "think",
+              "explain",
+              "point",
+              "celebrate"
             ]
           }
         }
@@ -138,6 +155,74 @@
             30,
             60
           ]
+        }
+      }
+    },
+    "assetRegistry": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 512,
+      "pattern": "^(?!/)(?![A-Za-z][A-Za-z0-9+.-]*:)(?!.*\\\\)(?!.*(?:^|/)\\.\\.(?:/|$))[^\\u0000-\\u001F\\u007F]+$"
+    },
+    "assetStyle": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 80,
+      "pattern": "^[a-z0-9][a-z0-9._-]*$"
+    },
+    "defaultVisual": {
+      "$ref": "#/$defs/visual"
+    }
+  },
+  "$defs": {
+    "visual": {
+      "type": "object",
+      "additionalProperties": false,
+      "anyOf": [
+        {
+          "required": [
+            "image"
+          ],
+          "properties": {
+            "image": {}
+          }
+        },
+        {
+          "required": [
+            "prop"
+          ],
+          "properties": {
+            "prop": {}
+          }
+        }
+      ],
+      "properties": {
+        "image": {
+          "type": "string",
+          "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+          "maxLength": 80
+        },
+        "prop": {
+          "type": "string",
+          "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+          "maxLength": 80
+        },
+        "layout": {
+          "enum": [
+            "left",
+            "right",
+            "full"
+          ]
+        },
+        "focalPoint": {
+          "type": "array",
+          "minItems": 2,
+          "maxItems": 2,
+          "items": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1
+          }
         }
       }
     }

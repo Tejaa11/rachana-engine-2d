@@ -1,5 +1,18 @@
 # Changelog
 
+## 0.1.0-alpha.4 — 15 November 2026
+
+Local image assets become reusable production inputs:
+
+- Versioned provenance/style/review registry and registration requests; derive PNG hashes, dimensions and actual transparency through `assets register`.
+- Bounded static PNG validation before native decode, including chunk checksums, compressed scanline sizes and empty/corrupt-art failures.
+- Image layers with contain/cover, focal cropping, inherited transforms/alpha and preloaded content-pinned files.
+- Production `defaultVisual`/beat artwork bindings, three illustration layouts, acting/intent fields, selected-asset snapshots and portable hashed files.
+- A 48-second original Lantern Workshop story using generated development artwork, the existing vector actor and supplied synthetic-narration timings.
+- Pixel-level image tests, file/registry/bundle checks and clean CI renders on Node 22/24.
+
+This is a local static-image import and reuse path. Built-in imagegen was used during development to create the committed example artwork; the engine does not call a live image provider or AI director. Static cutouts do not become rigged actors, and environment details are not automatically identity-locked. Recorded-speech alignment and persistent render/generation jobs remain planned.
+
 ## 0.1.0-alpha.3 — 15 November 2026
 
 Reusable composition, with the same defaults applied to new inputs:

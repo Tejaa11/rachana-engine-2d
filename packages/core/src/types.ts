@@ -30,16 +30,26 @@ export type ShapeLayer = BaseLayer & (
   | { type: 'rect'; size: Vec2; fill: string; radius?: number }
   | { type: 'circle'; radius: number; fill: string; stroke?: string; strokeWidth?: number }
   | { type: 'text'; text: string; fontSize: number; color: string; align?: 'left' | 'center' | 'right'; maxWidth: number; lineHeight?: number; fontWeight?: 'normal' | 'bold' }
+  | { type: 'image'; asset: string; size: Vec2; fit?: 'contain' | 'cover'; focalPoint?: Vec2 }
   | { type: 'path'; commands: PathCommand[]; fill: string; stroke?: string; strokeWidth?: number }
 );
 export type GroupLayer = BaseLayer & { type: 'group'; children: Layer[] };
 export type Layer = ShapeLayer | GroupLayer;
+/** Local decoded image inputs pinned to bytes and dimensions by the scene. */
+export interface ImageAssetRef {
+  id: string;
+  src: string;
+  sha256: string;
+  width: number;
+  height: number;
+}
 export interface Scene {
   schemaVersion: 1;
   id: string;
   output: { width: number; height: number; fps: number; durationSeconds: number };
   background: string;
   audio?: { src: string; gain?: number };
+  images?: ImageAssetRef[];
   narration?: { words: Word[]; timingSource: 'manual' | 'reviewed' | 'synthesis-events' };
   layers: Layer[];
 }

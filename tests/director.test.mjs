@@ -113,12 +113,12 @@ test('dense labels fail visibly instead of silent truncation or unbounded shrink
   assert.throws(()=>composePlan(plan),/does not fit/);
 });
 
-test('every template and palette draws with separate caption space at 720p and 1080p',()=>{
+test('every vector template and palette draws with separate caption space at 720p and 1080p',()=>{
   const base=planned();
   for(const style of ['paper','ocean','midnight'])for(const [width,height] of [[1280,720],[1920,1080]]){
     const plan=structuredClone(base);plan.style=style;plan.output.width=width;plan.output.height=height;
     // Same script and timings, six explicit staging choices with complete labels.
-    plan.shots=templates.map((template,i)=>({id:`shot-${i+1}`,template,start:i*2.8,end:(i+1)*2.8,fromWord:'w1',toWord:'w2',heading:'An observation worth sharing',items:['Listen to the sound','Describe the change'],itemStarts:[i*2.8+.2,i*2.8+1],subject:['idea','book','leaf','board','shield','idea'][i],direction:'Template coverage fixture'}));
+    plan.shots=templates.filter(t=>t!=='illustration').map((template,i)=>({id:`shot-${i+1}`,template,start:i*2.8,end:(i+1)*2.8,fromWord:'w1',toWord:'w2',heading:'An observation worth sharing',items:['Listen to the sound','Describe the change'],itemStarts:[i*2.8+.2,i*2.8+1],subject:['idea','book','leaf','board','shield','idea'][i],direction:'Template coverage fixture'}));
     plan.output.durationSeconds=16.8;
     plan.narration.words=plan.narration.words.filter(w=>w.end<=16.8);
     plan.captions=[];

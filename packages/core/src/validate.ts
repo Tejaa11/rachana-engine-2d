@@ -72,6 +72,17 @@ export function validateScene(input: unknown): ValidationResult {
   if (frameCount < 1) issue('/output/durationSeconds', 'Scene duration must produce at least one video frame');
   if (frameCount > FRAME_LIMIT) issue('/output/durationSeconds', `Frame count exceeds the ${FRAME_LIMIT} frame limit`);
 
+  const imageIds = new Set<string>();
+  let imagePixels = 0;
+  for (const [index, image] of (scene.images || []).entries()) {
+    if (imageIds.has(image.id)) issue(`/images/${index}/id`, `Duplicate image asset ID: ${image.id}`);
+    imageIds.add(image.id);
+    const pixels = image.width * image.height;
+    if (pixels > 16_777_216) issue(`/images/${index}`, 'Image exceeds the 16777216 pixel limit');
+    imagePixels += pixels;
+  }
+  if (imagePixels > 33_554_432) issue('/images', 'Scene images exceed the 33554432 total decoded pixel limit');
+
   const words = new Map<string, { start: number; end: number }>();
   for (const [index, word] of (scene.narration?.words || []).entries()) {
     const path = `/narration/words/${index}`;
@@ -86,6 +97,7 @@ export function validateScene(input: unknown): ValidationResult {
   const visitLayer = (layer: Layer, layerPath: string): void => {
     if (layerIds.has(layer.id)) issue(`${layerPath}/id`, `Duplicate layer ID: ${layer.id}`);
     layerIds.add(layer.id);
+    if (layer.type === 'image' && !imageIds.has(layer.asset)) issue(`${layerPath}/asset`, `Unknown image asset: ${layer.asset}`);
 
     const intervals = new Map<string, { start: number; end: number; index: number }[]>();
     for (const [clipIndex, clip] of (layer.clips || []).entries()) {

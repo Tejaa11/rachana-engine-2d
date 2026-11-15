@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 1,
+  "engineVersion": "0.1.0-alpha.4",
+  "source": "examples/lantern-workshop/production.json",
+  "method": "Nine authored beats, saved generated development artwork, reusable composition and shared image renderer. No live director/generation provider.",
+  "sha256": "0ad5fbaeeeebd5337d2c8e4c91f201b1311ba4bff307a87f890999f4b1b3a47b",
+  "frames": 1441,
+  "durationSeconds": 48.03,
+  "imageAssets": [
+    {
+      "id": "workshop-day",
+      "sha256": "98afb716feea476bb74e196742b8ae88ca3c1aa1d242ff14fecfaed8685559f0"
+    },
+    {
+      "id": "courtyard-night",
+      "sha256": "f75b9872ac5ee1455ad0085905dc26e1c0ad2452e42a0843397c4c0f358005b1"
+    },
+    {
+      "id": "lantern-prop",
+      "sha256": "3a7499ddc670fe01200670dd7e3cc8d1c56b898a04f444d72c1c2670d1cd1bed"
+    }
+  ]
+}

@@ -1,6 +1,6 @@
 # Rachana Engine 2D — asset generation and reuse contract
 
-Status: proposed design for the reusable engine. The current film code does not implement this service.
+Status: the local PNG registry, inspection/import request, content-pinned image layers and production-bundle reuse are implemented in alpha.4; see [the runnable image workflow](IMAGE_ASSETS.md). The broader generation, provider, rig, cache and resumable-job services below remain proposed design.
 
 ## Resolve scene needs, not just prompts
 

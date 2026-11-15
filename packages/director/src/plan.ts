@@ -1,8 +1,14 @@
 import type { Scene, Word } from '../../core/src/types.js';
-export const templates = ['opening', 'focus', 'cards', 'process', 'compare', 'closing'] as const;
+export const templates = ['opening', 'focus', 'cards', 'process', 'compare', 'closing', 'illustration'] as const;
 export type Template = typeof templates[number];
 export type Style = 'paper' | 'ocean' | 'midnight';
 export type Subject = 'idea' | 'book' | 'leaf' | 'board' | 'shield';
+export interface VisualInput {
+    image?: string;
+    prop?: string;
+    layout?: 'left' | 'right' | 'full';
+    focalPoint?: [number, number];
+}
 export interface BeatInput {
     fromWord: string;
     toWord: string;
@@ -10,6 +16,9 @@ export interface BeatInput {
     template?: Template;
     items?: string[];
     subject?: Subject;
+    visual?: VisualInput;
+    intent?: string;
+    acting?: 'think' | 'explain' | 'point' | 'celebrate';
 }
 export interface ProductionConfig {
     schemaVersion: 1;
@@ -20,6 +29,9 @@ export interface ProductionConfig {
     timing: string;
     style?: Style;
     beats?: BeatInput[];
+    assetRegistry?: string;
+    assetStyle?: string;
+    defaultVisual?: VisualInput;
     output?: {
         width: 1280 | 1920;
         height: 720 | 1080;
@@ -43,6 +55,9 @@ export interface PlannedShot {
     subject: Subject;
     itemStarts: number[];
     direction: string;
+    visual?: VisualInput;
+    intent?: string;
+    acting?: BeatInput['acting'];
 }
 export interface CreativePlan {
     schemaVersion: 1;
@@ -217,6 +232,12 @@ export function planProduction(config: ProductionConfig, script: string, timing:
             else
                 template = 'focus';
         }
+        const rawVisual=explicit?.visual??config.defaultVisual;
+        const visual=rawVisual?{...structuredClone(rawVisual),layout:rawVisual.layout??(index%2===0?'left':'right') as 'left'|'right'}:undefined;
+        if(visual) {
+            if(explicit?.template&&explicit.template!=='illustration')throw new Error(`Shot ${index+1}: visual artwork requires the illustration template or an omitted template.`);
+            template='illustration';
+        } else if(template==='illustration')throw new Error(`Shot ${index+1}: illustration needs image or prop artwork.`);
         const heading = explicit?.heading ?? (template === 'compare' && comparedSentence ? comparedSentence : sentences[0]);
         const usesItems = ['cards', 'compare', 'process'].includes(template);
         const items = usesItems ? (explicit?.items ?? (template === 'compare' && compared ? compared : sentences.slice(0, 3))) : [];
@@ -240,7 +261,7 @@ export function planProduction(config: ProductionConfig, script: string, timing:
         if (end - start > 12)
             warnings.push(`Shot ${index + 1} lasts over 12 seconds; review its pacing.`);
         return { id: `shot-${index + 1}`, template, start, end, fromWord: words[from].id, toWord: words[to].id,
-            heading, items, itemStarts, subject: explicit?.subject ?? subjectFor(topic),
+            heading, items, itemStarts, ...(visual?{visual:structuredClone(visual)}:{}), ...(explicit?.intent?{intent:explicit.intent}:{}), ...(explicit?.acting?{acting:explicit.acting}:{}), subject: explicit?.subject ?? subjectFor(topic),
             direction: `${template}: readable text, a stable presenter, an illustrative ${explicit?.subject ?? subjectFor(topic)} motif, and narration-timed reveals.` };
     });
     if (shots.length < 3)
@@ -266,9 +287,9 @@ export function planProduction(config: ProductionConfig, script: string, timing:
         segmentFrom = i + 1;
     }
     for (let i = 2; i < shots.length; i++)
-        if (shots[i].template === shots[i - 1].template && shots[i].template === shots[i - 2].template)
+        if (shots[i].template === shots[i - 1].template && shots[i].template === shots[i - 2].template && shots[i].visual?.layout === shots[i-1].visual?.layout && shots[i].visual?.layout === shots[i-2].visual?.layout)
             warnings.push(`Shot ${i + 1}: three consecutive ${shots[i].template} compositions; review staging variety or supply explicit beats.`);
-    if (shots.filter(shot => shot.subject === 'idea').length > shots.length / 2)
+    if (shots.filter(shot => !shot.visual&&shot.subject === 'idea').length > shots.length / 2)
         warnings.push('Most shots use the generic idea motif. Add topic-specific artwork before treating this as a finished film.');
     return { schemaVersion: 1, id: config.id, title: config.title, style: config.style ?? 'paper', output: { width: config.output?.width ?? 1920, height: config.output?.height ?? 1080, fps: config.output?.fps ?? 30, durationSeconds: timing.durationSeconds },
         narration: { words: words.map(word => ({ ...word })), timingSource: timing.timingSource }, shots, captions, warnings,

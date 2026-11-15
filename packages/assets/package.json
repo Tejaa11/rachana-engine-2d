@@ -1,0 +1,7 @@
+{
+  "name": "@rachana/assets",
+  "version": "0.1.0-alpha.4",
+  "private": true,
+  "type": "module",
+  "description": "Bounded local PNG inspection and provenance-aware reusable asset registries."
+}

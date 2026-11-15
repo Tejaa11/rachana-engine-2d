@@ -1,5 +1,6 @@
 import { createCanvas, GlobalFonts, type Canvas, type SKRSContext2D } from '@napi-rs/canvas';
 import { fileURLToPath } from 'node:url';
+import type { PreparedImages } from './images.js';
 import type { EvaluatedLayer, FrameState } from '../../core/src/types.js';
 
 let fontsReady = false;
@@ -44,7 +45,7 @@ export function createSurface(width: number, height: number): Canvas {
 }
 
 /** Side effects are confined to drawing; the draw-list evaluator remains pure. */
-export function drawFrame(canvas: Canvas, frame: FrameState): void {
+export function drawFrame(canvas: Canvas, frame: FrameState, images?: PreparedImages): void {
   const ctx = canvas.getContext('2d');
   ctx.resetTransform();
   ctx.globalAlpha = 1;
@@ -77,6 +78,26 @@ export function drawFrame(canvas: Canvas, frame: FrameState): void {
           ctx.strokeStyle = layer.stroke;
           ctx.lineWidth = layer.strokeWidth!;
           ctx.stroke();
+        }
+      } else if (layer.type === 'image') {
+        const image = images?.get(layer.asset);
+        if (!image) throw new Error(`Image asset ${layer.asset} has not been prepared for layer ${layer.id}.`);
+        const [width, height] = layer.size;
+        const [focusX, focusY] = layer.focalPoint ?? [.5, .5];
+        // Clip the destination, including subpixel filtering, to its declared box.
+        ctx.beginPath();
+        ctx.rect(0, 0, width, height);
+        ctx.clip();
+        if (layer.fit === 'cover') {
+          const scale = Math.max(width / image.width, height / image.height);
+          const cropWidth = width / scale, cropHeight = height / scale;
+          const left = (image.width - cropWidth) * focusX;
+          const top = (image.height - cropHeight) * focusY;
+          ctx.drawImage(image, left, top, cropWidth, cropHeight, 0, 0, width, height);
+        } else {
+          const scale = Math.min(width / image.width, height / image.height);
+          const drawnWidth = image.width * scale, drawnHeight = image.height * scale;
+          ctx.drawImage(image, (width - drawnWidth) / 2, (height - drawnHeight) / 2, drawnWidth, drawnHeight);
         }
       } else if (layer.type === 'path') {
         ctx.beginPath();

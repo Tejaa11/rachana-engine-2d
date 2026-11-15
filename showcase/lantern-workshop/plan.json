@@ -1,0 +1,1105 @@
+{
+  "schemaVersion": 1,
+  "id": "lantern-workshop",
+  "title": "The Lantern Workshop",
+  "style": "paper",
+  "output": {
+    "width": 1920,
+    "height": 1080,
+    "fps": 30,
+    "durationSeconds": 48.032426303854876
+  },
+  "narration": {
+    "words": [
+      {
+        "id": "w1",
+        "text": "At",
+        "start": 0,
+        "end": 0.174
+      },
+      {
+        "id": "w2",
+        "text": "her",
+        "start": 0.174,
+        "end": 0.324
+      },
+      {
+        "id": "w3",
+        "text": "workbench",
+        "start": 0.324,
+        "end": 1.204
+      },
+      {
+        "id": "w4",
+        "text": "Mira",
+        "start": 1.204,
+        "end": 1.495
+      },
+      {
+        "id": "w5",
+        "text": "studies",
+        "start": 1.495,
+        "end": 1.937
+      },
+      {
+        "id": "w6",
+        "text": "a",
+        "start": 1.937,
+        "end": 2
+      },
+      {
+        "id": "w7",
+        "text": "paper",
+        "start": 2,
+        "end": 2.4
+      },
+      {
+        "id": "w8",
+        "text": "lantern",
+        "start": 2.4,
+        "end": 2.855
+      },
+      {
+        "id": "w9",
+        "text": "that",
+        "start": 2.855,
+        "end": 3.096
+      },
+      {
+        "id": "w10",
+        "text": "looks",
+        "start": 3.096,
+        "end": 3.417
+      },
+      {
+        "id": "w11",
+        "text": "nothing",
+        "start": 3.417,
+        "end": 3.811
+      },
+      {
+        "id": "w12",
+        "text": "like",
+        "start": 3.811,
+        "end": 4.099
+      },
+      {
+        "id": "w13",
+        "text": "her",
+        "start": 4.099,
+        "end": 4.267
+      },
+      {
+        "id": "w14",
+        "text": "sketch",
+        "start": 4.267,
+        "end": 5.12
+      },
+      {
+        "id": "w15",
+        "text": "She",
+        "start": 5.12,
+        "end": 5.294
+      },
+      {
+        "id": "w16",
+        "text": "imagined",
+        "start": 5.294,
+        "end": 5.785
+      },
+      {
+        "id": "w17",
+        "text": "a",
+        "start": 5.785,
+        "end": 5.843
+      },
+      {
+        "id": "w18",
+        "text": "small",
+        "start": 5.843,
+        "end": 6.214
+      },
+      {
+        "id": "w19",
+        "text": "glow",
+        "start": 6.214,
+        "end": 6.458
+      },
+      {
+        "id": "w20",
+        "text": "above",
+        "start": 6.458,
+        "end": 6.75
+      },
+      {
+        "id": "w21",
+        "text": "the",
+        "start": 6.75,
+        "end": 6.87
+      },
+      {
+        "id": "w22",
+        "text": "terrace",
+        "start": 6.87,
+        "end": 7.523
+      },
+      {
+        "id": "w23",
+        "text": "but",
+        "start": 7.523,
+        "end": 7.756
+      },
+      {
+        "id": "w24",
+        "text": "this",
+        "start": 7.756,
+        "end": 7.974
+      },
+      {
+        "id": "w25",
+        "text": "first",
+        "start": 7.974,
+        "end": 8.358
+      },
+      {
+        "id": "w26",
+        "text": "shape",
+        "start": 8.358,
+        "end": 8.753
+      },
+      {
+        "id": "w27",
+        "text": "looks",
+        "start": 8.753,
+        "end": 9.077
+      },
+      {
+        "id": "w28",
+        "text": "flat",
+        "start": 9.077,
+        "end": 9.576
+      },
+      {
+        "id": "w29",
+        "text": "and",
+        "start": 9.576,
+        "end": 9.777
+      },
+      {
+        "id": "w30",
+        "text": "tired",
+        "start": 9.777,
+        "end": 10.647
+      },
+      {
+        "id": "w31",
+        "text": "For",
+        "start": 10.647,
+        "end": 10.877
+      },
+      {
+        "id": "w32",
+        "text": "one",
+        "start": 10.877,
+        "end": 11.154
+      },
+      {
+        "id": "w33",
+        "text": "moment",
+        "start": 11.154,
+        "end": 11.83
+      },
+      {
+        "id": "w34",
+        "text": "she",
+        "start": 11.83,
+        "end": 12.017
+      },
+      {
+        "id": "w35",
+        "text": "considers",
+        "start": 12.017,
+        "end": 12.641
+      },
+      {
+        "id": "w36",
+        "text": "hiding",
+        "start": 12.641,
+        "end": 13.095
+      },
+      {
+        "id": "w37",
+        "text": "the",
+        "start": 13.095,
+        "end": 13.203
+      },
+      {
+        "id": "w38",
+        "text": "creased",
+        "start": 13.203,
+        "end": 13.625
+      },
+      {
+        "id": "w39",
+        "text": "paper",
+        "start": 13.625,
+        "end": 14.179
+      },
+      {
+        "id": "w40",
+        "text": "and",
+        "start": 14.179,
+        "end": 14.388
+      },
+      {
+        "id": "w41",
+        "text": "starting",
+        "start": 14.388,
+        "end": 14.818
+      },
+      {
+        "id": "w42",
+        "text": "again",
+        "start": 14.818,
+        "end": 15.738
+      },
+      {
+        "id": "w43",
+        "text": "Instead",
+        "start": 15.738,
+        "end": 16.476
+      },
+      {
+        "id": "w44",
+        "text": "Mira",
+        "start": 16.476,
+        "end": 16.758
+      },
+      {
+        "id": "w45",
+        "text": "turns",
+        "start": 16.758,
+        "end": 17.191
+      },
+      {
+        "id": "w46",
+        "text": "the",
+        "start": 17.191,
+        "end": 17.318
+      },
+      {
+        "id": "w47",
+        "text": "lantern",
+        "start": 17.318,
+        "end": 17.917
+      },
+      {
+        "id": "w48",
+        "text": "and",
+        "start": 17.917,
+        "end": 18.114
+      },
+      {
+        "id": "w49",
+        "text": "notices",
+        "start": 18.114,
+        "end": 18.636
+      },
+      {
+        "id": "w50",
+        "text": "one",
+        "start": 18.636,
+        "end": 18.913
+      },
+      {
+        "id": "w51",
+        "text": "fold",
+        "start": 18.913,
+        "end": 19.339
+      },
+      {
+        "id": "w52",
+        "text": "pulling",
+        "start": 19.339,
+        "end": 19.619
+      },
+      {
+        "id": "w53",
+        "text": "its",
+        "start": 19.619,
+        "end": 19.921
+      },
+      {
+        "id": "w54",
+        "text": "shape",
+        "start": 19.921,
+        "end": 20.271
+      },
+      {
+        "id": "w55",
+        "text": "inward",
+        "start": 20.271,
+        "end": 21.101
+      },
+      {
+        "id": "w56",
+        "text": "She",
+        "start": 21.101,
+        "end": 21.297
+      },
+      {
+        "id": "w57",
+        "text": "changes",
+        "start": 21.297,
+        "end": 21.825
+      },
+      {
+        "id": "w58",
+        "text": "that",
+        "start": 21.825,
+        "end": 22.067
+      },
+      {
+        "id": "w59",
+        "text": "fold",
+        "start": 22.067,
+        "end": 22.767
+      },
+      {
+        "id": "w60",
+        "text": "then",
+        "start": 22.767,
+        "end": 23.076
+      },
+      {
+        "id": "w61",
+        "text": "pauses",
+        "start": 23.076,
+        "end": 23.539
+      },
+      {
+        "id": "w62",
+        "text": "to",
+        "start": 23.539,
+        "end": 23.681
+      },
+      {
+        "id": "w63",
+        "text": "look",
+        "start": 23.681,
+        "end": 23.924
+      },
+      {
+        "id": "w64",
+        "text": "before",
+        "start": 23.924,
+        "end": 24.276
+      },
+      {
+        "id": "w65",
+        "text": "changing",
+        "start": 24.276,
+        "end": 24.722
+      },
+      {
+        "id": "w66",
+        "text": "anything",
+        "start": 24.722,
+        "end": 25.173
+      },
+      {
+        "id": "w67",
+        "text": "else",
+        "start": 25.173,
+        "end": 26.02
+      },
+      {
+        "id": "w68",
+        "text": "The",
+        "start": 26.02,
+        "end": 26.15
+      },
+      {
+        "id": "w69",
+        "text": "next",
+        "start": 26.15,
+        "end": 26.544
+      },
+      {
+        "id": "w70",
+        "text": "attempt",
+        "start": 26.544,
+        "end": 27.12
+      },
+      {
+        "id": "w71",
+        "text": "is",
+        "start": 27.12,
+        "end": 27.239
+      },
+      {
+        "id": "w72",
+        "text": "uneven",
+        "start": 27.239,
+        "end": 27.945
+      },
+      {
+        "id": "w73",
+        "text": "yet",
+        "start": 27.945,
+        "end": 28.247
+      },
+      {
+        "id": "w74",
+        "text": "now",
+        "start": 28.247,
+        "end": 28.485
+      },
+      {
+        "id": "w75",
+        "text": "the",
+        "start": 28.485,
+        "end": 28.612
+      },
+      {
+        "id": "w76",
+        "text": "little",
+        "start": 28.612,
+        "end": 28.905
+      },
+      {
+        "id": "w77",
+        "text": "lantern",
+        "start": 28.905,
+        "end": 29.36
+      },
+      {
+        "id": "w78",
+        "text": "has",
+        "start": 29.36,
+        "end": 29.568
+      },
+      {
+        "id": "w79",
+        "text": "room",
+        "start": 29.568,
+        "end": 29.821
+      },
+      {
+        "id": "w80",
+        "text": "to",
+        "start": 29.821,
+        "end": 29.965
+      },
+      {
+        "id": "w81",
+        "text": "open",
+        "start": 29.965,
+        "end": 30.761
+      },
+      {
+        "id": "w82",
+        "text": "By",
+        "start": 30.761,
+        "end": 30.894
+      },
+      {
+        "id": "w83",
+        "text": "evening",
+        "start": 30.894,
+        "end": 31.558
+      },
+      {
+        "id": "w84",
+        "text": "the",
+        "start": 31.558,
+        "end": 31.679
+      },
+      {
+        "id": "w85",
+        "text": "revised",
+        "start": 31.679,
+        "end": 32.246
+      },
+      {
+        "id": "w86",
+        "text": "shape",
+        "start": 32.246,
+        "end": 32.642
+      },
+      {
+        "id": "w87",
+        "text": "rests",
+        "start": 32.642,
+        "end": 33.018
+      },
+      {
+        "id": "w88",
+        "text": "beside",
+        "start": 33.018,
+        "end": 33.447
+      },
+      {
+        "id": "w89",
+        "text": "her",
+        "start": 33.447,
+        "end": 33.605
+      },
+      {
+        "id": "w90",
+        "text": "original",
+        "start": 33.605,
+        "end": 34.056
+      },
+      {
+        "id": "w91",
+        "text": "sketch",
+        "start": 34.056,
+        "end": 34.724
+      },
+      {
+        "id": "w92",
+        "text": "and",
+        "start": 34.724,
+        "end": 34.93
+      },
+      {
+        "id": "w93",
+        "text": "the",
+        "start": 34.93,
+        "end": 35.046
+      },
+      {
+        "id": "w94",
+        "text": "workshop",
+        "start": 35.046,
+        "end": 35.591
+      },
+      {
+        "id": "w95",
+        "text": "is",
+        "start": 35.591,
+        "end": 35.735
+      },
+      {
+        "id": "w96",
+        "text": "quiet",
+        "start": 35.735,
+        "end": 36.646
+      },
+      {
+        "id": "w97",
+        "text": "Outside",
+        "start": 36.646,
+        "end": 37.449
+      },
+      {
+        "id": "w98",
+        "text": "a",
+        "start": 37.449,
+        "end": 37.522
+      },
+      {
+        "id": "w99",
+        "text": "gentle",
+        "start": 37.522,
+        "end": 37.923
+      },
+      {
+        "id": "w100",
+        "text": "glow",
+        "start": 37.923,
+        "end": 38.188
+      },
+      {
+        "id": "w101",
+        "text": "fills",
+        "start": 38.188,
+        "end": 38.547
+      },
+      {
+        "id": "w102",
+        "text": "its",
+        "start": 38.547,
+        "end": 38.815
+      },
+      {
+        "id": "w103",
+        "text": "paper",
+        "start": 38.815,
+        "end": 39.185
+      },
+      {
+        "id": "w104",
+        "text": "walls",
+        "start": 39.185,
+        "end": 39.552
+      },
+      {
+        "id": "w105",
+        "text": "as",
+        "start": 39.552,
+        "end": 39.718
+      },
+      {
+        "id": "w106",
+        "text": "the",
+        "start": 39.718,
+        "end": 39.826
+      },
+      {
+        "id": "w107",
+        "text": "terrace",
+        "start": 39.826,
+        "end": 40.216
+      },
+      {
+        "id": "w108",
+        "text": "settles",
+        "start": 40.216,
+        "end": 40.633
+      },
+      {
+        "id": "w109",
+        "text": "into",
+        "start": 40.633,
+        "end": 40.913
+      },
+      {
+        "id": "w110",
+        "text": "blue",
+        "start": 40.913,
+        "end": 41.143
+      },
+      {
+        "id": "w111",
+        "text": "shadows",
+        "start": 41.143,
+        "end": 42.093
+      },
+      {
+        "id": "w112",
+        "text": "Mira",
+        "start": 42.093,
+        "end": 42.375
+      },
+      {
+        "id": "w113",
+        "text": "keeps",
+        "start": 42.375,
+        "end": 42.814
+      },
+      {
+        "id": "w114",
+        "text": "the",
+        "start": 42.814,
+        "end": 42.938
+      },
+      {
+        "id": "w115",
+        "text": "sketch",
+        "start": 42.938,
+        "end": 43.353
+      },
+      {
+        "id": "w116",
+        "text": "nearby",
+        "start": 43.353,
+        "end": 44.108
+      },
+      {
+        "id": "w117",
+        "text": "remembering",
+        "start": 44.108,
+        "end": 44.73
+      },
+      {
+        "id": "w118",
+        "text": "how",
+        "start": 44.73,
+        "end": 44.929
+      },
+      {
+        "id": "w119",
+        "text": "a",
+        "start": 44.929,
+        "end": 44.996
+      },
+      {
+        "id": "w120",
+        "text": "patient",
+        "start": 44.996,
+        "end": 45.537
+      },
+      {
+        "id": "w121",
+        "text": "revision",
+        "start": 45.537,
+        "end": 46.013
+      },
+      {
+        "id": "w122",
+        "text": "gave",
+        "start": 46.013,
+        "end": 46.309
+      },
+      {
+        "id": "w123",
+        "text": "her",
+        "start": 46.309,
+        "end": 46.467
+      },
+      {
+        "id": "w124",
+        "text": "idea",
+        "start": 46.467,
+        "end": 46.795
+      },
+      {
+        "id": "w125",
+        "text": "a",
+        "start": 46.795,
+        "end": 46.871
+      },
+      {
+        "id": "w126",
+        "text": "life",
+        "start": 46.871,
+        "end": 47.166
+      },
+      {
+        "id": "w127",
+        "text": "worth",
+        "start": 47.166,
+        "end": 47.462
+      },
+      {
+        "id": "w128",
+        "text": "sharing",
+        "start": 47.462,
+        "end": 48.032426303854876
+      }
+    ],
+    "timingSource": "synthesis-events"
+  },
+  "shots": [
+    {
+      "id": "shot-1",
+      "template": "illustration",
+      "start": 0,
+      "end": 5.12,
+      "fromWord": "w1",
+      "toWord": "w14",
+      "heading": "A sketch. A stubborn first attempt.",
+      "items": [],
+      "itemStarts": [],
+      "visual": {
+        "image": "workshop-day",
+        "layout": "full",
+        "focalPoint": [
+          0.8,
+          0.5
+        ]
+      },
+      "intent": "Introduce the gap between Mira's idea and the first attempt.",
+      "acting": "think",
+      "subject": "idea",
+      "direction": "illustration: readable text, a stable presenter, an illustrative idea motif, and narration-timed reveals."
+    },
+    {
+      "id": "shot-2",
+      "template": "illustration",
+      "start": 5.12,
+      "end": 10.647,
+      "fromWord": "w15",
+      "toWord": "w30",
+      "heading": "An idea worth trying.",
+      "items": [],
+      "itemStarts": [],
+      "visual": {
+        "prop": "lantern-prop",
+        "layout": "left"
+      },
+      "intent": "Hold the imagined lantern as a visual subject, using the same saved prop.",
+      "acting": "explain",
+      "subject": "idea",
+      "direction": "illustration: readable text, a stable presenter, an illustrative idea motif, and narration-timed reveals."
+    },
+    {
+      "id": "shot-3",
+      "template": "illustration",
+      "start": 10.647,
+      "end": 15.738,
+      "fromWord": "w31",
+      "toWord": "w42",
+      "heading": "Keep the first attempt.",
+      "items": [],
+      "itemStarts": [],
+      "visual": {
+        "prop": "lantern-prop",
+        "layout": "right"
+      },
+      "intent": "A quiet moment of doubt before Mira changes her approach.",
+      "acting": "think",
+      "subject": "idea",
+      "direction": "illustration: readable text, a stable presenter, an illustrative idea motif, and narration-timed reveals."
+    },
+    {
+      "id": "shot-4",
+      "template": "illustration",
+      "start": 15.738,
+      "end": 21.101,
+      "fromWord": "w43",
+      "toWord": "w55",
+      "heading": "Notice one fold.",
+      "items": [],
+      "itemStarts": [],
+      "visual": {
+        "prop": "lantern-prop",
+        "layout": "left"
+      },
+      "intent": "Focus attention on one revision without pretending the static cutout is rigged.",
+      "acting": "point",
+      "subject": "idea",
+      "direction": "illustration: readable text, a stable presenter, an illustrative idea motif, and narration-timed reveals."
+    },
+    {
+      "id": "shot-5",
+      "template": "process",
+      "start": 21.101,
+      "end": 26.02,
+      "fromWord": "w56",
+      "toWord": "w67",
+      "heading": "Change. Pause. Look.",
+      "items": [
+        "changes that fold",
+        "pauses to look"
+      ],
+      "itemStarts": [
+        21.301,
+        23.076
+      ],
+      "intent": "Separate the action and the pause into narration-timed steps.",
+      "acting": "explain",
+      "subject": "idea",
+      "direction": "process: readable text, a stable presenter, an illustrative idea motif, and narration-timed reveals."
+    },
+    {
+      "id": "shot-6",
+      "template": "illustration",
+      "start": 26.02,
+      "end": 30.761,
+      "fromWord": "w68",
+      "toWord": "w81",
+      "heading": "Room to open.",
+      "items": [],
+      "itemStarts": [],
+      "visual": {
+        "prop": "lantern-prop",
+        "layout": "full"
+      },
+      "intent": "Revisit the saved prop after the narrated revision; no physical folding simulation is claimed.",
+      "acting": "explain",
+      "subject": "idea",
+      "direction": "illustration: readable text, a stable presenter, an illustrative idea motif, and narration-timed reveals."
+    },
+    {
+      "id": "shot-7",
+      "template": "illustration",
+      "start": 30.761,
+      "end": 36.646,
+      "fromWord": "w82",
+      "toWord": "w96",
+      "heading": "One revision at a time.",
+      "items": [],
+      "itemStarts": [],
+      "visual": {
+        "image": "courtyard-night",
+        "layout": "left",
+        "focalPoint": [
+          1,
+          0.5
+        ]
+      },
+      "intent": "Shift the setting toward evening and give the story a quieter pace.",
+      "acting": "think",
+      "subject": "idea",
+      "direction": "illustration: readable text, a stable presenter, an illustrative idea motif, and narration-timed reveals."
+    },
+    {
+      "id": "shot-8",
+      "template": "illustration",
+      "start": 36.646,
+      "end": 42.093,
+      "fromWord": "w97",
+      "toWord": "w111",
+      "heading": "A little light, shared.",
+      "items": [],
+      "itemStarts": [],
+      "visual": {
+        "image": "courtyard-night",
+        "layout": "full",
+        "focalPoint": [
+          0.8,
+          0.5
+        ]
+      },
+      "intent": "Let the night environment carry the payoff.",
+      "acting": "celebrate",
+      "subject": "idea",
+      "direction": "illustration: readable text, a stable presenter, an illustrative idea motif, and narration-timed reveals."
+    },
+    {
+      "id": "shot-9",
+      "template": "closing",
+      "start": 42.093,
+      "end": 48.032426303854876,
+      "fromWord": "w112",
+      "toWord": "w128",
+      "heading": "Give the idea another chance.",
+      "items": [],
+      "itemStarts": [],
+      "intent": "Return to Mira with a concise closing thought.",
+      "acting": "celebrate",
+      "subject": "idea",
+      "direction": "closing: readable text, a stable presenter, an illustrative idea motif, and narration-timed reveals."
+    }
+  ],
+  "captions": [
+    {
+      "text": "At her workbench Mira studies a paper",
+      "start": 0,
+      "end": 2.4,
+      "fromWord": "w1",
+      "toWord": "w7"
+    },
+    {
+      "text": "lantern that looks nothing like her sketch.",
+      "start": 2.4,
+      "end": 5.12,
+      "fromWord": "w8",
+      "toWord": "w14"
+    },
+    {
+      "text": "She imagined a small glow above the terrace",
+      "start": 5.12,
+      "end": 7.523,
+      "fromWord": "w15",
+      "toWord": "w22"
+    },
+    {
+      "text": "but this first shape looks flat and tired.",
+      "start": 7.523,
+      "end": 10.647,
+      "fromWord": "w23",
+      "toWord": "w30"
+    },
+    {
+      "text": "For one moment she considers hiding",
+      "start": 10.647,
+      "end": 13.095,
+      "fromWord": "w31",
+      "toWord": "w36"
+    },
+    {
+      "text": "the creased paper and starting again.",
+      "start": 13.095,
+      "end": 15.738,
+      "fromWord": "w37",
+      "toWord": "w42"
+    },
+    {
+      "text": "Instead Mira turns the lantern and notices",
+      "start": 15.738,
+      "end": 18.636,
+      "fromWord": "w43",
+      "toWord": "w49"
+    },
+    {
+      "text": "one fold pulling its shape inward.",
+      "start": 18.636,
+      "end": 21.101,
+      "fromWord": "w50",
+      "toWord": "w55"
+    },
+    {
+      "text": "She changes that fold then pauses",
+      "start": 21.101,
+      "end": 23.539,
+      "fromWord": "w56",
+      "toWord": "w61"
+    },
+    {
+      "text": "to look before changing anything else.",
+      "start": 23.539,
+      "end": 26.02,
+      "fromWord": "w62",
+      "toWord": "w67"
+    },
+    {
+      "text": "The next attempt is uneven yet now",
+      "start": 26.02,
+      "end": 28.485,
+      "fromWord": "w68",
+      "toWord": "w74"
+    },
+    {
+      "text": "the little lantern has room to open.",
+      "start": 28.485,
+      "end": 30.761,
+      "fromWord": "w75",
+      "toWord": "w81"
+    },
+    {
+      "text": "By evening the revised shape rests beside her",
+      "start": 30.761,
+      "end": 33.605,
+      "fromWord": "w82",
+      "toWord": "w89"
+    },
+    {
+      "text": "original sketch and the workshop is quiet.",
+      "start": 33.605,
+      "end": 36.646,
+      "fromWord": "w90",
+      "toWord": "w96"
+    },
+    {
+      "text": "Outside a gentle glow fills its paper walls",
+      "start": 36.646,
+      "end": 39.552,
+      "fromWord": "w97",
+      "toWord": "w104"
+    },
+    {
+      "text": "as the terrace settles into blue shadows.",
+      "start": 39.552,
+      "end": 42.093,
+      "fromWord": "w105",
+      "toWord": "w111"
+    },
+    {
+      "text": "Mira keeps the sketch nearby remembering",
+      "start": 42.093,
+      "end": 44.73,
+      "fromWord": "w112",
+      "toWord": "w117"
+    },
+    {
+      "text": "how a patient revision gave her",
+      "start": 44.73,
+      "end": 46.467,
+      "fromWord": "w118",
+      "toWord": "w123"
+    },
+    {
+      "text": "idea a life worth sharing.",
+      "start": 46.467,
+      "end": 48.032426303854876,
+      "fromWord": "w124",
+      "toWord": "w128"
+    }
+  ],
+  "warnings": [],
+  "planningMode": "explicit-beats"
+}
