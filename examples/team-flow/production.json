@@ -1,0 +1,9 @@
+{
+  "schemaVersion": 1,
+  "id": "team-flow",
+  "title": "A shared view of work",
+  "style": "ocean",
+  "script": "script.txt",
+  "audio": "voice.wav",
+  "timing": "timing.json"
+}

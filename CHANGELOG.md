@@ -1,5 +1,18 @@
 # Changelog
 
+## 0.1.0-alpha.3 — 15 November 2026
+
+Reusable composition, with the same defaults applied to new inputs:
+
+- `compose` and `produce` commands accepting a versioned brief, script, voice WAV and matching supplied word timings.
+- Six reusable templates, three palettes, decorative vector subjects and source-phrase item reveals.
+- Complete source headings, measured text fitting, reserved captions and captions bounded by sentences/shots.
+- Optional editorial beats, ordered word coverage, portable input bundles and preview reports with source hashes.
+- Learning, teamwork and nature examples generated without custom scene builders; a source-linked gallery.
+- Regression coverage for unfamiliar text, every template/palette, density errors, input mismatch and output preservation.
+
+This is a local rule-based pilot composer, not an autonomous director. Current scope is 6–90 seconds, 12–350 supplied words and up to 12 shots. Automatic recorded-speech alignment, generated subject artwork, sound mixing, long-form orchestration and subjective creative approval remain open work.
+
 ## 0.1.0-alpha.2 — 15 November 2026
 
 Creative scene direction and original reusable character kit:

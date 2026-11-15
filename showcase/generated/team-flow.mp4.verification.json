@@ -1,0 +1,24 @@
+{
+  "sceneId": "team-flow",
+  "fullDecode": "passed",
+  "frames": 575,
+  "width": 1920,
+  "height": 1080,
+  "fps": 30,
+  "reportedDurationSeconds": 19.17,
+  "plannedDurationSeconds": 19.143401360544217,
+  "codec": "h264",
+  "audioCodec": "aac",
+  "loudness": {
+    "integratedLufs": -21.1,
+    "truePeakDbfs": -2.5
+  },
+  "bytes": 1843771,
+  "sha256": "525c177d833f1ca178e2c892f57d959df270103fe7977425fa2aff1650eba5c7",
+  "runtime": {
+    "node": "v24.11.1",
+    "platform": "darwin",
+    "architecture": "arm64"
+  },
+  "note": "These are measurements of this file, not a universal loudness target or cross-platform pixel-identity claim."
+}

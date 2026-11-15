@@ -50,3 +50,11 @@ jobs:
           npm run cli -- validate examples/narrated-story/creative.scene.json
           npm run render:creative
           node tools/verify-smoke.mjs renders/rachana-creative.mp4
+      - name: Produce three unrelated topics through shared defaults
+        run: |
+          npm run cli -- produce examples/learning-habit/production.json --out renders/learning-habit
+          node tools/verify-smoke.mjs renders/learning-habit/film.mp4
+          npm run cli -- produce examples/team-flow/production.json --out renders/team-flow
+          node tools/verify-smoke.mjs renders/team-flow/film.mp4
+          npm run cli -- produce examples/seed-story/production.json --out renders/seed-story
+          node tools/verify-smoke.mjs renders/seed-story/film.mp4

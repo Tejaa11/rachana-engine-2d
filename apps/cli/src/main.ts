@@ -5,6 +5,7 @@ import { evaluateScene, frameCount } from '../../../packages/core/src/evaluate.j
 import { loadScene, resolveAudio, inspectWav } from '../../../packages/renderer/src/files.js';
 import { createSurface, drawFrame, registerFonts } from '../../../packages/renderer/src/draw.js';
 import { inspectFFmpeg, renderVideo } from '../../../packages/renderer/src/export.js';
+import { composeProduction } from '../../../packages/director/src/project.js';
 
 function option(args: string[], name: string): string | undefined {
   const index = args.indexOf(name);
@@ -16,7 +17,20 @@ function option(args: string[], name: string): string | undefined {
 async function main(): Promise<void> {
   const [command, file, ...rest] = process.argv.slice(2);
   if (!command || command === '--help') {
-    console.log('Rachana Engine 2D\n\n  doctor\n  validate <scene.json>\n  frame <scene.json> --frame <index> --out <image.png>\n  render <scene.json> --out <video.mp4>\n\nOutputs are never overwritten. FFMPEG_PATH may select a local FFmpeg executable.');
+    console.log('Rachana Engine 2D\n\n  doctor\n  validate <scene.json>\n  frame <scene.json> --frame <index> --out <image.png>\n  render <scene.json> --out <video.mp4>\n  compose <production.json> --out <new-directory>\n  produce <production.json> --out <new-directory>\n\nCompose writes an editable plan/scene and preview report. Produce also renders film.mp4.\nOutputs are never overwritten. FFMPEG_PATH may select a local FFmpeg executable.');
+    return;
+  }
+  if(command==='compose'||command==='produce') {
+    if(!file||rest.length!==2||rest[0]!=='--out')throw new Error('Use compose/produce <production.json> --out <new-directory>.');
+    const output=option(rest,'--out');
+    if(!output)throw new Error('--out is required.');
+    if(command==='produce'&&!inspectFFmpeg().available)throw new Error('FFmpeg is missing. Run doctor before producing a film.');
+    const result=await composeProduction(file,output);
+    if(command==='produce') {
+      const scene=await loadScene(result.sceneFile);
+      await renderVideo(scene,result.sceneFile,path.join(result.directory,'film.mp4'));
+    }
+    console.log(JSON.stringify({directory:result.directory,report:result.report,rendered:command==='produce'},null,2));
     return;
   }
   if (command === 'doctor') {

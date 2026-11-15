@@ -1,0 +1,7 @@
+{
+  "name": "@rachana/director",
+  "version": "0.1.0-alpha.3",
+  "private": true,
+  "type": "module",
+  "description": "Local constrained planning, reusable art direction and preview-quality reports."
+}

@@ -1,0 +1,58 @@
+{
+  "schemaVersion": 1,
+  "engineVersion": "0.1.0-alpha.3",
+  "method": "Same local planner and templates; no per-topic scene builder or editorial beats.",
+  "entries": [
+    {
+      "id": "learning-habit",
+      "title": "A small learning habit",
+      "source": "examples/learning-habit/production.json",
+      "planningMode": "local-rules",
+      "style": "paper",
+      "shots": 6,
+      "templates": [
+        "opening",
+        "focus",
+        "compare",
+        "closing"
+      ],
+      "sha256": "48b5f8463888f976bf59b0fbfc1c6de786c6e657d167b3daad22a40c74deac33",
+      "frames": 589,
+      "durationSeconds": 19.63
+    },
+    {
+      "id": "team-flow",
+      "title": "A shared view of work",
+      "source": "examples/team-flow/production.json",
+      "planningMode": "local-rules",
+      "style": "ocean",
+      "shots": 6,
+      "templates": [
+        "opening",
+        "focus",
+        "compare",
+        "closing"
+      ],
+      "sha256": "525c177d833f1ca178e2c892f57d959df270103fe7977425fa2aff1650eba5c7",
+      "frames": 575,
+      "durationSeconds": 19.17
+    },
+    {
+      "id": "seed-story",
+      "title": "A seed finds its way",
+      "source": "examples/seed-story/production.json",
+      "planningMode": "local-rules",
+      "style": "midnight",
+      "shots": 6,
+      "templates": [
+        "opening",
+        "focus",
+        "compare",
+        "closing"
+      ],
+      "sha256": "f6b8618edb95d0c4033da8504b51c96c8fbd2ea4f1e76efe4e9abe1fb0092ec8",
+      "frames": 537,
+      "durationSeconds": 17.9
+    }
+  ]
+}

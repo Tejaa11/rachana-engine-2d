@@ -20,3 +20,7 @@ The original [static banner](banner.svg) represents layers, motion paths and a t
 These examples demonstrate the current alpha, not a final YouTube production standard. No render-speed benchmark, native/browser pixel parity or unsupported-platform guarantee is inferred from the showcase. Future reels should link to their exact source examples, describe external providers/manual preparation, and include publishable media provenance.
 
 The earlier shape-only study remains at [scene.json](../examples/narrated-story/scene.json), rendered by `npm run render:demo`. The creative showcase changes visual direction without removing that smaller runtime fixture.
+
+## Shared defaults, beyond the authored hero
+
+The [generated gallery](generated/README.md) contains learning, teamwork and nature pilots made through the same `produce` workflow. No per-topic scene builder or editorial beats are supplied. Compare their actual outputs, briefs and reports to assess the current generalization baseline; they are not represented as an automatic recreation of every authored hero shot.

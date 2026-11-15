@@ -1,0 +1,21 @@
+{
+  "sceneId": "seed-story",
+  "width": 1920,
+  "height": 1080,
+  "fps": 30,
+  "frames": 537,
+  "plannedDurationSeconds": 17.872925170068026,
+  "videoDurationSeconds": 17.9,
+  "hasAudio": true,
+  "audioInput": {
+    "durationSeconds": 17.872925170068026,
+    "channels": 1,
+    "sampleRate": 22050,
+    "peak": 0.81884765625
+  },
+  "timingSource": "synthesis-events",
+  "renderer": "@napi-rs/canvas",
+  "ffmpeg": "ffmpeg version 7.1 Copyright (c) 2000-2024 the FFmpeg developers",
+  "renderSeconds": 3.96,
+  "limitations": "No automatic speech alignment, TTS, asset generation, render cache or resume. Timing data is supplied with the scene."
+}

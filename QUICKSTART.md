@@ -62,6 +62,15 @@ This creates `renders/rachana-creative.mp4` from `examples/narrated-story/creati
 
 `npm run creative:prepare` regenerates the example mix and scene from the authored builders; it replaces those generated inputs, so preserve any manual JSON edits first. This is not automatic directing or speech alignment.
 
+## Compose a new narrated pilot
+
+```sh
+npm run cli -- produce examples/learning-habit/production.json --out renders/my-learning-pilot
+node tools/verify-smoke.mjs renders/my-learning-pilot/film.mp4
+```
+
+This uses shared directing templates rather than a topic-specific scene builder. `compose` writes the same editable plan/scene/input bundle without video export; `produce` also creates `film.mp4`. Both require a new output directory. See the [production workflow](docs/PRODUCTION_WORKFLOW.md) for your own script, WAV, matching word timings, style choices and optional editorial beats. Current scope is 6–90 second illustrated pilots; reports require human creative review.
+
 ## Edit and inspect a frame
 
 Change a layer's `fill`, `position`, text, or clip values in the example scene. See the [scene format](docs/SCENE_FORMAT.md) for supported fields. Then:

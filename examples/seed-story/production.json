@@ -1,0 +1,9 @@
+{
+  "schemaVersion": 1,
+  "id": "seed-story",
+  "title": "A seed finds its way",
+  "style": "midnight",
+  "script": "script.txt",
+  "audio": "voice.wav",
+  "timing": "timing.json"
+}

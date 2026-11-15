@@ -38,3 +38,13 @@ npm run render:creative
 ```
 
 This writes `renders/rachana-creative.mp4`. A revision needs another `--out` path because the renderer never overwrites outputs. The previous `render:demo` alias retains the simpler study rather than silently changing its source scene.
+
+## Shared-composer examples
+
+[Learning habit](learning-habit/production.json), [team flow](team-flow/production.json) and [seed story](seed-story/production.json) use the same planner and templates. Each contains a new original script, synthetic WAV, synthesis-event timings and provenance. None supplies bespoke scene code or shot definitions. The engine generates scenes from these brief files. Their [gallery](../showcase/generated/README.md) records selected rendered outputs and reports.
+
+```sh
+npm run cli -- produce examples/team-flow/production.json --out renders/my-team-pilot
+```
+
+See the [production workflow](../docs/PRODUCTION_WORKFLOW.md) for supported inputs and editorial control. The additional optional argument to `generate-demo-voice.mjs` selects an original script file for development fixture generation; the synthesis tool remains external and is unnecessary for using these examples.

@@ -1,0 +1,24 @@
+{
+  "sceneId": "learning-habit",
+  "fullDecode": "passed",
+  "frames": 589,
+  "width": 1920,
+  "height": 1080,
+  "fps": 30,
+  "reportedDurationSeconds": 19.63,
+  "plannedDurationSeconds": 19.62643990929705,
+  "codec": "h264",
+  "audioCodec": "aac",
+  "loudness": {
+    "integratedLufs": -20.7,
+    "truePeakDbfs": -1.8
+  },
+  "bytes": 1996529,
+  "sha256": "48b5f8463888f976bf59b0fbfc1c6de786c6e657d167b3daad22a40c74deac33",
+  "runtime": {
+    "node": "v24.11.1",
+    "platform": "darwin",
+    "architecture": "arm64"
+  },
+  "note": "These are measurements of this file, not a universal loudness target or cross-platform pixel-identity claim."
+}
