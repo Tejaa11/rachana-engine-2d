@@ -1,0 +1,128 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://github.com/Tejaa11/rachana-engine-2d/schemas/asset-request.schema.json",
+  "title": "Rachana local PNG asset registration request v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "styleId",
+    "assets"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "const": 1
+    },
+    "styleId": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(?:[._-][a-z0-9]+)*$",
+      "maxLength": 80
+    },
+    "assets": {
+      "type": "array",
+      "maxItems": 32,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "kind",
+          "src",
+          "provenance",
+          "review"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+            "maxLength": 80
+          },
+          "kind": {
+            "enum": [
+              "background",
+              "prop",
+              "illustration"
+            ]
+          },
+          "src": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 512,
+            "pattern": "^(?!/)(?![A-Za-z][A-Za-z0-9+.-]*:)(?!.*\\\\)(?!.*(?:^|/)\\.\\.(?:/|$))[^\\u0000-\\u001F\\u007F]+$"
+          },
+          "provenance": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "kind",
+              "creator",
+              "source",
+              "usage"
+            ],
+            "properties": {
+              "kind": {
+                "enum": [
+                  "generated",
+                  "procedural",
+                  "imported",
+                  "supplied",
+                  "captured"
+                ]
+              },
+              "creator": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 300
+              },
+              "source": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 2048
+              },
+              "usage": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 2048
+              },
+              "tool": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 300
+              },
+              "model": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 300
+              },
+              "prompt": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 16000
+              }
+            }
+          },
+          "review": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "status"
+            ],
+            "properties": {
+              "status": {
+                "enum": [
+                  "draft",
+                  "approved",
+                  "rejected"
+                ]
+              },
+              "notes": {
+                "type": "string",
+                "maxLength": 4000
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

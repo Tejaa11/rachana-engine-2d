@@ -1,0 +1,24 @@
+{
+  "sceneId": "lantern-workshop",
+  "fullDecode": "passed",
+  "frames": 1441,
+  "width": 1920,
+  "height": 1080,
+  "fps": 30,
+  "reportedDurationSeconds": 48.03,
+  "plannedDurationSeconds": 48.032426303854876,
+  "codec": "h264",
+  "audioCodec": "aac",
+  "loudness": {
+    "integratedLufs": -21,
+    "truePeakDbfs": -2
+  },
+  "bytes": 5476848,
+  "sha256": "0ad5fbaeeeebd5337d2c8e4c91f201b1311ba4bff307a87f890999f4b1b3a47b",
+  "runtime": {
+    "node": "v24.11.1",
+    "platform": "darwin",
+    "architecture": "arm64"
+  },
+  "note": "These are measurements of this file, not a universal loudness target or cross-platform pixel-identity claim."
+}

@@ -7,6 +7,7 @@ import { evaluateScene, frameCount } from '../../core/src/evaluate.js';
 import type { Scene } from '../../core/src/types.js';
 import { createSurface, drawFrame } from './draw.js';
 import { resolveAudio, inspectWav } from './files.js';
+import { prepareSceneImages } from './images.js';
 
 export function ffmpegBinary(): string { return process.env.FFMPEG_PATH || 'ffmpeg'; }
 
@@ -26,6 +27,7 @@ export async function renderVideo(scene: Scene, sceneFile: string, output: strin
     try { await access(destination); throw new Error(`Output already exists: ${destination}`); }
     catch (error) { if ((error as NodeJS.ErrnoException).code !== 'ENOENT') throw error; }
   }
+  const images = await prepareSceneImages(scene, sceneFile);
   const audio = scene.audio ? await resolveAudio(sceneFile, scene.audio.src) : null;
   const audioInfo = audio ? await inspectWav(audio) : null;
   if (audioInfo && Math.abs(audioInfo.durationSeconds - scene.output.durationSeconds) > 1 / scene.output.fps) throw new Error('Narration and scene durations differ by more than one frame. Edit the scene timing or the audio explicitly.');
@@ -68,7 +70,7 @@ export async function renderVideo(scene: Scene, sceneFile: string, output: strin
   try {
     for (let frame = 0; frame < total; frame++) {
       if (cancelled || child.exitCode !== null || child.stdin.destroyed) throw new Error(log || 'Render cancelled or encoder stopped.');
-      drawFrame(canvas, evaluateScene(scene, frame / scene.output.fps));
+      drawFrame(canvas, evaluateScene(scene, frame / scene.output.fps), images);
       if (!child.stdin.write(canvas.data())) await Promise.race([once(child.stdin, 'drain'), completed.then(() => { throw new Error('Encoder stopped early.'); })]);
       if (frame % (scene.output.fps * 5) === 0) process.stderr.write(`Rendering ${frame}/${total} frames\n`);
     }
@@ -78,6 +80,7 @@ export async function renderVideo(scene: Scene, sceneFile: string, output: strin
     const manifest = { sceneId: scene.id, width: scene.output.width, height: scene.output.height, fps: scene.output.fps,
       frames: total, plannedDurationSeconds: scene.output.durationSeconds, videoDurationSeconds: total / scene.output.fps,
       hasAudio: Boolean(audio), audioInput: audioInfo, timingSource: scene.narration?.timingSource ?? null,
+      imageAssets: (scene.images ?? []).map(({ id, sha256, width, height }) => ({ id, sha256, width, height })),
       renderer: '@napi-rs/canvas', ffmpeg: probe.version, renderSeconds: Math.round((performance.now() - started) / 10) / 100,
       limitations: 'No automatic speech alignment, TTS, asset generation, render cache or resume. Timing data is supplied with the scene.' };
     await writeFile(temporaryManifest, JSON.stringify(manifest, null, 2) + '\n', { flag: 'wx' });

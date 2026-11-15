@@ -1,0 +1,41 @@
+{
+  "sceneId": "lantern-workshop",
+  "width": 1920,
+  "height": 1080,
+  "fps": 30,
+  "frames": 1441,
+  "plannedDurationSeconds": 48.032426303854876,
+  "videoDurationSeconds": 48.03333333333333,
+  "hasAudio": true,
+  "audioInput": {
+    "durationSeconds": 48.032426303854876,
+    "channels": 1,
+    "sampleRate": 22050,
+    "peak": 0.794525146484375
+  },
+  "timingSource": "synthesis-events",
+  "imageAssets": [
+    {
+      "id": "workshop-day",
+      "sha256": "98afb716feea476bb74e196742b8ae88ca3c1aa1d242ff14fecfaed8685559f0",
+      "width": 1672,
+      "height": 941
+    },
+    {
+      "id": "courtyard-night",
+      "sha256": "f75b9872ac5ee1455ad0085905dc26e1c0ad2452e42a0843397c4c0f358005b1",
+      "width": 1672,
+      "height": 941
+    },
+    {
+      "id": "lantern-prop",
+      "sha256": "3a7499ddc670fe01200670dd7e3cc8d1c56b898a04f444d72c1c2670d1cd1bed",
+      "width": 1312,
+      "height": 1199
+    }
+  ],
+  "renderer": "@napi-rs/canvas",
+  "ffmpeg": "ffmpeg version 7.1 Copyright (c) 2000-2024 the FFmpeg developers",
+  "renderSeconds": 12.17,
+  "limitations": "No automatic speech alignment, TTS, asset generation, render cache or resume. Timing data is supplied with the scene."
+}

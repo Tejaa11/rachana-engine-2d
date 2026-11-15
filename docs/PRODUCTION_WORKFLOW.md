@@ -1,8 +1,8 @@
 # Reusable production workflow
 
-The composer turns a script, local voice WAV and matching supplied word timings into an editable illustrated pilot. All topics use the same planner, six shot templates, three palettes, Mira character, layout rules and renderer. No topic-specific scene builder is needed.
+The composer turns a script, local voice WAV and matching supplied word timings into an editable illustrated pilot. All topics use the same planner, six vector templates, image-backed staging, three palettes, Mira character, layout rules and renderer. No topic-specific scene builder is needed.
 
-This is a constrained local workflow in **0.1.0-alpha.3**. It provides a repeatable starting point; it cannot promise publishable artistic quality for every subject. The original five-shot hero remains an authored creative reference. The new gallery demonstrates what the shared defaults actually produce.
+This is a constrained local workflow in **0.1.0-alpha.4**. It provides a repeatable starting point; it cannot promise publishable artistic quality for every subject. The original five-shot hero remains an authored creative reference. The new gallery demonstrates what the shared defaults actually produce.
 
 ## Try the shared defaults
 
@@ -132,6 +132,10 @@ This boundary allows a future director adapter to supply validated editorial cho
 The report deliberately says `ready-for-preview`, with `humanReviewRequired: true`. It is not an aesthetic score or approval to publish. Composition checks input consistency, scene semantics, measured text fitting and representative frames. Export draws every frame; full decode verification separately checks the movie. Neither judges whether an illustration actually explains a claim.
 
 For a finished film, review the complete cut with sound: hook and payoff, factual relevance, asset identity, caption legibility, reading holds, shot variety, transitions and audio. Revise the brief/beat choices, compose into a fresh directory and compare the new cut. Add unfamiliar scripts to regression tests when they expose a failure. A single beautiful hand-built example does not establish generalization.
+
+## Reuse saved artwork
+
+Optional `assetRegistry` and matching `assetStyle` connect a production to measured local PNG assets. `defaultVisual` or individual beat `visual` bindings choose environments/props and left/right/full illustration layouts. Optional `intent` and `acting` keep editorial purpose and pose choices in the brief. The [image workflow](IMAGE_ASSETS.md) documents registration, role/style checks and portable snapshots; [The Lantern Workshop](../examples/lantern-workshop/README.md) exercises these fields in a 48-second authored story.
 
 ## What still raises the ceiling
 

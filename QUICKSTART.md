@@ -71,6 +71,16 @@ node tools/verify-smoke.mjs renders/my-learning-pilot/film.mp4
 
 This uses shared directing templates rather than a topic-specific scene builder. `compose` writes the same editable plan/scene/input bundle without video export; `produce` also creates `film.mp4`. Both require a new output directory. See the [production workflow](docs/PRODUCTION_WORKFLOW.md) for your own script, WAV, matching word timings, style choices and optional editorial beats. Current scope is 6–90 second illustrated pilots; reports require human creative review.
 
+## Use reusable image assets
+
+```sh
+npm run cli -- assets validate examples/lantern-workshop/asset-registry.json
+npm run cli -- produce examples/lantern-workshop/production.json --out renders/my-lantern-story
+node tools/verify-smoke.mjs renders/my-lantern-story/film.mp4
+```
+
+This renders a 48-second story with saved original artwork, a transparent prop and nine authored beats. No generation account is needed to render the committed files. For your own artwork, `assets inspect` measures a PNG and `assets register` turns an import request into a new content-pinned registry. See [image assets](docs/IMAGE_ASSETS.md) for formats, metadata, style binding and portable project output.
+
 ## Edit and inspect a frame
 
 Change a layer's `fill`, `position`, text, or clip values in the example scene. See the [scene format](docs/SCENE_FORMAT.md) for supported fields. Then:

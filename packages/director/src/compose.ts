@@ -1,9 +1,10 @@
-import type { GroupLayer, Layer, PathCommand, Scene } from '../../core/src/types.js';
+import type { GroupLayer, ImageAssetRef, Layer, PathCommand, Scene } from '../../core/src/types.js';
 import { validateScene } from '../../core/src/validate.js';
 import { evaluateScene } from '../../core/src/evaluate.js';
 import { createCharacter } from '../../creative/src/character.js';
 import { drift, pop } from '../../creative/src/motion.js';
 import { createSurface, drawFrame, wrapText } from '../../renderer/src/draw.js';
+import type { PreparedImages } from '../../renderer/src/images.js';
 import type { CreativePlan, PlannedShot, Subject } from './plan.js';
 interface Palette {
     paper: string;
@@ -88,13 +89,31 @@ function motif(id: string, subject: Subject, p: Palette): GroupLayer {
     return group(id, 0, 0, art);
 }
 function presenter(id: string, shot: PlannedShot, p: Palette, x: number, scale: number, pose: 'think' | 'explain' | 'point' | 'celebrate'): Layer {
-    return createCharacter({ id, position: [x, 603], scale, pose, expression: pose === 'think' ? 'curious' : pose === 'explain' ? 'focused' : 'happy', shirt: shot.template === 'closing' ? p.gold : p.warm, start: shot.start, end: shot.end });
+    const actualPose=shot.acting??pose;
+    return createCharacter({ id, position: [x, 603], scale, pose:actualPose, expression:actualPose==='think'?'curious':actualPose==='explain'?'focused':'happy',shirt:shot.template==='closing'?p.gold:p.warm,start:shot.start,end:shot.end });
 }
 function renderShot(shot: PlannedShot, p: Palette): Layer {
     const id = shot.id, dark = shot.template === 'closing' || shot.template === 'process';
     const color = dark ? p.white : p.ink, background = dark ? p.night : p.paper;
     const layers: Layer[] = [rect(`${id}-bg`, 0, 0, 1280, 720, background)];
-    if (shot.template === 'opening') {
+    if(shot.template==='illustration') {
+        const visual=shot.visual;
+        if(!visual||(!visual.image&&!visual.prop))throw new Error(`Shot ${id} requires an illustration asset.`);
+        const layout=visual.layout??(Number(id.split('-').at(-1))%2?'left':'right');
+        const full=layout==='full',right=layout==='right';
+        const imageX=full?0:right?0:464,imageW=full?1280:816;
+        layers.push(rect(`${id}-art-ground`,imageX,72,imageW,560,p.soft));
+        if(visual.image)layers.push({id:`${id}-environment`,type:'image',asset:visual.image,position:[imageX,72],size:[imageW,560],fit:'cover',focalPoint:visual.focalPoint??[.5,.5]});
+        if(visual.prop) {
+            const x=full?820:right?400:870,propY=full?292:370,propW=full?300:440,propH=full?300:440;
+            layers.push(group(`${id}-prop-float`,x,propY,[{id:`${id}-prop`,type:'image',asset:visual.prop,position:[-propW/2,-propH/2],size:[propW,propH],fit:'contain'}],{clips:drift([x,propY],shot.start,shot.end,4,4)}));
+        }
+        const panelX=right?816:0,actorX=full?1120:right?1050:230;
+        if(full)layers.push(rect(`${id}-title-panel`,44,460,930,144,p.paper,18),text(`${id}-heading`,shot.heading,68,480,878,102,p.ink,43,30));
+        else layers.push(rect(`${id}-title-panel`,panelX,72,464,560,p.paper),rect(`${id}-accent`,panelX+(right?35:64),107,50,5,p.accent,2),text(`${id}-heading`,shot.heading,panelX+(right?35:64),138,365,176,p.ink,43,28));
+        layers.push(path(`${id}-ground-shadow`,[['M',actorX-120,606],['Q',actorX,585,actorX+120,606],['Q',actorX,621,actorX-120,606],['Z']],'#25263e12'),presenter(`${id}-presenter`,shot,p,actorX,full?.54:.66,shot.acting??(right?'explain':'think')));
+    }
+    else if (shot.template === 'opening') {
         layers.push(path(`${id}-blob`, [['M', 165, 604], ['C', 72, 401, 188, 197, 372, 217], ['Q', 611, 179, 602, 468], ['Q', 589, 653, 165, 604], ['Z']], p.soft), presenter(`${id}-presenter`, shot, p, 345, .88, 'think'), text(`${id}-heading`, shot.heading, 660, 142, 550, 166, color, 47), group(`${id}-motif`, 930, 435, [motif(`${id}-symbol`, shot.subject, p)], { scale: 1.05, clips: drift([930, 435], shot.start, shot.end, 4, 3.5) }));
     }
     else if (shot.template === 'closing') {
@@ -124,9 +143,9 @@ function renderShot(shot: PlannedShot, p: Palette): Layer {
             layers.push(show(group(`${id}-card-${i}`, x, 405, [rect(`${id}-shadow-${i}`, -w / 2 + 7, -113, w, 284, p.soft, 16), rect(`${id}-paper-${i}`, -w / 2, -120, w, 284, p.white, 16), rect(`${id}-stripe-${i}`, -w / 2, -120, w, 18, [p.accent, p.green, p.warm][i], 9), symbol, text(`${id}-label-${i}`, label, 0, 47, w - 24, 100, p.ink, 20, 16, false, 'center')], { rotation: (i - (count - 1) / 2) * 5, clips: pop(at) }), at, shot.end));
         });
     }
-    const actorFloor = shot.template === 'opening' ? 345 : shot.template === 'closing' ? 1020 : shot.template === 'process' ? 245 : shot.template === 'focus' && Number(id.split('-').at(-1)) % 2 ? 995 : 300;
+    const actorFloor = shot.template === 'illustration'? (shot.visual?.layout==='full'?1120:shot.visual?.layout==='right'?1050:230):shot.template === 'opening' ? 345 : shot.template === 'closing' ? 1020 : shot.template === 'process' ? 245 : shot.template === 'focus' && Number(id.split('-').at(-1)) % 2 ? 995 : 300;
     // Grounding/shapes are already part of a coherent template; never random per frame.
-    layers.splice(1, 0, path(`${id}-floor`, [['M', actorFloor - 160, 606], ['Q', actorFloor, 574, actorFloor + 160, 606], ['Q', actorFloor, 627, actorFloor - 160, 606], ['Z']], dark ? '#00000020' : '#25263e12'));
+    if(shot.template!=='illustration')layers.splice(1, 0, path(`${id}-floor`, [['M', actorFloor - 160, 606], ['Q', actorFloor, 574, actorFloor + 160, 606], ['Q', actorFloor, 627, actorFloor - 160, 606], ['Z']], dark ? '#00000020' : '#25263e12'));
     return show(group(id, 0, 0, layers), shot.start, shot.end, .18);
 }
 export interface PreviewReport {
@@ -140,11 +159,14 @@ export interface PreviewReport {
     captionWords: number;
     captionCues: number;
     genericMotifShots: string[];
+    imageShots: string[];
+    imageAssetCount: number;
     layoutSamplesChecked: number;
     warnings: string[];
     limits: string[];
 }
-export function composePlan(plan: CreativePlan): {
+export interface CompositionAssets { images?: ImageAssetRef[]; preparedImages?: PreparedImages }
+export function composePlan(plan: CreativePlan, assets: CompositionAssets = {}): {
     scene: Scene;
     report: PreviewReport;
 } {
@@ -156,7 +178,7 @@ export function composePlan(plan: CreativePlan): {
     children.push(rect('identity-strip', 0, 0, 1280, 72, p.paper), text('project-title', plan.title.toLocaleUpperCase('en'), 40, 25, 900, 27, p.ink, 17, 12), text('film-mode', 'ILLUSTRATED EXPLAINER', 1235, 27, 280, 25, p.ink, 12, 10, false, 'right'), rect('caption-band', 0, 632, 1280, 88, p.paper));
     const words = plan.narration.words;
     plan.captions.forEach((cue, index) => children.push(show(text(`caption-${index}`, cue.text, 640, 651, 1170, 62, p.ink, 21, 18, false, 'center'), cue.start, cue.end, .08)));
-    const scene: Scene = { schemaVersion: 1, id: plan.id, output: { ...plan.output }, background: p.paper, narration: structuredClone(plan.narration), audio: { src: 'voice.wav', gain: 1 }, layers: [group('film', 0, 0, children, { scale })] };
+    const scene: Scene = { ...(assets.images?.length?{images:structuredClone(assets.images)}:{}),schemaVersion: 1, id: plan.id, output: { ...plan.output }, background: p.paper, narration: structuredClone(plan.narration), audio: { src: 'voice.wav', gain: 1 }, layers: [group('film', 0, 0, children, { scale })] };
     const validation = validateScene(scene);
     if (!validation.valid)
         throw new Error(validation.errors.map(issue => `${issue.path}: ${issue.message}`).join('\n'));
@@ -166,8 +188,8 @@ export function composePlan(plan: CreativePlan): {
         for (const fraction of [.1, .5, .9])
             times.add(shot.start + (shot.end - shot.start) * fraction);
     for (const time of times)
-        drawFrame(surface, evaluateScene(scene, time));
-    return { scene, report: { status: 'ready-for-preview', humanReviewRequired: true, projectId: plan.id, planningMode: plan.planningMode, shotCount: plan.shots.length, templates: [...new Set(plan.shots.map(shot => shot.template))], style: plan.style, captionWords: words.length, captionCues: plan.captions.length, genericMotifShots: plan.shots.filter(shot => shot.subject === 'idea').map(shot => shot.id), layoutSamplesChecked: times.size, warnings: [...plan.warnings], limits: [
+        drawFrame(surface, evaluateScene(scene, time),assets.preparedImages);
+    return { scene, report: { status: 'ready-for-preview', humanReviewRequired: true, projectId: plan.id, planningMode: plan.planningMode, shotCount: plan.shots.length, templates: [...new Set(plan.shots.map(shot => shot.template))], style: plan.style, captionWords: words.length, captionCues: plan.captions.length, genericMotifShots: plan.shots.filter(shot => !shot.visual&&['opening','focus','cards','compare'].includes(shot.template)&&shot.subject === 'idea').map(shot => shot.id),imageShots:plan.shots.filter(shot=>shot.visual).map(shot=>shot.id),imageAssetCount:assets.images?.length??0, layoutSamplesChecked: times.size, warnings: [...plan.warnings], limits: [
                 'No automatic audio alignment or generative asset provider. Timings must match the script.',
                 'Subjects are decorative motifs, not verified factual diagrams or authentic product screens.',
                 'This report checks configured constraints and sampled layout; human review must assess story, relevance and artistic quality.',

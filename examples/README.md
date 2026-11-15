@@ -48,3 +48,7 @@ npm run cli -- produce examples/team-flow/production.json --out renders/my-team-
 ```
 
 See the [production workflow](../docs/PRODUCTION_WORKFLOW.md) for supported inputs and editorial control. The additional optional argument to `generate-demo-voice.mjs` selects an original script file for development fixture generation; the synthesis tool remains external and is unnecessary for using these examples.
+
+## Image-backed story
+
+[The Lantern Workshop](lantern-workshop/README.md) adds a 48-second original fictional script, two saved generated environments and one transparent prop. Nine authored beats reuse the shared composer and renderer; there is no story-specific drawing function. Its request/registry and prompt records make the artwork reusable and traceable. Rendering the saved files runs locally. This example exercises asset import and reuse; it does not demonstrate live artwork generation or learned directing.

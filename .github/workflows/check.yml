@@ -58,3 +58,9 @@ jobs:
           node tools/verify-smoke.mjs renders/team-flow/film.mp4
           npm run cli -- produce examples/seed-story/production.json --out renders/seed-story
           node tools/verify-smoke.mjs renders/seed-story/film.mp4
+      - name: Register artwork and render the 48-second image-backed story
+        run: |
+          npm run cli -- assets register examples/lantern-workshop/asset-request.json --out examples/lantern-workshop/registry-ci.json
+          npm run cli -- assets validate examples/lantern-workshop/asset-registry.json
+          npm run cli -- produce examples/lantern-workshop/production.json --out renders/lantern-workshop
+          node tools/verify-smoke.mjs renders/lantern-workshop/film.mp4

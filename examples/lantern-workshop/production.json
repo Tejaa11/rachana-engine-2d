@@ -1,0 +1,122 @@
+{
+  "schemaVersion": 1,
+  "id": "lantern-workshop",
+  "title": "The Lantern Workshop",
+  "style": "paper",
+  "script": "script.txt",
+  "audio": "voice.wav",
+  "timing": "timing.json",
+  "assetRegistry": "asset-registry.json",
+  "assetStyle": "lantern-paper-v1",
+  "beats": [
+    {
+      "fromWord": "w1",
+      "toWord": "w14",
+      "heading": "A sketch. A stubborn first attempt.",
+      "intent": "Introduce the gap between Mira's idea and the first attempt.",
+      "acting": "think",
+      "visual": {
+        "image": "workshop-day",
+        "layout": "full",
+        "focalPoint": [
+          0.8,
+          0.5
+        ]
+      }
+    },
+    {
+      "fromWord": "w15",
+      "toWord": "w30",
+      "heading": "An idea worth trying.",
+      "intent": "Hold the imagined lantern as a visual subject, using the same saved prop.",
+      "acting": "explain",
+      "visual": {
+        "prop": "lantern-prop",
+        "layout": "left"
+      }
+    },
+    {
+      "fromWord": "w31",
+      "toWord": "w42",
+      "heading": "Keep the first attempt.",
+      "intent": "A quiet moment of doubt before Mira changes her approach.",
+      "acting": "think",
+      "visual": {
+        "prop": "lantern-prop",
+        "layout": "right"
+      }
+    },
+    {
+      "fromWord": "w43",
+      "toWord": "w55",
+      "heading": "Notice one fold.",
+      "intent": "Focus attention on one revision without pretending the static cutout is rigged.",
+      "acting": "point",
+      "visual": {
+        "prop": "lantern-prop",
+        "layout": "left"
+      }
+    },
+    {
+      "fromWord": "w56",
+      "toWord": "w67",
+      "heading": "Change. Pause. Look.",
+      "intent": "Separate the action and the pause into narration-timed steps.",
+      "acting": "explain",
+      "template": "process",
+      "items": [
+        "changes that fold",
+        "pauses to look"
+      ]
+    },
+    {
+      "fromWord": "w68",
+      "toWord": "w81",
+      "heading": "Room to open.",
+      "intent": "Revisit the saved prop after the narrated revision; no physical folding simulation is claimed.",
+      "acting": "explain",
+      "visual": {
+        "prop": "lantern-prop",
+        "layout": "full"
+      }
+    },
+    {
+      "fromWord": "w82",
+      "toWord": "w96",
+      "heading": "One revision at a time.",
+      "intent": "Shift the setting toward evening and give the story a quieter pace.",
+      "acting": "think",
+      "visual": {
+        "image": "courtyard-night",
+        "layout": "left",
+        "focalPoint": [
+          1,
+          0.5
+        ]
+      }
+    },
+    {
+      "fromWord": "w97",
+      "toWord": "w111",
+      "heading": "A little light, shared.",
+      "intent": "Let the night environment carry the payoff.",
+      "acting": "celebrate",
+      "visual": {
+        "image": "courtyard-night",
+        "layout": "full",
+        "focalPoint": [
+          0.8,
+          0.5
+        ]
+      }
+    },
+    {
+      "fromWord": "w112",
+      "toWord": "w128",
+      "heading": "Give the idea another chance.",
+      "intent": "Return to Mira with a concise closing thought.",
+      "acting": "celebrate",
+      "template": "closing"
+    }
+  ]
+}

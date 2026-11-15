@@ -48,3 +48,9 @@ The creative variant keeps the same synthetic narration and adds a quiet procedu
 ## Shared-composer fixtures
 
 The original learning, teamwork and seed-story scripts use the same external standard formant synthesis process. Per-fixture records document hashes, settings and timing limitations: [learning](examples/learning-habit/provenance.json), [teamwork](examples/team-flow/provenance.json), [nature](examples/seed-story/provenance.json). Selected gallery movies combine those inputs with the engine's original vector motifs and Mira prefab. No image provider, external music library or private production assets are used.
+
+## Lantern Workshop artwork and narration
+
+The [Lantern Workshop](examples/lantern-workshop/README.md) is an original fictional development example. Its [art prompt record](examples/lantern-workshop/art-prompts.json) preserves the exact prompts, built-in imagegen tool attribution, hashes, dimensions and review limits for three saved PNG assets. No model identifier or seed was exposed by that tool, so none is invented. Generated media usage remains distinct from the MIT engine source license; no exclusive copyright in generated output is claimed. The engine loads these local files and does not invoke imagegen at runtime.
+
+The new narration uses the existing external standard formant synthesis process and has its own [provenance record](examples/lantern-workshop/provenance.json). Supplied synthesis-event timings are not recorded-speech alignment. No private user voice, screenshots or product logos are included.

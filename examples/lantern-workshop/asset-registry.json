@@ -1,0 +1,69 @@
+{
+  "schemaVersion": 1,
+  "styleId": "lantern-paper-v1",
+  "assets": [
+    {
+      "id": "workshop-day",
+      "kind": "background",
+      "src": "art/workshop-day.png",
+      "provenance": {
+        "kind": "generated",
+        "creator": "Rachana Engine 2D project, with AI-assisted art direction",
+        "source": "Original development generation; see art-prompts.json for exact prompts and recorded metadata.",
+        "usage": "Generated for this fictional example. Provider terms remain distinct from the MIT engine source license; no exclusive copyright is claimed.",
+        "tool": "image_gen.imagegen",
+        "prompt": "Use case: illustration-story\nAsset type: wide background for a reusable 2D animation engine's original fictional short, The Lantern Workshop.\nPrimary request: an original tiny maker workshop in soft afternoon light, composed for an animated explainer with engine-rendered text and a separate vector presenter.\nScene/backdrop: a cozy worktable on the RIGHT, unmarked folded papers, a plain unfinished ivory paper lantern with coral accents, a few simple tools and quiet shelving. Keep the LEFT HALF simple, open, and uncluttered with a softly lit ivory wall so the engine can overlay text and its own adult vector character.\nStyle/medium: polished flat 2D paper-cut editorial storybook illustration, tactile but subtle paper grain, elegant layered silhouettes, warm ivory, dusty lavender, muted teal and coral palette, dark indigo accents, clean restrained details and gentle atmosphere.\nComposition/framing: wide 16:9 landscape. The main worktable and unfinished lantern are on the right, with crop-safe margins around them. Eye-level environment, no dramatic perspective distortion.\nLighting/mood: calm warm afternoon light, curious and hopeful, tasteful high-quality YouTube animated storytelling art.\nText: none.\nConstraints: no humans, no faces, no characters, no writing, no letters, no numbers, no logo, no watermark, no UI. This is original fictional setting artwork, not a factual diagram. Do not include fire or candles."
+      },
+      "review": {
+        "status": "approved",
+        "notes": "Visually reviewed for this fictional example. Static artwork only; environmental lantern silhouettes are decorative, not identity-locked actor parts."
+      },
+      "sha256": "98afb716feea476bb74e196742b8ae88ca3c1aa1d242ff14fecfaed8685559f0",
+      "width": 1672,
+      "height": 941,
+      "hasTransparency": false
+    },
+    {
+      "id": "courtyard-night",
+      "kind": "background",
+      "src": "art/courtyard-night.png",
+      "provenance": {
+        "kind": "generated",
+        "creator": "Rachana Engine 2D project, with AI-assisted art direction",
+        "source": "Original development generation; see art-prompts.json for exact prompts and recorded metadata.",
+        "usage": "Generated for this fictional example. Provider terms remain distinct from the MIT engine source license; no exclusive copyright is claimed.",
+        "tool": "image_gen.imagegen",
+        "prompt": "Use case: illustration-story\nAsset type: wide background for The Lantern Workshop, an original fictional short rendered by a 2D animation engine.\nPrimary request: a peaceful moonlit terrace outside a tiny paper-maker workshop. ONE small completed ivory folded paper lantern with coral rim bands and a small teal hanging loop gently glows on the RIGHT, standing beside a simple low workbench and a quiet plant. The setting should feel like an inviting place a maker could step into after an afternoon of patient revision.\nStyle/medium: polished flat 2D cut-paper editorial storybook environment, tactile subtle paper texture, elegant layered silhouettes, ivory paper, dusty lavender and muted teal accents, coral details. Match warm craft-paper illustration aesthetics; do not use photorealism or shiny 3D.\nComposition/framing: wide 16:9 landscape. Main lantern and workshop details on RIGHT HALF, generous uncluttered negative space across LEFT HALF for engine-rendered title and separate vector actor. Cropping-safe margins. Background silhouette of workshop doorway, simple courtyard/terrace wall and restrained distant foliage; no humans or faces.\nLighting/mood: elegant deep indigo blue moonlit shadows with a gentle warm ivory lantern glow. Calm, quietly triumphant, atmospheric, suitable for premium animated YouTube storytelling.\nText: none.\nConstraints: entirely original fictional environment, no characters, no writing, no letters, no numbers, no logos, no watermark, no UI, no candles or fire, do not include a large moon as a main character-like face."
+      },
+      "review": {
+        "status": "approved",
+        "notes": "Visually reviewed for this fictional example. Static artwork only; environmental lantern silhouettes are decorative, not identity-locked actor parts."
+      },
+      "sha256": "f75b9872ac5ee1455ad0085905dc26e1c0ad2452e42a0843397c4c0f358005b1",
+      "width": 1672,
+      "height": 941,
+      "hasTransparency": false
+    },
+    {
+      "id": "lantern-prop",
+      "kind": "prop",
+      "src": "art/lantern-prop.png",
+      "provenance": {
+        "kind": "generated",
+        "creator": "Rachana Engine 2D project, with AI-assisted art direction",
+        "source": "Original development generation; see art-prompts.json for exact prompts and recorded metadata.",
+        "usage": "Generated for this fictional example. Provider terms remain distinct from the MIT engine source license; no exclusive copyright is claimed.",
+        "tool": "image_gen.imagegen",
+        "prompt": "Use case: illustration-story\nAsset type: reusable transparent prop cutout for a 2D animation engine's original fictional short, The Lantern Workshop.\nPrimary request: ONE isolated folded-paper lantern, warm ivory paper with clean sculptural folds, coral bands at top and bottom and one small muted teal loop. A softly luminous warm center suggests a finished lantern without any flame, candle, wires or electrical details.\nStyle/medium: polished flat 2D cut-paper editorial storybook illustration, subtle tactile paper grain, elegant layered silhouettes, restrained warm ivory/coral/teal with tiny lavender shadows, crisp high-quality silhouette. Original design.\nComposition/framing: centered lantern, complete object including loop visible, generous empty margin on all sides. It is a standalone animation prop, no surrounding room, no table, no hands or people, no external cast shadow.\nBackground: genuinely transparent alpha channel, not a checkerboard picture or white rectangle.\nText: none.\nConstraints: only one prop, no face, no writing, no letters, no numbers, no brand, no watermark, no extraneous objects, no candle or flame. Preserve actual transparency."
+      },
+      "review": {
+        "status": "approved",
+        "notes": "Visually reviewed for this fictional example. Static artwork only; environmental lantern silhouettes are decorative, not identity-locked actor parts."
+      },
+      "sha256": "3a7499ddc670fe01200670dd7e3cc8d1c56b898a04f444d72c1c2670d1cd1bed",
+      "width": 1312,
+      "height": 1199,
+      "hasTransparency": true
+    }
+  ]
+}

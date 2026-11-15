@@ -1,6 +1,6 @@
 # Scene format v1
 
-This is the implemented authoring contract for the scene alpha, including reusable nested vector compositions. The [JSON Schema](../schemas/scene.schema.json) defines structure; [TypeScript types](../packages/core/src/types.ts) describe the same values; semantic validation checks relationships such as IDs, anchor resolution and clip overlap. It is a scene format, not yet the full project/shot/asset system described in the product plan.
+This is the implemented authoring contract for the scene alpha, including nested vector compositions and local static image layers. The [JSON Schema](../schemas/scene.schema.json) defines structure; [TypeScript types](../packages/core/src/types.ts) describe the same values; semantic validation checks relationships such as IDs, anchor resolution and clip overlap. It is a scene format, not yet the full project/shot/asset system described in the product plan.
 
 ## Small complete scene
 
@@ -44,6 +44,7 @@ Save it as a JSON file, then use the [CLI](../QUICKSTART.md) to validate, export
 | `background` | `#RRGGBB` or `#RRGGBBAA` color |
 | `layers` | Ordered list of shapes/groups; later entries draw above earlier ones |
 | `audio` | Optional local PCM16 WAV path and gain |
+| `images` | Optional content-pinned local PNG references: ID, relative src, SHA-256, width and height |
 | `narration` | Optional supplied word times and declared timing source |
 
 Current schema limits include width 16–3840, height 16–2160, fps 1–60 and duration at most 1800 seconds. Layer trees allow at most 500 root layers, 500 children per group, 1500 total nodes and nesting depth 8 (root layers are depth 1). Each path allows at most 512 commands; the whole scene allows at most 20,000 path commands. Each layer allows at most 1000 clips. Cycles and shared layer objects are rejected before recursive schema validation. These resource bounds are not performance guarantees. Use even output dimensions for the current H.264/yuv420p encoder. Font size, geometry, text length and clip endpoints also have explicit bounds in the schema.
@@ -120,6 +121,18 @@ A `path` layer has `commands`, `fill`, and optional `stroke`/`strokeWidth`, plus
 ```
 
 This is an explicit tuple format, not SVG markup or executable drawing code. Commands have exact arities and bounded numeric values. The renderer draws round line joins/caps for stroked paths. Path commands are currently static geometry; transform clips move the layer/group, not individual control points.
+
+## Static image layers
+
+An `image` layer requires `asset` (an ID in the scene's `images` array) and `size: [width, height]`. Position is the destination rectangle's top-left origin. `fit: "contain"` (default) preserves the full image inside the rectangle; `"cover"` fills and clips to that rectangle. Optional normalized `focalPoint: [x, y]` controls cover crop alignment, defaulting to `[0.5, 0.5]`. Image aspect ratio is preserved; standard transforms, opacity and clips still apply.
+
+Each root image reference pins `id`, local `src`, actual lowercase SHA-256 and measured pixel dimensions. IDs must be unique and every image layer must reference a declared asset. The loader accepts genuine static PNGs inside the scene directory, including after symlink resolution. Hashes and dimensions must match before rendering. Missing/tampered assets fail even if their layers are hidden.
+
+At most 32 references are allowed. Each file is at most 12 MiB with dimensions 1–4096 per edge and at most 16,777,216 pixels. The scene reference budget is 33,554,432 pixels, counting each declared entry. Repeated content can share its decoded image, but it still counts once per entry toward the scene budget. Animated PNG, SVG, JPEG, remote URLs and fully transparent empty artwork are unsupported. PNG structure, checksums and bounded scanline data are checked before native decode.
+
+The CLI preloads images for `validate`, `frame` and `render`. Library callers use `prepareSceneImages(scene, sceneFile)` once, then pass its map to `drawFrame(canvas, evaluateScene(scene, time), images)`. Drawing performs no file reads. Static artwork is not a rig or a layered parallax set.
+
+Use the [image workflow](IMAGE_ASSETS.md) to derive measurements through a registration request and preserve provenance/style/review records in a production bundle. Low-level scenes carry render references, while the registry holds the richer asset metadata.
 
 ## Creative prefabs
 

@@ -1,0 +1,65 @@
+{
+  "status": "ready-for-preview",
+  "humanReviewRequired": true,
+  "projectId": "lantern-workshop",
+  "planningMode": "explicit-beats",
+  "shotCount": 9,
+  "templates": [
+    "illustration",
+    "process",
+    "closing"
+  ],
+  "style": "paper",
+  "captionWords": 128,
+  "captionCues": 19,
+  "genericMotifShots": [],
+  "imageShots": [
+    "shot-1",
+    "shot-2",
+    "shot-3",
+    "shot-4",
+    "shot-6",
+    "shot-7",
+    "shot-8"
+  ],
+  "imageAssetCount": 3,
+  "layoutSamplesChecked": 29,
+  "warnings": [],
+  "limits": [
+    "No automatic audio alignment or generative asset provider. Timings must match the script.",
+    "Subjects are decorative motifs, not verified factual diagrams or authentic product screens.",
+    "This report checks configured constraints and sampled layout; human review must assess story, relevance and artistic quality."
+  ],
+  "audio": {
+    "durationSeconds": 48.032426303854876,
+    "channels": 1,
+    "sampleRate": 22050,
+    "peak": 0.794525146484375
+  },
+  "assetStyle": "lantern-paper-v1",
+  "assetReferences": [
+    {
+      "id": "workshop-day",
+      "sha256": "98afb716feea476bb74e196742b8ae88ca3c1aa1d242ff14fecfaed8685559f0",
+      "kind": "background",
+      "origin": "generated"
+    },
+    {
+      "id": "courtyard-night",
+      "sha256": "f75b9872ac5ee1455ad0085905dc26e1c0ad2452e42a0843397c4c0f358005b1",
+      "kind": "background",
+      "origin": "generated"
+    },
+    {
+      "id": "lantern-prop",
+      "sha256": "3a7499ddc670fe01200670dd7e3cc8d1c56b898a04f444d72c1c2670d1cd1bed",
+      "kind": "prop",
+      "origin": "generated"
+    }
+  ],
+  "sources": {
+    "scriptSha256": "e341adefe9274d10ee86be4afa8fd44cc65907091fae37eeae750e1511f8aec5",
+    "timingSha256": "4729a7a130c18fdddd534fdcbc61d17ae450bb2ed96cbf34cd5b138df59eb5e8",
+    "audioSha256": "c62d00f8e57c1e5ef636f74c0fd7a2d736cdf7a58c0ba5c3def098d784cbd8b9"
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "description": "Original Rachana Engine 2D demo script, synthesized locally with a standard formant voice. No user recording, impersonation, cloud service, or sampled MBROLA voice was used.",
+  "textAuthor": "Tejas Dadhich / Rachana Engine 2D project, with AI assistance",
+  "synthesisTool": {
+    "name": "@echogarden/espeak-ng-emscripten",
+    "version": "0.3.5",
+    "license": "GPL-3.0",
+    "use": "Optional external development tool; package code and voice data are not bundled with this fixture or engine runtime."
+  },
+  "settings": {
+    "voice": "en-us",
+    "rateFactor": 0.9,
+    "rateWordsPerMinute": 158,
+    "pitch": 50,
+    "sampleRate": 22050,
+    "channels": 1,
+    "encoding": "PCM16 little-endian"
+  },
+  "durationSeconds": 48.032426303854876,
+  "wordCount": 128,
+  "timingSource": "synthesis-events",
+  "timingLimitations": "Starts are eSpeak NG synthesis word-event positions. Ends are approximate boundaries at the next word onset, or the WAV duration for the last word; they include inter-word pauses. These are not forced-alignment measurements of a human recording.",
+  "files": {
+    "script.txt": {
+      "sha256": "e341adefe9274d10ee86be4afa8fd44cc65907091fae37eeae750e1511f8aec5"
+    },
+    "voice.wav": {
+      "sha256": "c62d00f8e57c1e5ef636f74c0fd7a2d736cdf7a58c0ba5c3def098d784cbd8b9",
+      "bytes": 2118274
+    },
+    "timing.json": {
+      "sha256": "4729a7a130c18fdddd534fdcbc61d17ae450bb2ed96cbf34cd5b138df59eb5e8"
+    }
+  },
+  "synthesisTextSha256": "eead582466e1dd2cde9c9d41a8db5af6dc5a9491694eea888043a9b057fe8b0c",
+  "sources": {
+    "tool": "https://github.com/echogarden-project/espeak-ng-emscripten",
+    "espeakNG": "https://github.com/espeak-ng/espeak-ng",
+    "toolLicense": "https://github.com/echogarden-project/espeak-ng-emscripten/blob/main/COPYING",
+    "originalAuthorOutputPermission": "https://sourceforge.net/p/espeak/discussion/538920/thread/c6944a60/",
+    "outputLicenseClause": "https://github.com/espeak-ng/espeak-ng/blob/master/COPYING"
+  },
+  "outputUsageNotes": "eSpeak original author Jonathan Duddington states that its GPL does not apply to generated WAV speech output. The external tool retains its GPL license; these generated audio bytes do not bundle the tool code or voice datasets. See linked primary sources. This record documents provenance and does not claim exclusive copyright in synthesized speech.",
+  "regeneration": "Run tools/generate-demo-voice.mjs with an explicit path to a separately installed @echogarden/espeak-ng-emscripten@0.3.5 entry point. This utility never installs or downloads the tool."
+}

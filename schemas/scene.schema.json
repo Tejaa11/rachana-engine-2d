@@ -104,6 +104,13 @@
       "items": {
         "$ref": "#/$defs/layer"
       }
+    },
+    "images": {
+      "type": "array",
+      "maxItems": 32,
+      "items": {
+        "$ref": "#/$defs/imageAsset"
+      }
     }
   },
   "$defs": {
@@ -694,6 +701,9 @@
         },
         {
           "$ref": "#/$defs/group"
+        },
+        {
+          "$ref": "#/$defs/image"
         }
       ]
     },
@@ -800,6 +810,114 @@
         "type",
         "position",
         "children"
+      ]
+    },
+    "localPath": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 512,
+      "pattern": "^(?!/)(?![A-Za-z][A-Za-z0-9+.-]*:)(?!.*\\\\)(?!.*(?:^|/)\\.\\.(?:/|$))[^\\u0000-\\u001F\\u007F]+$"
+    },
+    "imageAsset": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "src",
+        "sha256",
+        "width",
+        "height"
+      ],
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/id"
+        },
+        "src": {
+          "$ref": "#/$defs/localPath"
+        },
+        "sha256": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "width": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 4096
+        },
+        "height": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 4096
+        }
+      }
+    },
+    "image": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "type": {
+          "const": "image"
+        },
+        "id": {
+          "$ref": "#/$defs/id"
+        },
+        "position": {
+          "$ref": "#/$defs/vec2"
+        },
+        "opacity": {
+          "$ref": "#/$defs/opacity"
+        },
+        "scale": {
+          "$ref": "#/$defs/scale"
+        },
+        "rotation": {
+          "type": "number",
+          "minimum": -100000,
+          "maximum": 100000
+        },
+        "clips": {
+          "type": "array",
+          "maxItems": 1000,
+          "items": {
+            "$ref": "#/$defs/clip"
+          }
+        },
+        "size": {
+          "type": "array",
+          "items": {
+            "type": "number",
+            "exclusiveMinimum": 0,
+            "maximum": 10000
+          },
+          "minItems": 2,
+          "maxItems": 2
+        },
+        "asset": {
+          "$ref": "#/$defs/id"
+        },
+        "fit": {
+          "enum": [
+            "contain",
+            "cover"
+          ]
+        },
+        "focalPoint": {
+          "type": "array",
+          "minItems": 2,
+          "maxItems": 2,
+          "items": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1
+          }
+        }
+      },
+      "required": [
+        "id",
+        "type",
+        "position",
+        "size",
+        "asset"
       ]
     }
   }

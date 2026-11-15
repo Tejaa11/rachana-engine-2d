@@ -13,6 +13,9 @@ const required = [
   'schemas/scene.schema.json', 'examples/minimal-scene/scene.json',
   'examples/narrated-story/scene.json', 'examples/narrated-story/voice.wav',
   'showcase/rachana-demo.mp4', 'showcase/demo.gif',
+  'docs/IMAGE_ASSETS.md', 'schemas/asset-registry.schema.json', 'schemas/asset-request.schema.json',
+  'examples/lantern-workshop/asset-registry.json', 'examples/lantern-workshop/voice.wav',
+  'showcase/lantern-workshop/film.mp4',
 ];
 
 for (const relative of required) {

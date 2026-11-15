@@ -34,15 +34,17 @@ Unchecked items are planned work. The current alpha implements the first scene-r
 - [ ] Expand the basic group hierarchy into camera direction, masks and a richer motion system.
 - [ ] Extend the first parameterized actor into broader actions, actor designs and reusable clip/attachment contracts.
 - [ ] Add a browser preview adapter and verify native/browser behavior.
-- [ ] Render a polished 45–60 second film from project data.
+- [x] Render a reviewed 45–60 second image-backed story from a production brief and supplied timings.
 - [x] Render unrelated scripts through shared templates without custom scene code.
 
-**Exit:** reusable acting and composition, direct seeking, layout and export behavior have meaningful checks and reviewed sample renders. The first original actor and creative cut are progress toward this milestone; the 45–60 second production and broader staging remain open.
+**Exit:** reusable acting and composition, direct seeking, layout and export behavior have meaningful checks and reviewed sample renders. The first original actor and creative cut are progress toward this milestone; the 48-second image-backed story now exercises production data; broader acting and staging remain open.
 
 ## M2 — assets and reliable jobs
 
-- [ ] Add an asset registry with capabilities, versions and provenance.
-- [ ] Support procedural creation, import and a real image-provider adapter.
+- [x] Add a versioned local static-image registry with provenance, style/review metadata and pinned content.
+- [ ] Extend asset capabilities/version lineage beyond static PNGs.
+- [x] Import and reuse static PNG backgrounds/illustrations/props through a validated registry.
+- [ ] Add general procedural asset requests and a real runtime image-provider adapter.
 - [ ] Maintain identity through approved character/style references.
 - [ ] Persist jobs with budget limits, cancellation, retries, resume and caching.
 

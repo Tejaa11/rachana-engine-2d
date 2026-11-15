@@ -24,3 +24,7 @@ The earlier shape-only study remains at [scene.json](../examples/narrated-story/
 ## Shared defaults, beyond the authored hero
 
 The [generated gallery](generated/README.md) contains learning, teamwork and nature pilots made through the same `produce` workflow. No per-topic scene builder or editorial beats are supplied. Compare their actual outputs, briefs and reports to assess the current generalization baseline; they are not represented as an automatic recreation of every authored hero shot.
+
+## Reusable image assets
+
+[The Lantern Workshop](lantern-workshop/README.md) is a 48-second authored story built from a production brief and content-pinned saved artwork. Its selected movie, storyboard, reports and source inputs demonstrate the new local asset workflow. Generated development artwork is explicitly credited; no runtime provider or automatic director is claimed.
