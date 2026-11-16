@@ -53,7 +53,8 @@ Unchecked items are planned work. The current alpha implements the first scene-r
 ## M3 — script and voice workflow — partial
 
 - [ ] Align a real recording with script text and flag uncertain/mismatched spans.
-- [ ] Add a real director adapter producing validated shot-plan data.
+- [x] Implement director draft validation, Gemini/OpenAI adapters, file handoff and scoped revisions.
+- [ ] Validate the provider integration with a real account and review a 45–60 second unfamiliar-script film without authored beats.
 - [x] Generate editable illustrated pilots from scripts and supplied matching word timings.
 - [x] Exercise three topic fixtures and an additional unfamiliar-script regression case through shared defaults.
 

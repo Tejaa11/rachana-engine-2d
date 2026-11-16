@@ -182,3 +182,7 @@ Authoring times are seconds. Export samples frame `n` at `n / fps`, with indices
 The diagnostic evaluator can inspect the final state at `durationSeconds`, but that is not an additional encoded frame. Direct evaluation depends on the saved scene and requested time, not playback history. Identical draw states in one runtime do not promise identical font pixels or encoded bytes across platforms.
 
 The CLI refuses existing output paths. MP4 output has a JSON manifest describing the scene, dimensions, frame count, timing source and encoder. Render validation and a manifest do not establish narration correctness, visual accuracy or artistic quality; inspect the result.
+
+## Director transitions
+
+Production beats may declare `transition: "cut"` or `"fade"`. The director compiles these to ordinary group opacity clips. A cut changes active shot visibility at its narration boundary; a fade uses the existing brief entrance/exit opacity treatment, rather than a camera or continuous cross-shot tracking. This does not expand the low-level clip property set.

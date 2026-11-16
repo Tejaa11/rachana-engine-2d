@@ -146,6 +146,12 @@ function renderShot(shot: PlannedShot, p: Palette): Layer {
     const actorFloor = shot.template === 'illustration'? (shot.visual?.layout==='full'?1120:shot.visual?.layout==='right'?1050:230):shot.template === 'opening' ? 345 : shot.template === 'closing' ? 1020 : shot.template === 'process' ? 245 : shot.template === 'focus' && Number(id.split('-').at(-1)) % 2 ? 995 : 300;
     // Grounding/shapes are already part of a coherent template; never random per frame.
     if(shot.template!=='illustration')layers.splice(1, 0, path(`${id}-floor`, [['M', actorFloor - 160, 606], ['Q', actorFloor, 574, actorFloor + 160, 606], ['Q', actorFloor, 627, actorFloor - 160, 606], ['Z']], dark ? '#00000020' : '#25263e12'));
+    if(shot.transition==='cut') {
+        const node=group(id,0,0,layers,{opacity:0});
+        const frame=1e-9;
+        node.clips=[{property:'opacity',from:1,to:1,start:shot.start,duration:frame},{property:'opacity',from:0,to:0,start:shot.end-frame,duration:frame}];
+        return node;
+    }
     return show(group(id, 0, 0, layers), shot.start, shot.end, .18);
 }
 export interface PreviewReport {

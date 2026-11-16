@@ -1,0 +1,9 @@
+{
+  "schemaVersion": 1,
+  "id": "director-signal",
+  "title": "A Quiet Signal",
+  "style": "ocean",
+  "script": "script.txt",
+  "audio": "voice.wav",
+  "timing": "timing.json"
+}

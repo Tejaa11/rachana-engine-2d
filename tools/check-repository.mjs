@@ -16,6 +16,8 @@ const required = [
   'docs/IMAGE_ASSETS.md', 'schemas/asset-registry.schema.json', 'schemas/asset-request.schema.json',
   'examples/lantern-workshop/asset-registry.json', 'examples/lantern-workshop/voice.wav',
   'showcase/lantern-workshop/film.mp4',
+  'docs/CREATIVE_DIRECTOR.md', 'schemas/director.schema.json',
+  'examples/director-signal/production.json', 'examples/director-signal/voice.wav',
 ];
 
 for (const relative of required) {

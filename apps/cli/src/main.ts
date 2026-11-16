@@ -7,6 +7,9 @@ import { createSurface, drawFrame, registerFonts } from '../../../packages/rende
 import { inspectFFmpeg, renderVideo } from '../../../packages/renderer/src/export.js';
 import { prepareSceneImages } from '../../../packages/renderer/src/images.js';
 import { inspectPng, loadAssetRegistry, buildAssetRegistry } from '../../../packages/assets/src/index.js';
+import {createOpenAIDirector} from '../../../packages/director/src/provider.js';
+import {createGeminiDirector} from '../../../packages/director/src/gemini.js';
+import {directProduction,prepareDirectionBundle,applyDirection,inspectDirection,readDirectorJson} from '../../../packages/director/src/direction.js';
 import { composeProduction } from '../../../packages/director/src/project.js';
 
 function option(args: string[], name: string): string | undefined {
@@ -19,8 +22,36 @@ function option(args: string[], name: string): string | undefined {
 async function main(): Promise<void> {
   const [command, file, ...rest] = process.argv.slice(2);
   if (!command || command === '--help') {
-    console.log('Rachana Engine 2D\n\n  doctor\n  validate <scene.json>\n  frame <scene.json> --frame <index> --out <image.png>\n  render <scene.json> --out <video.mp4>\n  compose <production.json> --out <new-directory>\n  produce <production.json> --out <new-directory>\n  assets inspect <image.png>\n  assets validate <asset-registry.json>\n  assets register <asset-request.json> --out <new-registry.json>\n\nCompose writes an editable plan/scene and preview report. Produce also renders film.mp4.\nOutputs are never overwritten. FFMPEG_PATH may select a local FFmpeg executable.');
+    console.log('Rachana Engine 2D\n\n  director prepare <production.json> --out <new-directory> [--notes <text>]\n  director apply <production.json> --plan <draft.json> --out <new-directory>\n  director inspect <production.json> --plan <draft.json>\n  direct <production.json> --provider <gemini|openai> --out <new-directory> [--model <id>] [--notes <text>] [--revise <draft.json> --shots <1,3>]\n  doctor\n  validate <scene.json>\n  frame <scene.json> --frame <index> --out <image.png>\n  render <scene.json> --out <video.mp4>\n  compose <production.json> --out <new-directory>\n  produce <production.json> --out <new-directory>\n  assets inspect <image.png>\n  assets validate <asset-registry.json>\n  assets register <asset-request.json> --out <new-registry.json>\n\nCompose writes an editable plan/scene and preview report. Produce also renders film.mp4.\nOutputs are never overwritten. FFMPEG_PATH may select a local FFmpeg executable.');
     return;
+  }
+  if(command==='direct'||command==='director') {
+    const action=command==='direct'?'direct':file;
+    const project=command==='direct'?file:rest[0];
+    const flags=command==='direct'?rest:rest.slice(1);
+    if(!project||!['direct','prepare','apply','inspect'].includes(action??''))throw new Error('Use direct or director prepare/apply/inspect with a production file.');
+    const allowed=action==='direct'?['--out','--provider','--model','--notes','--revise','--shots']:action==='prepare'?['--out','--notes']:action==='inspect'?['--plan']:['--out','--plan'];
+    const seen=new Set<string>();
+    for(let i=0;i<flags.length;i+=2){if(!allowed.includes(flags[i])||seen.has(flags[i]))throw new Error('Unknown or duplicate director option.');seen.add(flags[i]);option(flags,flags[i]);}
+    const output=option(flags,'--out'),draftFile=option(flags,'--plan');
+    if(action!=='inspect'&&!output)throw new Error('--out must name a new directory.');
+    let result:unknown;
+    if(action==='prepare')result=await prepareDirectionBundle(project,output!,option(flags,'--notes'));
+    else if(action==='apply'||action==='inspect'){
+      if(!draftFile)throw new Error('--plan is required.');
+      const draft=await readDirectorJson(draftFile);
+      if(action==='apply')result=await applyDirection(project,output!,draft);
+      else {const checked=await inspectDirection(project,draft);result={valid:true,shotCount:checked.draft.shots.length,status:checked.draft.missingAssets.length?'needs-assets':'ready-for-preview',sourceHash:checked.request.sourceHash};}
+    }else {
+      const selected=option(flags,'--provider');
+      if(selected!=='openai'&&selected!=='gemini')throw new Error('Select --provider gemini or openai explicitly.');
+      const provider=selected==='gemini'?createGeminiDirector({model:option(flags,'--model')}):createOpenAIDirector({model:option(flags,'--model')});
+      const previous=option(flags,'--revise'),shots=option(flags,'--shots');
+      if(Boolean(previous)!==Boolean(shots))throw new Error('--revise and --shots are required together.');
+      if(shots&&!/^\d+(,\d+)*$/.test(shots))throw new Error('--shots uses one-based indices such as 1,3.');
+      result=await directProduction(project,output!,provider,{preferences:option(flags,'--notes'),...(previous?{revision:{draft:await readDirectorJson(previous),shots:shots!.split(',').map(Number)}}:{})});
+    }
+    console.log(JSON.stringify(result,null,2));return;
   }
   if(command==='assets') {
     const target=rest[0];
@@ -59,7 +90,7 @@ async function main(): Promise<void> {
     let fontError = '';
     try { registerFonts(); } catch (error) { fonts = false; fontError = String(error); }
     console.log(JSON.stringify({ node: process.version, canvas: 'loaded', fonts: fonts ? 'bundled fonts registered' : fontError, ffmpeg,
-      speechAlignment: 'Not implemented. Supply reviewed or synthesis-event anchors.', remoteProviders: 'Not required or configured.' }, null, 2));
+      speechAlignment: 'Not implemented. Supply reviewed or synthesis-event anchors.', remoteProviders: {geminiKeyConfigured:Boolean(process.env.GEMINI_API_KEY),openaiKeyConfigured:Boolean(process.env.OPENAI_API_KEY),directorModelConfigured:Boolean(process.env.RACHANA_DIRECTOR_MODEL)} }, null, 2));
     if (!fonts || !ffmpeg.available) process.exitCode = 1;
     return;
   }

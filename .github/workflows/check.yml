@@ -64,3 +64,7 @@ jobs:
           npm run cli -- assets validate examples/lantern-workshop/asset-registry.json
           npm run cli -- produce examples/lantern-workshop/production.json --out renders/lantern-workshop
           node tools/verify-smoke.mjs renders/lantern-workshop/film.mp4
+      - name: Prepare an unfamiliar director request without credentials
+        run: npm run cli -- director prepare examples/director-signal/production.json --out renders/director-signal-request
+      - name: Render and decode the director workflow with an explicit mock fixture
+        run: node tools/verify-director-workflow.mjs renders/director-mocked-smoke

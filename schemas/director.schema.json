@@ -1,0 +1,261 @@
+{
+  "title": "Rachana Creative Director draft v1",
+  "type": "object",
+  "properties": {
+    "schemaVersion": {
+      "type": "integer",
+      "enum": [
+        1
+      ]
+    },
+    "analysis": {
+      "type": "object",
+      "properties": {
+        "premise": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 300
+        },
+        "audience": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 180
+        },
+        "arc": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 600
+        },
+        "visualStrategy": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 600
+        }
+      },
+      "required": [
+        "premise",
+        "audience",
+        "arc",
+        "visualStrategy"
+      ],
+      "additionalProperties": false
+    },
+    "shots": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "fromWord": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 128
+          },
+          "toWord": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 128
+          },
+          "heading": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 110
+          },
+          "template": {
+            "type": "string",
+            "enum": [
+              "opening",
+              "focus",
+              "cards",
+              "process",
+              "compare",
+              "closing",
+              "illustration"
+            ]
+          },
+          "subject": {
+            "type": "string",
+            "enum": [
+              "idea",
+              "book",
+              "leaf",
+              "board",
+              "shield"
+            ]
+          },
+          "acting": {
+            "type": "string",
+            "enum": [
+              "think",
+              "explain",
+              "point",
+              "celebrate"
+            ]
+          },
+          "intent": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 240
+          },
+          "transition": {
+            "type": "string",
+            "enum": [
+              "cut",
+              "fade"
+            ]
+          },
+          "items": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 70
+            },
+            "minItems": 0,
+            "maxItems": 3
+          },
+          "visual": {
+            "type": [
+              "object",
+              "null"
+            ],
+            "properties": {
+              "image": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "minLength": 1,
+                "maxLength": 80,
+                "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+              },
+              "prop": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "minLength": 1,
+                "maxLength": 80,
+                "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+              },
+              "layout": {
+                "type": "string",
+                "enum": [
+                  "left",
+                  "right",
+                  "full"
+                ]
+              },
+              "focalPoint": {
+                "type": "array",
+                "items": {
+                  "type": "number",
+                  "minimum": 0,
+                  "maximum": 1
+                },
+                "minItems": 2,
+                "maxItems": 2
+              }
+            },
+            "required": [
+              "image",
+              "prop",
+              "layout",
+              "focalPoint"
+            ],
+            "additionalProperties": false
+          },
+          "assetRequests": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 80,
+              "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+            },
+            "minItems": 0,
+            "maxItems": 8
+          }
+        },
+        "required": [
+          "fromWord",
+          "toWord",
+          "heading",
+          "template",
+          "subject",
+          "acting",
+          "intent",
+          "transition",
+          "items",
+          "visual",
+          "assetRequests"
+        ],
+        "additionalProperties": false
+      },
+      "minItems": 2,
+      "maxItems": 12
+    },
+    "missingAssets": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 80,
+            "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+          },
+          "kind": {
+            "type": "string",
+            "enum": [
+              "background",
+              "prop",
+              "illustration"
+            ]
+          },
+          "description": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 400
+          },
+          "prompt": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 1800
+          },
+          "transparency": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "id",
+          "kind",
+          "description",
+          "prompt",
+          "transparency"
+        ],
+        "additionalProperties": false
+      },
+      "minItems": 0,
+      "maxItems": 16
+    },
+    "reviewNotes": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 300
+      },
+      "minItems": 0,
+      "maxItems": 12
+    }
+  },
+  "required": [
+    "schemaVersion",
+    "analysis",
+    "shots",
+    "missingAssets",
+    "reviewNotes"
+  ],
+  "additionalProperties": false
+}

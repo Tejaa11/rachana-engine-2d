@@ -49,3 +49,6 @@ __pycache__/
 # Original public image-asset workflow fixture and selected rendered output
 !examples/lantern-workshop/voice.wav
 !showcase/lantern-workshop/film.mp4
+
+# Original public input for the director acceptance test
+!examples/director-signal/voice.wav

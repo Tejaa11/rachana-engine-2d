@@ -16,6 +16,6 @@ The reusable Mira prefab supports four poses, three expressions, wardrobe color,
 
 The [creative direction note](../docs/CREATIVE_DIRECTION.md) explains how the same components support a five-shot example. There is no scene-specific drawing code in the core renderer.
 
-The [production workflow](../docs/PRODUCTION_WORKFLOW.md) accepts new scripts with matching supplied voice timings. Its planner uses local rules and optional editorial beats; it does not transcribe recordings or call an AI director.
+The [production workflow](../docs/PRODUCTION_WORKFLOW.md) accepts new scripts with matching supplied voice timings. Its planner uses local rules and optional editorial beats; it does not transcribe recordings. The optional [Creative Director workflow](../docs/CREATIVE_DIRECTOR.md) can request bounded plans from configured Gemini/OpenAI adapters or import a draft; live creative acceptance remains pending.
 
 The [image workflow](../docs/IMAGE_ASSETS.md) connects saved PNG artwork to scenes and production briefs. Registry snapshots preserve selected asset bytes and metadata; no runtime image-generation provider is included.
