@@ -133,3 +133,15 @@ test('Gemini omits key-bearing metadata and excessive usage values',async()=>{
   assert.deepEqual(result.metadata,{provider:'gemini',model,outputTokens:999999999});
   assert.equal(JSON.stringify(result.metadata).includes(KEY),false);
 });
+
+
+test('Gemini accepts opaque text-part signatures without retaining them',async()=>{
+  const payload=complete();payload.candidates[0].content.parts[0].thoughtSignature='opaque-signature';
+  const result=await provider(async()=>response(payload)).generate(request);
+  assert.deepEqual(result.draft,{shots:[]});assert.ok(!JSON.stringify(result).includes('opaque-signature'));
+});
+
+test('Gemini rejects malformed UTF-8 instead of accepting replacement characters',async()=>{
+  const body=Buffer.concat([Buffer.from('{"candidates":'),Buffer.from([0xff]),Buffer.from('}')]);
+  await assert.rejects(provider(async()=>new Response(body)).generate(request),/malformed response JSON/);
+});

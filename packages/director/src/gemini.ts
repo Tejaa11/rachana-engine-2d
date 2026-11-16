@@ -45,7 +45,7 @@ async function readBounded(response: Response, onReader: (reader: ReadableStream
     reader.releaseLock();
   }
   let parsed: unknown;
-  try { parsed = JSON.parse(Buffer.concat(chunks).toString('utf8')); }
+  try { parsed = JSON.parse(new TextDecoder('utf-8',{fatal:true}).decode(Buffer.concat(chunks))); }
   catch { throw new Error('Gemini returned malformed response JSON.'); }
   return parsed;
 }
@@ -72,9 +72,11 @@ function parseResult(input: unknown, requestedModel: string, apiKey: string): Di
   let text = '';
   for (const value of parts) {
     const part = record(value);
-    if (!part || part.thought === true || typeof part.text !== 'string' || Object.keys(part).some(key => !['text', 'thought'].includes(key))) {
+    if (!part || part.thought === true || typeof part.text !== 'string' || Object.keys(part).some(key => !['text', 'thought', 'thoughtSignature'].includes(key))) {
       throw new Error('Gemini returned unsupported non-text director content.');
     }
+    if(part.thoughtSignature!==undefined&&typeof part.thoughtSignature!=='string')throw new Error('Gemini returned an invalid text signature.');
+    // A one-shot request does not reuse opaque thought signatures or save them.
     text += part.text;
   }
   if (!text.trim()) throw new Error('Gemini returned no director text.');
