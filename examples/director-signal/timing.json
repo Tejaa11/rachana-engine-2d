@@ -1,0 +1,799 @@
+{
+  "durationSeconds": 48.86113378684807,
+  "timingSource": "synthesis-events",
+  "notes": "Starts are eSpeak NG synthesis word-event positions. Ends are approximate boundaries at the next word onset, or the WAV duration for the last word; they include inter-word pauses. These are not forced-alignment measurements of a human recording.",
+  "words": [
+    {
+      "id": "w1",
+      "text": "Mira",
+      "start": 0,
+      "end": 0.281
+    },
+    {
+      "id": "w2",
+      "text": "and",
+      "start": 0.281,
+      "end": 0.482
+    },
+    {
+      "id": "w3",
+      "text": "her",
+      "start": 0.482,
+      "end": 0.632
+    },
+    {
+      "id": "w4",
+      "text": "friend",
+      "start": 0.632,
+      "end": 1.015
+    },
+    {
+      "id": "w5",
+      "text": "arrange",
+      "start": 1.015,
+      "end": 1.409
+    },
+    {
+      "id": "w6",
+      "text": "a",
+      "start": 1.409,
+      "end": 1.473
+    },
+    {
+      "id": "w7",
+      "text": "listening",
+      "start": 1.473,
+      "end": 1.933
+    },
+    {
+      "id": "w8",
+      "text": "session",
+      "start": 1.933,
+      "end": 2.319
+    },
+    {
+      "id": "w9",
+      "text": "in",
+      "start": 2.319,
+      "end": 2.478
+    },
+    {
+      "id": "w10",
+      "text": "their",
+      "start": 2.478,
+      "end": 2.659
+    },
+    {
+      "id": "w11",
+      "text": "little",
+      "start": 2.659,
+      "end": 2.952
+    },
+    {
+      "id": "w12",
+      "text": "room",
+      "start": 2.952,
+      "end": 3.247
+    },
+    {
+      "id": "w13",
+      "text": "beside",
+      "start": 3.247,
+      "end": 3.686
+    },
+    {
+      "id": "w14",
+      "text": "their",
+      "start": 3.686,
+      "end": 3.879
+    },
+    {
+      "id": "w15",
+      "text": "street",
+      "start": 3.879,
+      "end": 4.736
+    },
+    {
+      "id": "w16",
+      "text": "They",
+      "start": 4.736,
+      "end": 4.877
+    },
+    {
+      "id": "w17",
+      "text": "imagine",
+      "start": 4.877,
+      "end": 5.318
+    },
+    {
+      "id": "w18",
+      "text": "neighbors",
+      "start": 5.318,
+      "end": 5.774
+    },
+    {
+      "id": "w19",
+      "text": "sharing",
+      "start": 5.774,
+      "end": 6.233
+    },
+    {
+      "id": "w20",
+      "text": "stories",
+      "start": 6.233,
+      "end": 6.986
+    },
+    {
+      "id": "w21",
+      "text": "but",
+      "start": 6.986,
+      "end": 7.218
+    },
+    {
+      "id": "w22",
+      "text": "their",
+      "start": 7.218,
+      "end": 7.408
+    },
+    {
+      "id": "w23",
+      "text": "first",
+      "start": 7.408,
+      "end": 7.792
+    },
+    {
+      "id": "w24",
+      "text": "poster",
+      "start": 7.792,
+      "end": 8.248
+    },
+    {
+      "id": "w25",
+      "text": "is",
+      "start": 8.248,
+      "end": 8.4
+    },
+    {
+      "id": "w26",
+      "text": "crowded",
+      "start": 8.4,
+      "end": 8.892
+    },
+    {
+      "id": "w27",
+      "text": "with",
+      "start": 8.892,
+      "end": 9.079
+    },
+    {
+      "id": "w28",
+      "text": "plans",
+      "start": 9.079,
+      "end": 9.713
+    },
+    {
+      "id": "w29",
+      "text": "and",
+      "start": 9.713,
+      "end": 9.914
+    },
+    {
+      "id": "w30",
+      "text": "promises",
+      "start": 9.914,
+      "end": 10.956
+    },
+    {
+      "id": "w31",
+      "text": "At",
+      "start": 10.956,
+      "end": 11.131
+    },
+    {
+      "id": "w32",
+      "text": "the",
+      "start": 11.131,
+      "end": 11.239
+    },
+    {
+      "id": "w33",
+      "text": "table",
+      "start": 11.239,
+      "end": 11.924
+    },
+    {
+      "id": "w34",
+      "text": "Mira",
+      "start": 11.924,
+      "end": 12.242
+    },
+    {
+      "id": "w35",
+      "text": "reads",
+      "start": 12.242,
+      "end": 12.557
+    },
+    {
+      "id": "w36",
+      "text": "it",
+      "start": 12.557,
+      "end": 12.733
+    },
+    {
+      "id": "w37",
+      "text": "twice",
+      "start": 12.733,
+      "end": 13.311
+    },
+    {
+      "id": "w38",
+      "text": "and",
+      "start": 13.311,
+      "end": 13.523
+    },
+    {
+      "id": "w39",
+      "text": "still",
+      "start": 13.523,
+      "end": 13.864
+    },
+    {
+      "id": "w40",
+      "text": "cannot",
+      "start": 13.864,
+      "end": 14.323
+    },
+    {
+      "id": "w41",
+      "text": "find",
+      "start": 14.323,
+      "end": 14.738
+    },
+    {
+      "id": "w42",
+      "text": "the",
+      "start": 14.738,
+      "end": 14.866
+    },
+    {
+      "id": "w43",
+      "text": "simple",
+      "start": 14.866,
+      "end": 15.292
+    },
+    {
+      "id": "w44",
+      "text": "invitation",
+      "start": 15.292,
+      "end": 16.412
+    },
+    {
+      "id": "w45",
+      "text": "Her",
+      "start": 16.412,
+      "end": 16.573
+    },
+    {
+      "id": "w46",
+      "text": "friend",
+      "start": 16.573,
+      "end": 16.974
+    },
+    {
+      "id": "w47",
+      "text": "slides",
+      "start": 16.974,
+      "end": 17.426
+    },
+    {
+      "id": "w48",
+      "text": "a",
+      "start": 17.426,
+      "end": 17.498
+    },
+    {
+      "id": "w49",
+      "text": "blank",
+      "start": 17.498,
+      "end": 17.904
+    },
+    {
+      "id": "w50",
+      "text": "sheet",
+      "start": 17.904,
+      "end": 18.228
+    },
+    {
+      "id": "w51",
+      "text": "between",
+      "start": 18.228,
+      "end": 18.676
+    },
+    {
+      "id": "w52",
+      "text": "them",
+      "start": 18.676,
+      "end": 19.091
+    },
+    {
+      "id": "w53",
+      "text": "and",
+      "start": 19.091,
+      "end": 19.291
+    },
+    {
+      "id": "w54",
+      "text": "asks",
+      "start": 19.291,
+      "end": 19.652
+    },
+    {
+      "id": "w55",
+      "text": "what",
+      "start": 19.652,
+      "end": 19.883
+    },
+    {
+      "id": "w56",
+      "text": "matters",
+      "start": 19.883,
+      "end": 20.284
+    },
+    {
+      "id": "w57",
+      "text": "most",
+      "start": 20.284,
+      "end": 21.076
+    },
+    {
+      "id": "w58",
+      "text": "Together",
+      "start": 21.076,
+      "end": 21.859
+    },
+    {
+      "id": "w59",
+      "text": "they",
+      "start": 21.859,
+      "end": 22.01
+    },
+    {
+      "id": "w60",
+      "text": "keep",
+      "start": 22.01,
+      "end": 22.381
+    },
+    {
+      "id": "w61",
+      "text": "one",
+      "start": 22.381,
+      "end": 22.651
+    },
+    {
+      "id": "w62",
+      "text": "clear",
+      "start": 22.651,
+      "end": 23.009
+    },
+    {
+      "id": "w63",
+      "text": "message",
+      "start": 23.009,
+      "end": 23.844
+    },
+    {
+      "id": "w64",
+      "text": "bring",
+      "start": 23.844,
+      "end": 24.029
+    },
+    {
+      "id": "w65",
+      "text": "a",
+      "start": 24.029,
+      "end": 24.159
+    },
+    {
+      "id": "w66",
+      "text": "story",
+      "start": 24.159,
+      "end": 24.832
+    },
+    {
+      "id": "w67",
+      "text": "or",
+      "start": 24.832,
+      "end": 24.957
+    },
+    {
+      "id": "w68",
+      "text": "just",
+      "start": 24.957,
+      "end": 25.298
+    },
+    {
+      "id": "w69",
+      "text": "come",
+      "start": 25.298,
+      "end": 25.774
+    },
+    {
+      "id": "w70",
+      "text": "and",
+      "start": 25.774,
+      "end": 25.988
+    },
+    {
+      "id": "w71",
+      "text": "listen",
+      "start": 25.988,
+      "end": 26.768
+    },
+    {
+      "id": "w72",
+      "text": "They",
+      "start": 26.768,
+      "end": 26.94
+    },
+    {
+      "id": "w73",
+      "text": "leave",
+      "start": 26.94,
+      "end": 27.194
+    },
+    {
+      "id": "w74",
+      "text": "space",
+      "start": 27.194,
+      "end": 27.541
+    },
+    {
+      "id": "w75",
+      "text": "around",
+      "start": 27.541,
+      "end": 27.958
+    },
+    {
+      "id": "w76",
+      "text": "those",
+      "start": 27.958,
+      "end": 28.209
+    },
+    {
+      "id": "w77",
+      "text": "words",
+      "start": 28.209,
+      "end": 28.785
+    },
+    {
+      "id": "w78",
+      "text": "and",
+      "start": 28.785,
+      "end": 28.986
+    },
+    {
+      "id": "w79",
+      "text": "choose",
+      "start": 28.986,
+      "end": 29.333
+    },
+    {
+      "id": "w80",
+      "text": "one",
+      "start": 29.333,
+      "end": 29.602
+    },
+    {
+      "id": "w81",
+      "text": "quiet",
+      "start": 29.602,
+      "end": 30.058
+    },
+    {
+      "id": "w82",
+      "text": "hour",
+      "start": 30.058,
+      "end": 30.29
+    },
+    {
+      "id": "w83",
+      "text": "for",
+      "start": 30.29,
+      "end": 30.51
+    },
+    {
+      "id": "w84",
+      "text": "everyone",
+      "start": 30.51,
+      "end": 31.066
+    },
+    {
+      "id": "w85",
+      "text": "to",
+      "start": 31.066,
+      "end": 31.216
+    },
+    {
+      "id": "w86",
+      "text": "meet",
+      "start": 31.216,
+      "end": 31.932
+    },
+    {
+      "id": "w87",
+      "text": "That",
+      "start": 31.932,
+      "end": 32.18
+    },
+    {
+      "id": "w88",
+      "text": "evening",
+      "start": 32.18,
+      "end": 32.835
+    },
+    {
+      "id": "w89",
+      "text": "only",
+      "start": 32.835,
+      "end": 33.152
+    },
+    {
+      "id": "w90",
+      "text": "two",
+      "start": 33.152,
+      "end": 33.389
+    },
+    {
+      "id": "w91",
+      "text": "neighbors",
+      "start": 33.389,
+      "end": 33.806
+    },
+    {
+      "id": "w92",
+      "text": "arrive",
+      "start": 33.806,
+      "end": 34.496
+    },
+    {
+      "id": "w93",
+      "text": "and",
+      "start": 34.496,
+      "end": 34.702
+    },
+    {
+      "id": "w94",
+      "text": "the",
+      "start": 34.702,
+      "end": 34.816
+    },
+    {
+      "id": "w95",
+      "text": "empty",
+      "start": 34.816,
+      "end": 35.278
+    },
+    {
+      "id": "w96",
+      "text": "chairs",
+      "start": 35.278,
+      "end": 35.687
+    },
+    {
+      "id": "w97",
+      "text": "feel",
+      "start": 35.687,
+      "end": 36.001
+    },
+    {
+      "id": "w98",
+      "text": "bigger",
+      "start": 36.001,
+      "end": 36.333
+    },
+    {
+      "id": "w99",
+      "text": "than",
+      "start": 36.333,
+      "end": 36.454
+    },
+    {
+      "id": "w100",
+      "text": "expected",
+      "start": 36.454,
+      "end": 37.619
+    },
+    {
+      "id": "w101",
+      "text": "Then",
+      "start": 37.619,
+      "end": 37.919
+    },
+    {
+      "id": "w102",
+      "text": "one",
+      "start": 37.919,
+      "end": 38.201
+    },
+    {
+      "id": "w103",
+      "text": "visitor",
+      "start": 38.201,
+      "end": 38.67
+    },
+    {
+      "id": "w104",
+      "text": "remembers",
+      "start": 38.67,
+      "end": 39.213
+    },
+    {
+      "id": "w105",
+      "text": "a",
+      "start": 39.213,
+      "end": 39.284
+    },
+    {
+      "id": "w106",
+      "text": "song",
+      "start": 39.284,
+      "end": 39.631
+    },
+    {
+      "id": "w107",
+      "text": "from",
+      "start": 39.631,
+      "end": 39.899
+    },
+    {
+      "id": "w108",
+      "text": "home",
+      "start": 39.899,
+      "end": 40.54
+    },
+    {
+      "id": "w109",
+      "text": "and",
+      "start": 40.54,
+      "end": 40.745
+    },
+    {
+      "id": "w110",
+      "text": "the",
+      "start": 40.745,
+      "end": 40.86
+    },
+    {
+      "id": "w111",
+      "text": "other",
+      "start": 40.86,
+      "end": 41.147
+    },
+    {
+      "id": "w112",
+      "text": "begins",
+      "start": 41.147,
+      "end": 41.649
+    },
+    {
+      "id": "w113",
+      "text": "to",
+      "start": 41.649,
+      "end": 41.798
+    },
+    {
+      "id": "w114",
+      "text": "smile",
+      "start": 41.798,
+      "end": 42.698
+    },
+    {
+      "id": "w115",
+      "text": "Mira",
+      "start": 42.698,
+      "end": 42.98
+    },
+    {
+      "id": "w116",
+      "text": "folds",
+      "start": 42.98,
+      "end": 43.454
+    },
+    {
+      "id": "w117",
+      "text": "away",
+      "start": 43.454,
+      "end": 43.752
+    },
+    {
+      "id": "w118",
+      "text": "the",
+      "start": 43.752,
+      "end": 43.875
+    },
+    {
+      "id": "w119",
+      "text": "extra",
+      "start": 43.875,
+      "end": 44.318
+    },
+    {
+      "id": "w120",
+      "text": "chairs",
+      "start": 44.318,
+      "end": 45.041
+    },
+    {
+      "id": "w121",
+      "text": "glad",
+      "start": 45.041,
+      "end": 45.368
+    },
+    {
+      "id": "w122",
+      "text": "this",
+      "start": 45.368,
+      "end": 45.587
+    },
+    {
+      "id": "w123",
+      "text": "small",
+      "start": 45.587,
+      "end": 45.961
+    },
+    {
+      "id": "w124",
+      "text": "gathering",
+      "start": 45.961,
+      "end": 46.448
+    },
+    {
+      "id": "w125",
+      "text": "can",
+      "start": 46.448,
+      "end": 46.679
+    },
+    {
+      "id": "w126",
+      "text": "still",
+      "start": 46.679,
+      "end": 47.021
+    },
+    {
+      "id": "w127",
+      "text": "leave",
+      "start": 47.021,
+      "end": 47.284
+    },
+    {
+      "id": "w128",
+      "text": "room",
+      "start": 47.284,
+      "end": 47.535
+    },
+    {
+      "id": "w129",
+      "text": "for",
+      "start": 47.535,
+      "end": 47.756
+    },
+    {
+      "id": "w130",
+      "text": "people",
+      "start": 47.756,
+      "end": 48.126
+    },
+    {
+      "id": "w131",
+      "text": "to",
+      "start": 48.126,
+      "end": 48.261
+    },
+    {
+      "id": "w132",
+      "text": "connect",
+      "start": 48.261,
+      "end": 48.86113378684807
+    }
+  ]
+}

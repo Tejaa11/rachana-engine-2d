@@ -52,3 +52,7 @@ See the [production workflow](../docs/PRODUCTION_WORKFLOW.md) for supported inpu
 ## Image-backed story
 
 [The Lantern Workshop](lantern-workshop/README.md) adds a 48-second original fictional script, two saved generated environments and one transparent prop. Nine authored beats reuse the shared composer and renderer; there is no story-specific drawing function. Its request/registry and prompt records make the artwork reusable and traceable. Rendering the saved files runs locally. This example exercises asset import and reuse; it does not demonstrate live artwork generation or learned directing.
+
+## Unfamiliar director input
+
+[A Quiet Signal](director-signal/README.md) supplies a new original 48.86-second fictional narration with no authored beats or scene. It is a candidate for live director acceptance, not a claimed automatic film. Use `director prepare` without credentials or a configured provider through `direct`; see [the director guide](../docs/CREATIVE_DIRECTOR.md).

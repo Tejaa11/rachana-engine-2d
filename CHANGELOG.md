@@ -1,5 +1,18 @@
 # Changelog
 
+## 0.1.0-alpha.5 — 16 November 2026
+
+Creative Director v1 integration, with live creative acceptance still pending:
+
+- Provider-neutral draft contract for premise/audience/arc/visual strategy, bounded shot decisions and explicit missing artwork.
+- Optional Gemini generateContent and OpenAI Responses adapters with configured keys/models, schema-constrained output, full-body deadlines and no automatic retries.
+- `direct`, offline `director prepare/apply/inspect`, and scoped provider revisions that lock unselected shots and narration ranges.
+- The existing composer validates and renders accepted choices; missing required artwork yields `needs-assets` without a scene or silent placeholder.
+- Source hashes, provider metadata, editable drafts/reports and portable production bundles; hard-cut or short-fade shot transitions.
+- An original unfamiliar 45–60 second narration input, without authored beats, ready for a live acceptance run.
+
+Provider tests use mocked HTTP transports. No live-provider result is claimed by this release, and the unfamiliar-script artistic acceptance test remains open until a configured account is exercised and the resulting film is reviewed. This release does not add speech alignment, an image-generation provider, cameras, physical interaction or lip sync.
+
 ## 0.1.0-alpha.4 — 15 November 2026
 
 Local image assets become reusable production inputs:

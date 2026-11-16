@@ -2,7 +2,7 @@
 
 The composer turns a script, local voice WAV and matching supplied word timings into an editable illustrated pilot. All topics use the same planner, six vector templates, image-backed staging, three palettes, Mira character, layout rules and renderer. No topic-specific scene builder is needed.
 
-This is a constrained local workflow in **0.1.0-alpha.4**. It provides a repeatable starting point; it cannot promise publishable artistic quality for every subject. The original five-shot hero remains an authored creative reference. The new gallery demonstrates what the shared defaults actually produce.
+This is a constrained local workflow in **0.1.0-alpha.5**. It provides a repeatable starting point; it cannot promise publishable artistic quality for every subject. The original five-shot hero remains an authored creative reference. The new gallery demonstrates what the shared defaults actually produce.
 
 ## Try the shared defaults
 
@@ -116,7 +116,7 @@ Optional `beats` replaces automatic shot selection while retaining shared stagin
 
 This is a brief fragment, not a standalone project. The example ranges assume 60 actual words. A beat needs at least 1.6 seconds. `cards` and `process` need two or three labels; `compare` displays exactly two. Editorial labels that do not match source phrases receive staggered reveal times and a review warning. A fast or late label reveal also flags its short reading hold.
 
-This boundary allows a future director adapter to supply validated editorial choices without changing the renderer. No LLM/provider adapter is included in this release.
+This boundary allows a future director adapter to supply validated editorial choices without changing the renderer. The optional [Creative Director workflow](CREATIVE_DIRECTOR.md) supplies this boundary through configured Gemini/OpenAI adapters or imported drafts. Live-provider creative acceptance is still pending.
 
 ## Reviewable output
 

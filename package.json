@@ -1,6 +1,6 @@
 {
   "name": "rachana-engine-2d",
-  "version": "0.1.0-alpha.4",
+  "version": "0.1.0-alpha.5",
   "private": true,
   "description": "A declarative 2D animation runtime with reusable narrated-pilot composition and local video export.",
   "type": "module",

@@ -124,6 +124,12 @@
               "point",
               "celebrate"
             ]
+          },
+          "transition": {
+            "enum": [
+              "cut",
+              "fade"
+            ]
           }
         }
       }

@@ -19,6 +19,7 @@ export interface BeatInput {
     visual?: VisualInput;
     intent?: string;
     acting?: 'think' | 'explain' | 'point' | 'celebrate';
+    transition?: 'cut'|'fade';
 }
 export interface ProductionConfig {
     schemaVersion: 1;
@@ -58,6 +59,7 @@ export interface PlannedShot {
     visual?: VisualInput;
     intent?: string;
     acting?: BeatInput['acting'];
+    transition?: 'cut'|'fade';
 }
 export interface CreativePlan {
     schemaVersion: 1;
@@ -261,7 +263,7 @@ export function planProduction(config: ProductionConfig, script: string, timing:
         if (end - start > 12)
             warnings.push(`Shot ${index + 1} lasts over 12 seconds; review its pacing.`);
         return { id: `shot-${index + 1}`, template, start, end, fromWord: words[from].id, toWord: words[to].id,
-            heading, items, itemStarts, ...(visual?{visual:structuredClone(visual)}:{}), ...(explicit?.intent?{intent:explicit.intent}:{}), ...(explicit?.acting?{acting:explicit.acting}:{}), subject: explicit?.subject ?? subjectFor(topic),
+            heading, items, itemStarts, ...(visual?{visual:structuredClone(visual)}:{}), ...(explicit?.intent?{intent:explicit.intent}:{}), ...(explicit?.acting?{acting:explicit.acting}:{}), ...(explicit?.transition?{transition:explicit.transition}:{}),subject: explicit?.subject ?? subjectFor(topic),
             direction: `${template}: readable text, a stable presenter, an illustrative ${explicit?.subject ?? subjectFor(topic)} motif, and narration-timed reveals.` };
     });
     if (shots.length < 3)

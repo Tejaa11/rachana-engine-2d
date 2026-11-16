@@ -81,6 +81,14 @@ node tools/verify-smoke.mjs renders/my-lantern-story/film.mp4
 
 This renders a 48-second story with saved original artwork, a transparent prop and nine authored beats. No generation account is needed to render the committed files. For your own artwork, `assets inspect` measures a PNG and `assets register` turns an import request into a new content-pinned registry. See [image assets](docs/IMAGE_ASSETS.md) for formats, metadata, style binding and portable project output.
 
+## Try the director workflow
+
+```sh
+npm run cli -- director prepare examples/director-signal/production.json --out renders/director-request
+```
+
+This writes a prompt, input request and output schema without a network call. For Gemini/OpenAI configuration, importing a draft, explicit asset needs and scoped revisions, see [Creative Director v1](docs/CREATIVE_DIRECTOR.md). Keys stay in your process environment or an explicitly loaded ignored file; no model is selected by default. Mocked tests establish transport/contract behavior, while live creative acceptance remains pending.
+
 ## Edit and inspect a frame
 
 Change a layer's `fill`, `position`, text, or clip values in the example scene. See the [scene format](docs/SCENE_FORMAT.md) for supported fields. Then:

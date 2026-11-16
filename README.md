@@ -44,9 +44,19 @@ npm run cli -- produce examples/learning-habit/production.json --out renders/my-
 
 Run that after installation/build below. These 6–90 second illustrated pilots use local rules, not an AI director. Their shared defaults include six vector templates plus image-backed staging, three palettes, narration-timed reveals and measured text fitting. Optional editorial beats let you improve storytelling without changing the renderer. Reports expose density, pacing and generic-art concerns; every cut still needs creative review.
 
+## Creative Director v1 — experimental
+
+The [director workflow](docs/CREATIVE_DIRECTOR.md) adds optional Gemini and OpenAI provider adapters. They request an editable story analysis and shot plan, then the existing composer checks narration coverage, assets and layout. Missing artwork stays explicit; selected shots can be revised without accepting changes elsewhere. `director prepare/apply/inspect` also supports file handoff without a provider call.
+
+```sh
+npm run cli -- director prepare examples/director-signal/production.json --out renders/director-request
+```
+
+Live direction additionally requires your own local key and an explicit compatible model. Provider transports and failure cases are tested with mocks; **live model quality and the unfamiliar-script film acceptance test are still pending**. The new [A Quiet Signal input](examples/director-signal/README.md) has no manually authored beats and no claimed generated movie.
+
 ## Project status
 
-**Working alpha 0.1.0-alpha.4: reusable image assets, narrated-pilot composition, vector characters and local export.** Rachana validates scene files, evaluates nested animation directly at a requested time, draws PNG frames, and exports MP4 through FFmpeg. The automatic script-and-voice agent, image-generation providers, generic rig retargeting, cameras, and editing studio remain planned.
+**Working alpha 0.1.0-alpha.5: image assets, narrated-pilot composition and an experimental provider-driven director workflow.** Rachana validates scene files, evaluates nested animation directly at a requested time, draws PNG frames, and exports MP4 through FFmpeg. Live director creative acceptance, automatic recorded-voice alignment, image-generation providers, generic rig retargeting, cameras and an editing studio remain open work.
 
 Created and maintained by [Tejas Dadhich (@Tejaa11)](https://github.com/Tejaa11), with AI-assisted development and maintainer review.
 
@@ -63,7 +73,8 @@ Created and maintained by [Tejas Dadhich (@Tejaa11)](https://github.com/Tejaa11)
 | Brief + script + WAV + supplied timing → editable pilot | Implemented constrained composer |
 | Six vector templates, three image layouts, palettes, editorial beats and preview reports | Implemented |
 | Local PNG registry, measured import, content-pinned image layers and portable asset snapshots | Implemented |
-| Automatic transcription/alignment, TTS and AI director agent | Planned |
+| Director draft contract, file handoff, Gemini/OpenAI adapters and scoped revisions | Implemented integration; live acceptance pending |
+| Automatic transcription/alignment and TTS | Planned |
 | Generative artwork, arbitrary character rigging and asset providers | Planned |
 | Cameras, browser editor, persistent jobs, cache and resume | Planned |
 
@@ -133,7 +144,7 @@ Scene and production authoring currently use JSON. The runtime supports primitiv
 
 The bundled Noto Sans, Devanagari, and Gujarati fonts avoid reliance on the maintainer's system fonts. They do not establish validated Indic speech alignment or universal glyph coverage. Broader language/shaping support is experimental and needs review fixtures.
 
-Next work expands subject-specific art, character actions and composition, then adds asset resolution, provider adapters, recorded-narration analysis, an AI director and an editing studio. See [ROADMAP.md](ROADMAP.md), the [product plan](docs/ENGINE_PRODUCT_PLAN.md), [asset design](docs/ASSET_PIPELINE.md), and [release standards](docs/RELEASE_STANDARD.md).
+Next work expands subject-specific art, character actions and composition, then validates the director against live model output and adds generation providers, recorded-narration analysis and an editing studio. See [ROADMAP.md](ROADMAP.md), the [product plan](docs/ENGINE_PRODUCT_PLAN.md), [asset design](docs/ASSET_PIPELINE.md), and [release standards](docs/RELEASE_STANDARD.md).
 
 ## Repository map
 
